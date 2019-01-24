@@ -1,0 +1,51 @@
+dit_dashboard:
+    resource: "@AdminBundle/Resources/config/routing/dashboard.yml"
+    prefix:   /
+
+dit_role:
+    resource: "@AdminBundle/Resources/config/routing/role.yml"
+    prefix:   /role
+
+dit_service_type:
+    resource: "@AdminBundle/Resources/config/routing/service_type.yml"
+    prefix:   /service-type
+
+dit_service:
+    resource: "@AdminBundle/Resources/config/routing/service.yml"
+    prefix:   /service
+
+dit_service_option_type:
+    resource: "@AdminBundle/Resources/config/routing/service_option_type.yml"
+    prefix:   /service-option-type
+
+dit_service_option:
+    resource: "@AdminBundle/Resources/config/routing/service_option.yml"
+    prefix:   /service-option
+
+dit_client:
+    resource: "@AdminBundle/Resources/config/routing/client.yml"
+    prefix:   /client
+
+dit_email_newsletter:
+    resource: "@AdminBundle/Resources/config/routing/email_newsletter.yml"
+    prefix:   /email-newsletter
+
+dit_message_newsletter:
+    resource: "@AdminBundle/Resources/config/routing/message_newsletter.yml"
+    prefix:   /message-newsletter
+
+dit_service_client:
+    resource: "@AdminBundle/Resources/config/routing/service_client.yml"
+    prefix:   /service-client
+
+dit_user_service_client:
+    resource: "@AdminBundle/Resources/config/routing/user_service_client.yml"
+    prefix:   /user-service-client
+
+dit_facture:
+    resource: "@AdminBundle/Resources/config/routing/facture.yml"
+    prefix:   /facture
+
+dit_slide:
+    resource: "@AdminBundle/Resources/config/routing/slide.yml"
+    prefix:   /slide

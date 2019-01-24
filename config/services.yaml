@@ -1,0 +1,107 @@
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+imports:
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+
+parameters:
+    locale: 'fr'
+    mailer_transport: '%env(resolve:MAILER_TRANSPORT)%'
+    mailer_host: '%env(resolve:MAILER_HOST)%'
+    mailer_user: '%env(resolve:MAILER_USER)%'
+    mailer_password: '%env(resolve:MAILER_PASSWORD)%'
+    to_email_address: '%env(resolve:TO_EMAIL_ADDRESS)%'
+    to_email_name: '%env(resolve:TO_EMAIL_NAME)%'
+    to_cc_ct_email_address: '%env(resolve:TO_CC_CT_EMAIL_ADDRESS)%'
+    to_cc_rc_email_address: '%env(resolve:TO_CC_RC_EMAIL_ADDRESS)%'
+    from_email_address: '%env(resolve:FROM_EMAIL_ADDRESS)%'
+    from_firstname: '%env(resolve:FROM_FIRSTNAME)%'
+    stripe_api_secret_key: '%env(resolve:STRIPE_API_SECRET_SECRET)%'
+    stripe_api_publishable_key: '%env(resolve:STRIPE_API_PUBLISHABLE_KEY)%'
+    max_size_value_upload: '%env(resolve:MAX_SIZE_VALUE_UPLOAD)%'
+    paypal_client_id: '%env(resolve:PAYPAL_CLIENT_ID)%'
+    paypal_client_secret: '%env(resolve:PAYPAL_CLIENT_SECRET)%'
+    id_klikandpay: '%env(resolve:ID_KLIKANDPAY)%'
+    reporting_template_directory: '%kernel.project_dir%/public/reporting/'
+
+services:
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{Migrations}'
+
+    dit.manager.user.role:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitRole\ServiceMetierDitRole
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.contact:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitContact\ServiceMetierDitContact
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.service.type:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceType\ServiceMetierDitServiceType
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.service:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitService\ServiceMetierDitService
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.service.option.type:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceOptionType\ServiceMetierDitServiceOptionType
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.service.option:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceOption\ServiceMetierDitServiceOption
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.client:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitClient\ServiceMetierDitClient
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.email.newsletter:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitEmailNewsletter\ServiceMetierEmailNewsletter
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.message.newsletter:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitMessageNewsletter\ServiceMetierMessageNewsletter
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.service.client:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceClient\ServiceMetierDitServiceClient
+        arguments: [ "@doctrine.orm.entity_manager","@service_container", "@translator" ]
+        public: true
+
+    dit.manager.service.client.jointe:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceClientJointe\ServiceMetierDitServiceClientJointe
+        arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
+        public: true
+
+    dit.manager.user.service.client:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitUserServiceClient\ServiceMetierDitUserServiceClient
+        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+        public: true
+
+    dit.manager.facture:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitFacture\ServiceMetierDitFacture
+        arguments: [ "@doctrine.orm.entity_manager","@service_container","@translator" ]
+        public: true
+
+    dit.twig.file.exists:
+        class: App\Devintech\Service\MetierManagerBundle\Twig\Extension\FileExistsExtension
+        arguments: ['@service_container']
+        tags:
+            - { name: twig.extension }
+
+    dit.manager.slide:
+        class: App\Devintech\Service\MetierManagerBundle\Metier\DitSlide\ServiceMetierDitSlide
+        arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
+        public: true

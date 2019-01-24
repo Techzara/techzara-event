@@ -1,0 +1,16 @@
+<section class="content-header">
+    <h1>&nbsp;
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('aes_admin_home') }}"><i class="fa fa-dashboard"></i> Acceuil</a></li>
+        {% if tBreadcrumbs is defined %}
+        {% for item in tBreadcrumbs %}
+            {% if loop.last %}
+            <li class="active">{{ item.label }}</li>       
+            {% else %}
+            <li><a href="{{ item.href }}">{{ item.label }}</a></li>        
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+    </ol>
+</section>
