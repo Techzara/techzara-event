@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `migration_versions`
+--
+
+DROP TABLE IF EXISTS `migration_versions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migration_versions` (
+  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migration_versions`
+--
+
+LOCK TABLES `migration_versions` WRITE;
+/*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
+INSERT INTO `migration_versions` VALUES ('20190124205803'),('20190128053150'),('20190128102308'),('20190214103107');
+/*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tze_email_newsletter`
 --
 
@@ -132,7 +155,7 @@ CREATE TABLE `tze_slide` (
   `sld_third_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sld_image_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +164,7 @@ CREATE TABLE `tze_slide` (
 
 LOCK TABLES `tze_slide` WRITE;
 /*!40000 ALTER TABLE `tze_slide` DISABLE KEYS */;
-INSERT INTO `tze_slide` VALUES (1,'EA','AE','ZA','/upload/slide/bf0361049750c3fff61ee95d82deeb3b.png'),(2,'Testeaaaa','teste','Aaaaa','/upload/slide/b9cd6557092a9a53b2d3292666e6a4f1.png');
+INSERT INTO `tze_slide` VALUES (1,'EA','AE','ZA','/upload/slide/bf0361049750c3fff61ee95d82deeb3b.png'),(2,'Testeaaaa','teste','Aaaaa','/upload/slide/b9cd6557092a9a53b2d3292666e6a4f1.png'),(3,'za','za','zaaz','/upload/slide/cde156f9f948c91bd0997e6fd7bd1c29.png');
 /*!40000 ALTER TABLE `tze_slide` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +203,7 @@ CREATE TABLE `tze_user` (
   UNIQUE KEY `confirmation_token_UNIQUE` (`confirmation_token`),
   KEY `IDX_A98A6686CC5EF58D` (`tze_role_id`),
   CONSTRAINT `FK_A98A6686CC5EF58D` FOREIGN KEY (`tze_role_id`) REFERENCES `tze_role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,31 +212,8 @@ CREATE TABLE `tze_user` (
 
 LOCK TABLES `tze_user` WRITE;
 /*!40000 ALTER TABLE `tze_user` DISABLE KEYS */;
-INSERT INTO `tze_user` VALUES (1,1,'julien','julien','julienrajerison5@gmail.com','julienrajerison5@gmail.com',1,NULL,'$2y$13$CzOV8aI87NL0iqDviZz/SemLlKUhfRxLFpQ/s0c1pk2PcFPSCexxK','2019-02-14 13:29:59',NULL,NULL,'a:1:{i:0;s:15:\"ROLE_SUPERADMIN\";}','teste','teste','teste','2019-01-24 22:59:34','2019-01-24 23:03:28','0329473033',NULL,0);
+INSERT INTO `tze_user` VALUES (1,1,'julien','julien','julienrajerison5@gmail.com','julienrajerison5@gmail.com',1,NULL,'$2y$13$CzOV8aI87NL0iqDviZz/SemLlKUhfRxLFpQ/s0c1pk2PcFPSCexxK','2019-02-14 16:05:02',NULL,NULL,'a:1:{i:0;s:15:\"ROLE_SUPERADMIN\";}','teste','teste','teste','2019-01-24 22:59:34','2019-01-24 23:03:28','0329473033',NULL,0),(9,3,'zaz','zaz','hello@gmail.com','hello@gmail.com',1,NULL,'$2y$13$FfJaLxavsDEhWnfZpWO4ZukyPPU9QY/n/c9aMNEaendTgKQr6fCaS',NULL,NULL,NULL,'a:1:{i:0;s:11:\"ROLE_MEMBER\";}','Hello','Hello','Hello','2019-02-14 16:07:01',NULL,'0365478954',NULL,0);
 /*!40000 ALTER TABLE `tze_user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `migration_versions`
---
-
-DROP TABLE IF EXISTS `migration_versions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `migration_versions` (
-  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `migration_versions`
---
-
-LOCK TABLES `migration_versions` WRITE;
-/*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
-INSERT INTO `migration_versions` VALUES ('20190124205803'),('20190128053150'),('20190128102308'),('20190214103107');
-/*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -229,4 +229,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-14 14:34:48
+-- Dump completed on 2019-02-14 17:21:29
