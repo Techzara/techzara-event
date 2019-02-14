@@ -1,0 +1,14 @@
+tze_user:
+    resource: "@UserBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/user
+
+tze_login:
+    path: /login
+    defaults: { _controller: UserBundle:Security:login }
+
+tze_resetting_password:
+    path: /{_locale}/resetting-password
+    defaults: { _controller: "UserBundle:User:resettingPassword", _locale : fr }
+    methods: [GET, POST]
+    requirements:
+        _locale: en|fr

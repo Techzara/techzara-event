@@ -11,7 +11,7 @@ doctrine:
         driver: 'pdo_mysql'
         server_version: '5.7'
         charset: utf8mb4
-        dbname: devintech
+        dbname: tzevent
         host: 127.0.0.1
         user: root
         password: null

@@ -1,7 +1,7 @@
 Structure symfony 4 pour le développement du projet Etiseo
 
 
-+ Dans src/Devintech/Service :
++ Dans src/Tzevent/Service :
     C’est le Bundle qui va traiter tout les services utiles lors du développement.
     Ci-dessous donc les rôles respectives des dossier et fichiers dans ce bundle
         - Entity :
@@ -20,7 +20,7 @@ Structure symfony 4 pour le développement du projet Etiseo
                 EntityName.php ce classe contient les noms de tout les entités pour normaliser les nomenclatures.
                 ServiceName.php pour normaliser la nomenclature des services et le rendre en constante.
 
-+ Dans src/Devintech/BackOffice :
++ Dans src/Tzevent/BackOffice :
     C’est le Bundle qui contient les blocs des codes concernant seulement le BackOffice.
     ==> Dans controller :
             Liste des controller utiliser dans BackOffice.

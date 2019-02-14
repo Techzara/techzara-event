@@ -738,8 +738,8 @@ Zone Pacific/Johnston	-10:00	-	HST
 # "Orient Express" flights between San Francisco and Manila, and connecting
 # flights to Chicago and the US East Coast.  As it uses some time zone
 # designations that I've never seen before:....
-# Fri. 6:30A Dit. HONOLOLU (Pearl Harbor), H.I.   H.L.T. Ar. 5:30P Sun.
-#  "   3:00P Ar. MIDWAY ISLAND . . . . . . . . . M.L.T. Dit. 6:00A  "
+# Fri. 6:30A Tze. HONOLOLU (Pearl Harbor), H.I.   H.L.T. Ar. 5:30P Sun.
+#  "   3:00P Ar. MIDWAY ISLAND . . . . . . . . . M.L.T. Tze. 6:00A  "
 #
 Zone Pacific/Midway	-11:49:28 -	LMT	1901
 			-11:00	-	NST	1956 Jun  3

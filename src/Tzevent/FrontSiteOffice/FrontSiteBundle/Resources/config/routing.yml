@@ -1,0 +1,3 @@
+tze_home_site:
+    resource: "@FrontSiteBundle/Resources/config/routing/home.yml"
+    prefix:   /

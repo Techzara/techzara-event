@@ -25,7 +25,7 @@
 ###< symfony/web-server-bundle ###
 /.idea
 /.DS_Store
-/src/Devintech/Service/MetierManagerBundle/Metier/DitContactSite/ServiceMetierDitContact.php
+/src/Tzevent/Service/MetierManagerBundle/Metier/TzeContactSite/ServiceMetierTzeContact.php
 
 # Numerous always-ignore extensions
 *.diff

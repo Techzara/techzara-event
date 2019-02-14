@@ -31,32 +31,32 @@ services:
         exclude: '../src/{Migrations}'
 
     dit.manager.user.role:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitRole\ServiceMetierDitRole
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeRole\ServiceMetierTzeRole
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
     dit.manager.contact:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitContact\ServiceMetierDitContact
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeContact\ServiceMetierTzeContact
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
     dit.manager.email.newsletter:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitEmailNewsletter\ServiceMetierEmailNewsletter
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeEmailNewsletter\ServiceMetierEmailNewsletter
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
     dit.manager.message.newsletter:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitMessageNewsletter\ServiceMetierMessageNewsletter
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeMessageNewsletter\ServiceMetierMessageNewsletter
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
     dit.twig.file.exists:
-        class: App\Devintech\Service\MetierManagerBundle\Twig\Extension\FileExistsExtension
+        class: App\Tzevent\Service\MetierManagerBundle\Twig\Extension\FileExistsExtension
         arguments: ['@service_container']
         tags:
             - { name: twig.extension }
 
     dit.manager.slide:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitSlide\ServiceMetierDitSlide
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeSlide\ServiceMetierTzeSlide
         arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true

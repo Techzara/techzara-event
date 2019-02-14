@@ -23,13 +23,13 @@
                         <span>{{ 'header.menu.services'|trans }}</span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        {{ render(controller('FrontBundle:DitHeader:listService')) }}
+                        {{ render(controller('FrontBundle:TzeHeader:listService')) }}
                     </ul>
                 </li>
                 <li><a href="{{ path('realisations_front_show') }}"><span>{{ 'header.menu.achievements'|trans }}</span></a></li>
                 <li><a href="{{ path('contact_send_mail') }}"><span>{{ 'header.menu.contact'|trans }}</span></a></li>
                 <li><a href="tel:0320532608" class="kl-rappel"><span>{{ 'header.menu.rappel'|trans }}</span></a></li>
-                <li><a href="{{ path('dit_login') }}"><span>{{ 'header.menu.member'|trans }}</span></a></li>
+                <li><a href="{{ path('tze_login') }}"><span>{{ 'header.menu.member'|trans }}</span></a></li>
             </ul>
         </div>
     </nav>
@@ -51,7 +51,7 @@
                             <span>{{ 'header.menu.services'|trans }}</span>
                         </a>
                         <ul class="dropdown-menu">
-                            {{ render(controller('FrontBundle:DitHeader:listService')) }}
+                            {{ render(controller('FrontBundle:TzeHeader:listService')) }}
                         </ul>
                     </li>
                     <li><a href="{{ path('realisations_front_show') }}"><span>{{ 'header.menu.achievements'|trans }}</span></a></li>
@@ -63,7 +63,7 @@
         <div class="clearfix"></div>
     </div>
     <div class="absolute kl-devis-bloc">
-        {{ render(controller('FrontBundle:DitContactDevis:sendMail')) }}
+        {{ render(controller('FrontBundle:TzeContactDevis:sendMail')) }}
     </div>
     <a href="{{ path('fos_user_security_logout') }}" class="absolute kl-member-area"><i class="fa fa-sign-out"></i> </a>
 </header>

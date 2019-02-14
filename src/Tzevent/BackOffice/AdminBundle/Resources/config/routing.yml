@@ -1,0 +1,19 @@
+tze_dashboard:
+    resource: "@AdminBundle/Resources/config/routing/dashboard.yml"
+    prefix:   /
+
+tze_role:
+    resource: "@AdminBundle/Resources/config/routing/role.yml"
+    prefix:   /role
+
+tze_email_newsletter:
+    resource: "@AdminBundle/Resources/config/routing/email_newsletter.yml"
+    prefix:   /email-newsletter
+
+tze_message_newsletter:
+    resource: "@AdminBundle/Resources/config/routing/message_newsletter.yml"
+    prefix:   /message-newsletter
+
+tze_slide:
+    resource: "@AdminBundle/Resources/config/routing/slide.yml"
+    prefix:   /slide

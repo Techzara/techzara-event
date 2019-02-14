@@ -1,3 +1,0 @@
-dashboard_index:
-    path:     /
-    defaults: { _controller: AdminBundle:DitDashboard:index }

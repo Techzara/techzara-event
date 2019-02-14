@@ -66,7 +66,7 @@ header.menu.rappel: Immediate recall
 header.menu.member: Member area
 header.menu.confiance: They trust us
 header.menu.ccm: How it works
-header.menu.devintech: Back to Devintech website
+header.menu.tzevent: Back to Tzevent website
 
 #Home
 home.title.agence: Your integration agency 100% online
@@ -125,19 +125,19 @@ fonctionnement.begin: Development
 fonctionnement.conception: The stage where we program your cut. A visualization link is sent to you so that you can follow your project in real time. Our technicians remain available during office hours, on skype, email or via a direct line.
 fonctionnement.decoupe: Cutout sent
 fonctionnement.receive.email: After having been carefully checked on all browsers, your project is delivered to you.
-fonctionnement.receive.email.one: The delivery is made by email via a download link or via the Devintech W3C platform.
+fonctionnement.receive.email.one: The delivery is made by email via a download link or via the Tzevent W3C platform.
 fonctionnement.need.for.integration:  Whether through our online ordering tool or after contacting us, simply send us your files, making sure to provide us all we need for integration (special fonts, notes, images, animations, etc.).
 fonctionnement.proposition: We propose the conversion of your PSD in the following formats:PSD to HTML5 / CSS3, PSD to WORDPRESS, PSD to PRESTASHOP.
 fonctionnement.verification: After placing your order, one of our project manager will verify that they are complete and comply with the order basket. If this is not the case, we will ask you to modify them according to the basket or to change the order.
 fonctionnement.refund: You can be refunded at any time.
 fonctionnement.programmation: It's up to us to play! We program your cut. A visualization link sent you so that you can follow your project in real time. Our technicians are always available during office hours, on skype, email or via a direct line.
-fonctionnement.final: After having been carefully checked on all browsers, your project is delivered to you. The delivery is made by email via a download link or via the Devintech W3C platform. Yes, it's as simple as that!
+fonctionnement.final: After having been carefully checked on all browsers, your project is delivered to you. The delivery is made by email via a download link or via the Tzevent W3C platform. Yes, it's as simple as that!
 
 #Réalisation
 realisation.title: Production
 realisation.html.css: Find some HTML / CSS integrations
 realisation.realized: done by our team
-realisation.percentage: 95% of the projects realized by Devintech W3C are made in white label
+realisation.percentage: 95% of the projects realized by Tzevent W3C are made in white label
 realisation.types: All types
 
 #Order

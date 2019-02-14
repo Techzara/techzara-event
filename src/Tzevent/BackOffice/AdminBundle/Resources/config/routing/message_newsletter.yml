@@ -1,0 +1,39 @@
+message_newsletter_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:TzeMessageNewsletter:index" }
+    methods:  GET
+
+message_newsletter_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:TzeMessageNewsletter:new" }
+    methods:  [GET, POST]
+
+message_newsletter_send:
+    path:     /{id}/send
+    defaults: { _controller: "AdminBundle:TzeMessageNewsletter:send" }
+    methods:  [GET, POST]
+
+message_newsletter_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:TzeMessageNewsletter:edit" }
+    methods:  [GET, POST]
+
+message_newsletter_update:
+    path:     /{id}/update
+    defaults: { _controller: "AdminBundle:TzeMessageNewsletter:update" }
+    methods:  [POST, PUT]
+
+message_newsletter_sendupdate:
+    path:     /{id}/send-update
+    defaults: { _controller: "AdminBundle:TzeMessageNewsletter:sendUpdate" }
+    methods:  [POST, PUT]
+
+message_newsletter_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:TzeMessageNewsletter:delete" }
+    methods:  [ GET, DELETE ]
+
+message_newsletter_delete_group:
+    path:     /delete-group
+    defaults: { _controller: "AdminBundle:TzeMessageNewsletter:deleteGroup" }
+    methods:  POST

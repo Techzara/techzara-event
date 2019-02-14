@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `dit_email_newsletter`
+-- Table structure for table `tze_email_newsletter`
 --
 
-DROP TABLE IF EXISTS `dit_email_newsletter`;
+DROP TABLE IF EXISTS `tze_email_newsletter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dit_email_newsletter` (
+CREATE TABLE `tze_email_newsletter` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nws_email` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `nws_subscribed` tinyint(1) DEFAULT '1',
@@ -32,76 +32,76 @@ CREATE TABLE `dit_email_newsletter` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dit_email_newsletter`
+-- Dumping data for table `tze_email_newsletter`
 --
 
-LOCK TABLES `dit_email_newsletter` WRITE;
-/*!40000 ALTER TABLE `dit_email_newsletter` DISABLE KEYS */;
-INSERT INTO `dit_email_newsletter` VALUES (1,'julienrajerison5@gmail.com',1);
-/*!40000 ALTER TABLE `dit_email_newsletter` ENABLE KEYS */;
+LOCK TABLES `tze_email_newsletter` WRITE;
+/*!40000 ALTER TABLE `tze_email_newsletter` DISABLE KEYS */;
+INSERT INTO `tze_email_newsletter` VALUES (1,'julienrajerison5@gmail.com',1);
+/*!40000 ALTER TABLE `tze_email_newsletter` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `dit_message_newsletter`
+-- Table structure for table `tze_message_newsletter`
 --
 
-DROP TABLE IF EXISTS `dit_message_newsletter`;
+DROP TABLE IF EXISTS `tze_message_newsletter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dit_message_newsletter` (
+CREATE TABLE `tze_message_newsletter` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dit_message_newsletter`
+-- Dumping data for table `tze_message_newsletter`
 --
 
-LOCK TABLES `dit_message_newsletter` WRITE;
-/*!40000 ALTER TABLE `dit_message_newsletter` DISABLE KEYS */;
-INSERT INTO `dit_message_newsletter` VALUES (1);
-/*!40000 ALTER TABLE `dit_message_newsletter` ENABLE KEYS */;
+LOCK TABLES `tze_message_newsletter` WRITE;
+/*!40000 ALTER TABLE `tze_message_newsletter` DISABLE KEYS */;
+INSERT INTO `tze_message_newsletter` VALUES (1);
+/*!40000 ALTER TABLE `tze_message_newsletter` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `dit_message_newsletter_translation`
+-- Table structure for table `tze_message_newsletter_translation`
 --
 
-DROP TABLE IF EXISTS `dit_message_newsletter_translation`;
+DROP TABLE IF EXISTS `tze_message_newsletter_translation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dit_message_newsletter_translation` (
+CREATE TABLE `tze_message_newsletter_translation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `translatable_id` int(11) DEFAULT NULL,
   `message_newsletter_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `message_newsletter_content` longtext COLLATE utf8_unicode_ci NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `dit_message_newsletter_translation_unique_translation` (`translatable_id`,`locale`),
+  UNIQUE KEY `tze_message_newsletter_translation_unique_translation` (`translatable_id`,`locale`),
   KEY `IDX_5839731D2C2AC5D3` (`translatable_id`),
-  CONSTRAINT `FK_5839731D2C2AC5D3` FOREIGN KEY (`translatable_id`) REFERENCES `dit_message_newsletter` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_5839731D2C2AC5D3` FOREIGN KEY (`translatable_id`) REFERENCES `tze_message_newsletter` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dit_message_newsletter_translation`
+-- Dumping data for table `tze_message_newsletter_translation`
 --
 
-LOCK TABLES `dit_message_newsletter_translation` WRITE;
-/*!40000 ALTER TABLE `dit_message_newsletter_translation` DISABLE KEYS */;
-INSERT INTO `dit_message_newsletter_translation` VALUES (1,1,'aaaa','<p>zaaaaaaaaaaaaa</p>','fr');
-/*!40000 ALTER TABLE `dit_message_newsletter_translation` ENABLE KEYS */;
+LOCK TABLES `tze_message_newsletter_translation` WRITE;
+/*!40000 ALTER TABLE `tze_message_newsletter_translation` DISABLE KEYS */;
+INSERT INTO `tze_message_newsletter_translation` VALUES (1,1,'aaaa','<p>zaaaaaaaaaaaaa</p>','fr');
+/*!40000 ALTER TABLE `tze_message_newsletter_translation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `dit_role`
+-- Table structure for table `tze_role`
 --
 
-DROP TABLE IF EXISTS `dit_role`;
+DROP TABLE IF EXISTS `tze_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dit_role` (
+CREATE TABLE `tze_role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rl_name` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -109,23 +109,23 @@ CREATE TABLE `dit_role` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dit_role`
+-- Dumping data for table `tze_role`
 --
 
-LOCK TABLES `dit_role` WRITE;
-/*!40000 ALTER TABLE `dit_role` DISABLE KEYS */;
-INSERT INTO `dit_role` VALUES (1,'Superadmin'),(2,'Admin'),(3,'Member');
-/*!40000 ALTER TABLE `dit_role` ENABLE KEYS */;
+LOCK TABLES `tze_role` WRITE;
+/*!40000 ALTER TABLE `tze_role` DISABLE KEYS */;
+INSERT INTO `tze_role` VALUES (1,'Superadmin'),(2,'Admin'),(3,'Member');
+/*!40000 ALTER TABLE `tze_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `dit_slide`
+-- Table structure for table `tze_slide`
 --
 
-DROP TABLE IF EXISTS `dit_slide`;
+DROP TABLE IF EXISTS `tze_slide`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dit_slide` (
+CREATE TABLE `tze_slide` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sld_first_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sld_second_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -136,25 +136,25 @@ CREATE TABLE `dit_slide` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dit_slide`
+-- Dumping data for table `tze_slide`
 --
 
-LOCK TABLES `dit_slide` WRITE;
-/*!40000 ALTER TABLE `dit_slide` DISABLE KEYS */;
-INSERT INTO `dit_slide` VALUES (1,'EA','AE','ZA','/upload/slide/bf0361049750c3fff61ee95d82deeb3b.png'),(2,'Testeaaaa','teste','Aaaaa','/upload/slide/b9cd6557092a9a53b2d3292666e6a4f1.png');
-/*!40000 ALTER TABLE `dit_slide` ENABLE KEYS */;
+LOCK TABLES `tze_slide` WRITE;
+/*!40000 ALTER TABLE `tze_slide` DISABLE KEYS */;
+INSERT INTO `tze_slide` VALUES (1,'EA','AE','ZA','/upload/slide/bf0361049750c3fff61ee95d82deeb3b.png'),(2,'Testeaaaa','teste','Aaaaa','/upload/slide/b9cd6557092a9a53b2d3292666e6a4f1.png');
+/*!40000 ALTER TABLE `tze_slide` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `dit_user`
+-- Table structure for table `tze_user`
 --
 
-DROP TABLE IF EXISTS `dit_user`;
+DROP TABLE IF EXISTS `tze_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dit_user` (
+CREATE TABLE `tze_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dit_role_id` int(11) DEFAULT NULL,
+  `tze_role_id` int(11) DEFAULT NULL,
   `username` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
   `username_canonical` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
@@ -178,19 +178,19 @@ CREATE TABLE `dit_user` (
   UNIQUE KEY `username_canonical_UNIQUE` (`username_canonical`),
   UNIQUE KEY `email_canonical_UNIQUE` (`email_canonical`),
   UNIQUE KEY `confirmation_token_UNIQUE` (`confirmation_token`),
-  KEY `IDX_A98A6686CC5EF58D` (`dit_role_id`),
-  CONSTRAINT `FK_A98A6686CC5EF58D` FOREIGN KEY (`dit_role_id`) REFERENCES `dit_role` (`id`)
+  KEY `IDX_A98A6686CC5EF58D` (`tze_role_id`),
+  CONSTRAINT `FK_A98A6686CC5EF58D` FOREIGN KEY (`tze_role_id`) REFERENCES `tze_role` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dit_user`
+-- Dumping data for table `tze_user`
 --
 
-LOCK TABLES `dit_user` WRITE;
-/*!40000 ALTER TABLE `dit_user` DISABLE KEYS */;
-INSERT INTO `dit_user` VALUES (1,1,'julien','julien','julienrajerison5@gmail.com','julienrajerison5@gmail.com',1,NULL,'$2y$13$CzOV8aI87NL0iqDviZz/SemLlKUhfRxLFpQ/s0c1pk2PcFPSCexxK','2019-02-14 13:29:59',NULL,NULL,'a:1:{i:0;s:15:\"ROLE_SUPERADMIN\";}','teste','teste','teste','2019-01-24 22:59:34','2019-01-24 23:03:28','0329473033',NULL,0);
-/*!40000 ALTER TABLE `dit_user` ENABLE KEYS */;
+LOCK TABLES `tze_user` WRITE;
+/*!40000 ALTER TABLE `tze_user` DISABLE KEYS */;
+INSERT INTO `tze_user` VALUES (1,1,'julien','julien','julienrajerison5@gmail.com','julienrajerison5@gmail.com',1,NULL,'$2y$13$CzOV8aI87NL0iqDviZz/SemLlKUhfRxLFpQ/s0c1pk2PcFPSCexxK','2019-02-14 13:29:59',NULL,NULL,'a:1:{i:0;s:15:\"ROLE_SUPERADMIN\";}','teste','teste','teste','2019-01-24 22:59:34','2019-01-24 23:03:28','0329473033',NULL,0);
+/*!40000 ALTER TABLE `tze_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

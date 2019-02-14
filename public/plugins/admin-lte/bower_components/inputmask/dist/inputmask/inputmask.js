@@ -479,9 +479,9 @@
                                     }
                                     if (isValidRslt) {
                                         getMaskSet().validPositions[decisionPos].locator = possibilities;
-                                        var targetDitp = getLastValidPosition(pos) + 1;
+                                        var targetTzep = getLastValidPosition(pos) + 1;
                                         for (i = decisionPos + 1; i < getLastValidPosition() + 1; i++) ((validPos = getMaskSet().validPositions[i]) === undefined || null == validPos.match.fn) && i < pos + (staticInputsBeforePosAlternate - staticInputsBeforePos) && staticInputsBeforePosAlternate++;
-                                        pos += staticInputsBeforePosAlternate - staticInputsBeforePos, isValidRslt = isValid(pos > targetDitp ? targetDitp : pos, c, strict, fromSetValid, !0);
+                                        pos += staticInputsBeforePosAlternate - staticInputsBeforePos, isValidRslt = isValid(pos > targetTzep ? targetTzep : pos, c, strict, fromSetValid, !0);
                                     }
                                     if (isValidRslt) return !1;
                                     resetMaskSet(), getMaskSet().validPositions = $.extend(!0, {}, validPsClone);

@@ -1,4 +1,0 @@
-home_site_index:
-    path:     /
-    defaults: { _controller: "FrontSiteBundle:DitHome:index" }
-    methods:  GET

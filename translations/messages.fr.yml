@@ -25,8 +25,8 @@ contact.devis.mail.not.sent : Votre demande de devis n'a pas été envoyé
 contact.devis.society : Société
 contact.devis.url : Lien du projet
 contact.devis.title: Demande de devis
-contact.info.part1: Les informations recueillies à partir de ce formulaire sont enregistrées et transmises aux agents de Devintech chargés du traitement de votre message.
-contact.info.part2: Vous disposez d'un droit d'accès, de rectification et d'opposition aux données vous concernant, que vous pouvez exercer en contactant commercial@devintech.fr
+contact.info.part1: Les informations recueillies à partir de ce formulaire sont enregistrées et transmises aux agents de Tzevent chargés du traitement de votre message.
+contact.info.part2: Vous disposez d'un droit d'accès, de rectification et d'opposition aux données vous concernant, que vous pouvez exercer en contactant commercial@tzevent.fr
 
 
 #Footer
@@ -69,7 +69,7 @@ header.menu.rappel: Rappel immédiat
 header.menu.member: Espace membre
 header.menu.confiance: Ils nous font confiance
 header.menu.ccm: Comment ça marche
-header.menu.devintech: Revenir au site Devintech
+header.menu.tzevent: Revenir au site Tzevent
 
 #Home
 home.title.agence: Votre agence d'intégration 100% en ligne
@@ -129,19 +129,19 @@ fonctionnement.conception: L’étape où nous programmons votre découpe. Un li
 fonctionnement.conception.one: Nos techniciens restent disponibles en heures de bureau , sur skype, email ou via une ligne directe.
 fonctionnement.decoupe: Découpe envoyée
 fonctionnement.receive.email: Après avoir été soigneusement vérifié sur tous les navigateurs, votre projet vous est livré.
-fonctionnement.receive.email.one: La livraison est faite par email grâce à un lien de téléchargement ou bien via la plateforme de Devintech W3C.
+fonctionnement.receive.email.one: La livraison est faite par email grâce à un lien de téléchargement ou bien via la plateforme de Tzevent W3C.
 fonctionnement.need.for.integration:  Que ce soit à travers notre outil de commande en ligne ou après nous avoir contactés, il faut simplement nous envoyer vos fichiers en veillant bien à nous fournir tout ce que nous avons besoin pour l'intégration (polices spéciales, notes, images, animations, etc).
 fonctionnement.proposition: Nous vous proposons la conversion de vos PSD dans les formats suivants:PSD vers HTML5/CSS3, PSD vers WORDPRESS, PSD VERS PRESTASHOP.
 fonctionnement.verification: Après avoir passé votre commande, l'un de nos chef de projet va vérifier qu'ils sont complets et conformes au panier de commande. Si ce n'est pas le cas, nous vous demanderons de les modifier en fonction du panier ou de changer la commande.
 fonctionnement.refund: Vous pouvez être remboursé à tout moment
 fonctionnement.programmation: C'est à nous de jouer ! Nous programmons votre découpe. Un lien de visualisation vous est envoyé pour que vous puissiez suivre votre projet avancer en temps réel. Nos techniciens sont toujours disponibles en heures de bureau, sur skype, email ou via une ligne directe.
-fonctionnement.final: Après avoir été soigneusement vérifié sur tous les navigateurs, votre projet vous est livré. La livraison est faite par email grâce à un lien de téléchargement ou bien via la plateforme de Devintech W3C. Eh oui, c'est aussi simple que ça !
+fonctionnement.final: Après avoir été soigneusement vérifié sur tous les navigateurs, votre projet vous est livré. La livraison est faite par email grâce à un lien de téléchargement ou bien via la plateforme de Tzevent W3C. Eh oui, c'est aussi simple que ça !
 
 #Réalisation
 realisation.title: Réalisations
 realisation.html.css: Retrouvez quelques intégrations HTML/CSS
 realisation.realized: réalisé par notre équipe
-realisation.percentage: 95 % des projets réalisés par Devintech W3C sont effectués en marque blanche
+realisation.percentage: 95 % des projets réalisés par Tzevent W3C sont effectués en marque blanche
 realisation.types: Tous les types
 
 #Order
