@@ -40,31 +40,6 @@ services:
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
-    dit.manager.service.type:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceType\ServiceMetierDitServiceType
-        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
-        public: true
-
-    dit.manager.service:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitService\ServiceMetierDitService
-        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
-        public: true
-
-    dit.manager.service.option.type:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceOptionType\ServiceMetierDitServiceOptionType
-        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
-        public: true
-
-    dit.manager.service.option:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceOption\ServiceMetierDitServiceOption
-        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
-        public: true
-
-    dit.manager.client:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitClient\ServiceMetierDitClient
-        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
-        public: true
-
     dit.manager.email.newsletter:
         class: App\Devintech\Service\MetierManagerBundle\Metier\DitEmailNewsletter\ServiceMetierEmailNewsletter
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
@@ -73,26 +48,6 @@ services:
     dit.manager.message.newsletter:
         class: App\Devintech\Service\MetierManagerBundle\Metier\DitMessageNewsletter\ServiceMetierMessageNewsletter
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
-        public: true
-
-    dit.manager.service.client:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceClient\ServiceMetierDitServiceClient
-        arguments: [ "@doctrine.orm.entity_manager","@service_container", "@translator" ]
-        public: true
-
-    dit.manager.service.client.jointe:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitServiceClientJointe\ServiceMetierDitServiceClientJointe
-        arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
-        public: true
-
-    dit.manager.user.service.client:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitUserServiceClient\ServiceMetierDitUserServiceClient
-        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
-        public: true
-
-    dit.manager.facture:
-        class: App\Devintech\Service\MetierManagerBundle\Metier\DitFacture\ServiceMetierDitFacture
-        arguments: [ "@doctrine.orm.entity_manager","@service_container","@translator" ]
         public: true
 
     dit.twig.file.exists:

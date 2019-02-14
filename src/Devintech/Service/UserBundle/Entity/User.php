@@ -82,12 +82,6 @@ class User extends BaseUser
      */
     private $usrIsValid = false;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_nom_entreprise", type="string", length=100, nullable=true)
-     */
-    private $usrNomEntreprise;
 
     /**
      * @var DitRole
@@ -98,16 +92,6 @@ class User extends BaseUser
      * })
      */
     private $ditRole;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Devintech\Service\MetierManagerBundle\Entity\DitUserServiceClient", mappedBy="ditUsers", cascade={"persist", "remove"})
-     */
-    private $ditUserServiceClients;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Devintech\Service\MetierManagerBundle\Entity\DitServiceClient", mappedBy="ditUser", cascade={"persist", "remove"})
-     */
-    private $ditServiceClients;
 
 
     /**
@@ -284,61 +268,4 @@ class User extends BaseUser
         $this->usrIsValid = $usrIsValid;
     }
 
-    /**
-     * @return string
-     */
-    public function getUsrNomEntreprise()
-    {
-        return $this->usrNomEntreprise;
-    }
-
-    /**
-     * @param string $usrNomEntreprise
-     */
-    public function setUsrNomEntreprise($usrNomEntreprise)
-    {
-        $this->usrNomEntreprise = $usrNomEntreprise;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDitUserServiceClients()
-    {
-        return $this->ditUserServiceClients;
-    }
-
-    /**
-     * @param mixed $ditUserServiceClients
-     */
-    public function setDitUserServiceClients($ditUserServiceClients)
-    {
-        $this->ditUserServiceClients = $ditUserServiceClients;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDitServiceClients()
-    {
-        return $this->ditServiceClients;
-    }
-
-    /**
-     * @param mixed $ditServiceClients
-     */
-    public function setDitServiceClients($ditServiceClients)
-    {
-        $this->ditServiceClients = $ditServiceClients;
-    }
-
-    /**
-     * Get entreprise
-     *
-     * @return string
-     */
-    public function getUsrEntreprise()
-    {
-        return $this->usrNomEntreprise . ' (' . $this->email . ')';
-    }
 }

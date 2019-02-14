@@ -56,11 +56,7 @@ class UserManager
             'ditRole' => array(
                 RoleName::ID_ROLE_SUPERADMIN,
                 RoleName::ID_ROLE_ADMIN,
-                RoleName::ID_ROLE_ADMIN_SITE,
-                RoleName::ID_ROLE_SUPERVISEUR,
-                RoleName::ID_ROLE_INTEGRATEUR,
-                RoleName::ID_ROLE_CLIENT,
-                RoleName::ID_ROLE_TESTEUR
+                RoleName::ID_ROLE_MEMBER
             )
         );
 
@@ -69,38 +65,7 @@ class UserManager
             $_array_type = array(
                 'ditRole' => array(
                     RoleName::ID_ROLE_ADMIN,
-                    RoleName::ID_ROLE_ADMIN_SITE,
-                    RoleName::ID_ROLE_SUPERVISEUR,
-                    RoleName::ID_ROLE_INTEGRATEUR,
-                    RoleName::ID_ROLE_CLIENT,
-                    RoleName::ID_ROLE_TESTEUR
-                )
-            );
-
-        // Rôle client
-        if ($_user_role == RoleName::ID_ROLE_CLIENT)
-            $_array_type = array(
-                'id'     => $_id_user,
-                'ditRole' => array(
-                    RoleName::ID_ROLE_CLIENT
-                )
-            );
-
-        // Rôle intégrateur
-        if ($_user_role == RoleName::ID_ROLE_INTEGRATEUR)
-            $_array_type = array(
-                'id'     => $_id_user,
-                'ditRole' => array(
-                    RoleName::ID_ROLE_INTEGRATEUR
-                )
-            );
-
-        // Rôle testeur
-        if ($_user_role == RoleName::ID_ROLE_TESTEUR)
-            $_array_type = array(
-                'id'     => $_id_user,
-                'ditRole' => array(
-                    RoleName::ID_ROLE_TESTEUR
+                    RoleName::ID_ROLE_MEMBER
                 )
             );
 
@@ -162,9 +127,6 @@ class UserManager
      * @return boolean
      */
     public function addUser($_user, $_form) {
-        // Récupérer manager
-        $_service_client_manager = $this->_container->get(ServiceName::SRV_METIER_SERVICE_CLIENT);
-
         // Activer par défaut
         $_user->setEnabled(1);
 
@@ -178,11 +140,6 @@ class UserManager
         if ($_img_photo) {
             $_user_upload_manager = $this->_container->get(ServiceName::SRV_METIER_USER_UPLOAD);
             $_user_upload_manager->upload($_user, $_img_photo);
-        }
-
-        // Envoie email d'inscription au client
-        if ($_type->getId() == RoleName::ID_ROLE_CLIENT) {
-            $_service_client_manager->sendEmailConnexionClient($_user);
         }
 
         $this->saveUser($_user, 'new');
@@ -297,7 +254,7 @@ class UserManager
         $_is_user_admin = false;
         if ($_user) {
             $_id_role = $_user[0]->getDitRole()->getId();
-            if ($_id_role != RoleName::ID_ROLE_CLIENT)
+            if ($_id_role != RoleName::ID_ROLE_MEMBER)
                 $_is_user_admin = true;
         }
 

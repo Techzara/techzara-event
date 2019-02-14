@@ -36,10 +36,6 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
         $_auth_checker = $this->_container->get('security.authorization_checker');
         $_router      = $this->_container->get('router');
 
-        if ($_auth_checker->isGranted('ROLE_CLIENT')) {
-            return new RedirectResponse($_router->generate('service_client_list'));
-        }
-
         return new RedirectResponse($_router->generate('dashboard_index'));
     }
 } 

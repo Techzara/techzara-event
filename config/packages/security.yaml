@@ -3,11 +3,7 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
-        ROLE_INTEGRATEUR: ROLE_USER
-        ROLE_SUPERVISEUR: ROLE_USER
-        ROLE_TESTEUR: ROLE_USER
-        ROLE_CLIENT: ROLE_USER
-        ROLE_ADMIN_SITE: ROLE_USER
+        ROLE_MEMBER: ROLE_USER
         ROLE_ADMIN: ROLE_USER
         ROLE_SUPERADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
@@ -47,19 +43,6 @@ security:
 
         - { path: ^/admin/user/new, role: ROLE_SUPERADMIN }
         - { path: ^/admin/role/*, role: ROLE_ADMIN }
-        - { path: ^/admin/temoignage/*, role: ROLE_ADMIN_SITE }
-        - { path: ^/admin/faq/*, role: ROLE_ADMIN }
-        - { path: ^/admin/service-type/*, role: ROLE_ADMIN }
-        - { path: ^/admin/service-client/list, role: [ROLE_ADMIN, ROLE_CLIENT] }
-        - { path: ^/admin/service-client/update-status-project-ajax, role: [ROLE_ADMIN, ROLE_INTEGRATEUR, ROLE_TESTEUR] }
-        - { path: ^/admin/service-client/detail/*, role: [ROLE_ADMIN, ROLE_CLIENT] }
-        - { path: ^/admin/facture/*, role: ROLE_ADMIN }
-        - { path: ^/admin/user-service-client/new, role: ROLE_ADMIN }
-        - { path: ^/admin/user-service-client, role: [ROLE_ADMIN, ROLE_INTEGRATEUR, ROLE_TESTEUR] }
-        - { path: ^/admin/user-service-client/detail/*, role: [ROLE_ADMIN, ROLE_INTEGRATEUR, ROLE_TESTEUR] }
-        - { path: ^/admin/service/*, role: ROLE_ADMIN }
-        - { path: ^/admin/service-option-type/*, role: ROLE_ADMIN }
-        - { path: ^/admin/service-option/*, role: ROLE_ADMIN }
         - { path: ^/admin/email-newsletter/*, role: ROLE_ADMIN }
 
         - { path: ^/admin, role: ROLE_USER }

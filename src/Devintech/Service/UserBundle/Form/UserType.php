@@ -31,12 +31,6 @@ class UserType extends AbstractType
                 'required' => true
             ))
 
-            ->add('usrNomEntreprise', TextType::class, array(
-                'label'    => "Nom entreprise",
-                'attr'     => array('placeholder' => 'Nom entreprise'),
-                'required' => true
-            ))
-
             ->add('usrFirstname', TextType::class, array(
                 'label'    => "Prénom",
                 'attr'     => array('placeholder' => 'Prénom'),

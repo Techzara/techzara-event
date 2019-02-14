@@ -11,5 +11,4 @@ class PathName
     const UPLOAD_IMAGE_USER = '/upload/user/';
     const UPLOAD_JOINTE = '/upload/jointe/';
     const UPLOAD_SLIDE = '/upload/slide/';
-    const UPLOAD_FACTURE = '/reporting/generated/facture/';
 }

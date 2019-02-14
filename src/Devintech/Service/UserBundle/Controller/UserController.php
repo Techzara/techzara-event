@@ -66,7 +66,7 @@ class UserController extends Controller
         $_edit_form = $this->createEditForm($_user);
 
         $_template = 'UserBundle:User:edit.html.twig';
-        if ($_user_role == RoleName::ID_ROLE_CLIENT)
+        if ($_user_role == RoleName::ID_ROLE_MEMBER)
             $_template = 'UserBundle:User:edit_member.html.twig';
 
         return $this->render($_template, array(
@@ -133,19 +133,10 @@ class UserController extends Controller
 
             $_user_manager->setFlash('success', "Utilisateur modifié");
 
-            // Vérification utilisateur connecté
-            if ($_user_role == RoleName::ID_ROLE_CLIENT) {
-                return $this->redirectToRoute('user_edit', array(
-                    'id' => $_id_user
-                ));
-            }
-
             return $this->redirect($this->generateUrl('user_index'));
         }
 
         $_template = 'UserBundle:User:edit.html.twig';
-        if ($_user_role == RoleName::ID_ROLE_CLIENT)
-            $_template = 'UserBundle:User:edit_member.html.twig';
 
         return $this->render($_template, array(
             'user'      => $_user,
