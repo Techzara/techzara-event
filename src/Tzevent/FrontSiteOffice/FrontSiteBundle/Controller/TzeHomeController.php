@@ -2,6 +2,7 @@
 
 namespace App\Tzevent\FrontSiteOffice\FrontSiteBundle\Controller;
 
+use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEvenementActivite;
 use App\Tzevent\Service\MetierManagerBundle\Utils\CmsName;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Tzevent\Service\MetierManagerBundle\Utils\ServiceName;
@@ -17,16 +18,17 @@ class TzeHomeController extends Controller
      */
     public function indexAction()
     {
-        // Récupérer manager
+        //Récuperation manager
         $_slide_manager          = $this->get(ServiceName::SRV_METIER_SLIDE);
         $_event_manager          = $this->get(ServiceName::SRV_METIER_ACTIVITE);
 
         $_slides          = $_slide_manager->getAllTzeSlide();
-        $_activite  = $_event_manager->getTzeActiviteById(1);
 
+        //Get new event
         $_slides_new[] = $_slides[0];
-        $_activite_list[] = $_activite;
 
+        //Get activite by evenement
+        $_activite  = $_event_manager->getActiviteEvent($_slides[0]);
 
         $_evenement = [];
         foreach ($_slides as $key => $_event )
@@ -45,7 +47,7 @@ class TzeHomeController extends Controller
         return $this->render('FrontSiteBundle:TzeHome:index.html.twig', array(
             'slides'          => $_slides_new,
             'evenements'     => $_evenement,
-            'activites'     => $_activite_list
+            'activites'     => $_activite
         ));
     }
 }

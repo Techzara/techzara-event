@@ -10,6 +10,7 @@ namespace App\Tzevent\Service\MetierManagerBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * TzeSlide
@@ -31,7 +32,7 @@ class TzeEvenementActivite
 
     /**
      * @var TzeSlide
-     *
+     * @ParamConverter("event", options={"id" = "id"})
      * @ORM\ManyToOne(targetEntity="App\Tzevent\Service\MetierManagerBundle\Entity\TzeSlide")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="actEvent", referencedColumnName="id")

@@ -10,12 +10,12 @@ namespace App\Tzevent\Service\MetierManagerBundle\Metier\TzeActiviteEvent;
 
 
 use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEvenementActivite;
-use App\Tzevent\Service\MetierManagerBundle\Form\TzeActiviteType;
 use App\Tzevent\Service\MetierManagerBundle\Utils\EntityName;
 use App\Tzevent\Service\MetierManagerBundle\Utils\PathName;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\DependencyInjection\Container;
 
 class ServiceMetierTzeActivite
@@ -24,6 +24,12 @@ class ServiceMetierTzeActivite
     private $_container;
     private $_web_root;
 
+    /**
+     * ServiceMetierTzeActivite constructor.
+     * @param EntityManager $_entity_manager
+     * @param Container $_container
+     * @param $_root_dir
+     */
     public function __construct(EntityManager $_entity_manager, Container $_container, $_root_dir)
     {
         $this->_entity_manager = $_entity_manager;
@@ -32,18 +38,17 @@ class ServiceMetierTzeActivite
     }
 
     /**
-     * Ajouter un message flash
-     * @param string $_type
-     * @param string $_message
+     * @param $_type
+     * @param $_message
      * @return mixed
+     * @throws \Exception
      */
     public function setFlash($_type, $_message) {
         return $this->_container->get('session')->getFlashBag()->add($_type, $_message);
     }
 
     /**
-     * Récuperer le repository slide
-     * @return array
+     * @return \Doctrine\Common\Persistence\ObjectRepository|\Doctrine\ORM\EntityRepository
      */
     public function getRepository()
     {
@@ -69,9 +74,18 @@ class ServiceMetierTzeActivite
     }
 
     /**
-     * Récuperer un slide par identifiant
-     * @param Integer $_id
-     * @return array
+     * Get activite ny event
+     * @param $_event
+     * @return mixed
+     */
+    public function getActiviteEvent($_event)
+    {
+        return $this->getRepository()->findByActEvent($_event);
+    }
+
+    /**
+     * @param $_id
+     * @return object|null
      */
     public function getTzeActiviteById($_id)
     {

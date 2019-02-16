@@ -137,49 +137,125 @@
 
             <!--event features-->
             <div class="row justify-content-center mt30">
-
-                {% for activite in activites %}
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="icon_box_one">
-                            <i class="lnr lnr-mic"></i>
-                            <div class="content">
-                                <h4>{{ activite.actTitle }}</h4>
-                                <p>
-                                    {{ activite.actDescription }}
-                                </p>
-                                <a href="#">read more</a>
+                {% if activites %}
+                    {% for activite in activites %}
+                        {% if activite|length > 4 %}
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <div class="icon_box_one">
+                                    <img src="{{ activite.actImage }}" alt="activite image" class="img-responsive">
+                                    <div class="content">
+                                        <h4>{{ activite.actTitle }}</h4>
+                                        <p>
+                                            {{ activite.actDescription }}
+                                        </p>
+                                        <a href="#">read more</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                {% endfor %}
+                            {% elseif activite|length <= 3  %}
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="icon_box_one">
+                                        <img src="{{ activite.actImage }}" alt="activite image" class="img-responsive">
+                                        <div class="content">
+                                            <h4>{{ activite.actTitle }}</h4>
+                                            <p>
+                                                {{ activite.actDescription }}
+                                            </p>
+                                            <a href="#">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="icon_box_one">
+                                        <i class="lnr lnr-mic"></i>
+                                        <div class="content">
+                                            <h4>9 Speakers</h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
+                                            </p>
+                                            <a href="#">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% elseif activite|length <= 2   %}
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="icon_box_one">
+                                        <i class="lnr lnr-mic"></i>
+                                        <div class="content">
+                                            <h4>9 Speakers</h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
+                                            </p>
+                                            <a href="#">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="icon_box_one">
+                                        <i class="lnr lnr-rocket"></i>
+                                        <div class="content">
+                                            <h4>8 hrs Marathon</h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
+                                            </p>
+                                            <a href="#">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="icon_box_one">
+                                        <i class="lnr lnr-mic"></i>
+                                        <div class="content">
+                                            <h4>9 Speakers</h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
+                                            </p>
+                                            <a href="#">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="icon_box_one">
-                        <i class="lnr lnr-mic"></i>
-                        <div class="content">
-                            <h4>9 Speakers</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
-                            </p>
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="icon_box_one">
-                        <i class="lnr lnr-rocket"></i>
-                        <div class="content">
-                            <h4>8 hrs Marathon</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
-                            </p>
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="icon_box_one">
+                                        <i class="lnr lnr-rocket"></i>
+                                        <div class="content">
+                                            <h4>8 hrs Marathon</h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
+                                            </p>
+                                            <a href="#">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="icon_box_one">
+                                        <i class="lnr lnr-mic"></i>
+                                        <div class="content">
+                                            <h4>9 Speakers</h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
+                                            </p>
+                                            <a href="#">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="icon_box_one">
+                                        <i class="lnr lnr-rocket"></i>
+                                        <div class="content">
+                                            <h4>8 hrs Marathon</h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
+                                            </p>
+                                            <a href="#">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
-            <!--event features end-->
         </div>
     </section>
     <!--about the event end -->
@@ -190,7 +266,7 @@
         <div class="container">
             <div class="section_title mb50">
                 <h3 class="title">
-                    our speakers
+                    LES PARTICIPANTS
                 </h3>
             </div>
         </div>
