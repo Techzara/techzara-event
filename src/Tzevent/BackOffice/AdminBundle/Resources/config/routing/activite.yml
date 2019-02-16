@@ -1,0 +1,29 @@
+activite_index:
+  path:     /
+  defaults: { _controller: "AdminBundle:TzeActivite:index" }
+  methods:  GET
+
+activite_new:
+  path:     /new
+  defaults: { _controller: "AdminBundle:TzeActivite:new" }
+  methods:  [GET, POST]
+
+activite_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "AdminBundle:TzeActivite:edit" }
+  methods:  [GET, POST]
+
+activite_update:
+  path:     /{id}/update
+  defaults: { _controller: "AdminBundle:TzeActivite:update" }
+  methods:  [POST, PUT]
+
+activite_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "AdminBundle:TzeActivite:delete" }
+  methods:  [GET, DELETE]
+
+activite_delete_group:
+  path:     /delete-group
+  defaults: { _controller: "AdminBundle:TzeActivite:deleteGroup" }
+  methods:  POST

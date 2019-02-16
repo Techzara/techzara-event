@@ -24,14 +24,18 @@
             <div class="box box-primary">
                 {{ form_start(form) }}
                     <div class="box-header">
-                        <h3 class="box-title">Créer un slide</h3>
+                        <h3 class="box-title">Créer un évenement</h3>
                     </div>
                     
                     <div class="box-body">
-                        {{ form_row(form.sldFirstTitle) }}
-                        {{ form_row(form.sldSecondTitle) }}
-                        {{ form_row(form.sldThirdTitle) }}
+                        {{ form_row(form.sldEventTitle) }}
+                        {{ form_row(form.sldEventDescription) }}
+                        {{ form_row(form.sldIntervenant) }}
                         {{ form_row(form.sldImageUrl) }}
+                        {{ form_row(form.sldLocation) }}
+                        {{ form_row(form.sldPlace) }}
+                        {{ form_row(form.sldDate) }}
+                        {{ form_row(form.sldDateFin) }}
                     </div>
 
                     <div class="box-footer">

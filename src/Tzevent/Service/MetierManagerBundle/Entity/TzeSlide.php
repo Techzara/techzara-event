@@ -24,23 +24,37 @@ class TzeSlide
     /**
      * @var string
      *
-     * @ORM\Column(name="sld_first_title", type="string", length=255, nullable=true)
+     * @ORM\Column(name="sld_event_title", type="string", length=100, nullable=true)
      */
-    private $sldFirstTitle;
+    private $sldEventTitle;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sld_second_title", type="string", length=255, nullable=true)
+     * @ORM\Column(name="sld_event_description", type="text", nullable=true)
      */
-    private $sldSecondTitle;
+    private $sldEventDescription;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sld_third_title", type="string", length=255, nullable=true)
+     * @ORM\Column(name="sld_intervenant", type="string", length=100, nullable=true)
      */
-    private $sldThirdTitle;
+    private $sldIntervenant;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sld_location", type="string", length=100, nullable=true)
+     */
+    private $sldLocation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sld_place", type="string", length=100, nullable=true)
+     */
+    private $sldPlace;
 
     /**
      * @var string
@@ -49,11 +63,20 @@ class TzeSlide
      */
     private $sldImageUrl;
 
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="sld_event_date", type="datetime" , nullable=true)
+     */
+    private $sldDate;
 
     /**
-     * Get id
-     *
-     * @return integer
+     * @var \DateTime
+     * @ORM\Column(name="sld_event_date_fin", type="datetime" , nullable=true)
+     */
+    private $sldDateFin;
+
+    /**
+     * @return int
      */
     public function getId()
     {
@@ -61,35 +84,93 @@ class TzeSlide
     }
 
     /**
-     * @return string
+     * @param int $id
      */
-    public function getSldFirstTitle()
+    public function setId( $id)
     {
-        return $this->sldFirstTitle;
-    }
-
-    /**
-     * @param string $sldFirstTitle
-     */
-    public function setSldFirstTitle($sldFirstTitle)
-    {
-        $this->sldFirstTitle = $sldFirstTitle;
+        $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getSldSecondTitle()
+    public function getSldEventTitle()
     {
-        return $this->sldSecondTitle;
+        return $this->sldEventTitle;
     }
 
     /**
-     * @param string $sldSecondTitle
+     * @param string $sldEventTitle
      */
-    public function setSldSecondTitle($sldSecondTitle)
+    public function setSldEventTitle( $sldEventTitle)
     {
-        $this->sldSecondTitle = $sldSecondTitle;
+        $this->sldEventTitle = $sldEventTitle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSldEventDescription()
+    {
+        return $this->sldEventDescription;
+    }
+
+    /**
+     * @param string $sldEventDescription
+     */
+    public function setSldEventDescription( $sldEventDescription)
+    {
+        $this->sldEventDescription = $sldEventDescription;
+    }
+
+
+
+    /**
+     * @return string
+     */
+    public function getSldIntervenant()
+    {
+        return $this->sldIntervenant;
+    }
+
+    /**
+     * @param string $sldIntervenant
+     */
+    public function setSldIntervenant( $sldIntervenant)
+    {
+        $this->sldIntervenant = $sldIntervenant;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSldLocation()
+    {
+        return $this->sldLocation;
+    }
+
+    /**
+     * @param string $sldLocation
+     */
+    public function setSldLocation( $sldLocation)
+    {
+        $this->sldLocation = $sldLocation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSldPlace()
+    {
+        return $this->sldPlace;
+    }
+
+    /**
+     * @param string $sldPlace
+     */
+    public function setSldPlace( $sldPlace)
+    {
+        $this->sldPlace = $sldPlace;
     }
 
     /**
@@ -103,24 +184,42 @@ class TzeSlide
     /**
      * @param string $sldImageUrl
      */
-    public function setSldImageUrl($sldImageUrl)
+    public function setSldImageUrl( $sldImageUrl)
     {
         $this->sldImageUrl = $sldImageUrl;
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
-    public function getSldThirdTitle()
+    public function getSldDate()
     {
-        return $this->sldThirdTitle;
+        return $this->sldDate;
     }
 
     /**
-     * @param string $sldThirdTitle
+     * @param \DateTime $sldDate
      */
-    public function setSldThirdTitle($sldThirdTitle)
+    public function setSldDate( $sldDate)
     {
-        $this->sldThirdTitle = $sldThirdTitle;
+        $this->sldDate = $sldDate;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getSldDateFin()
+    {
+        return $this->sldDateFin;
+    }
+
+    /**
+     * @param \DateTime $sldDateFin
+     */
+    public function setSldDateFin( $sldDateFin)
+    {
+        $this->sldDateFin = $sldDateFin;
+    }
+
+
 }

@@ -13,17 +13,21 @@ use App\Tzevent\Service\MetierManagerBundle\Entity\TzeSlide;
  */
 class TzeSlideController extends Controller
 {
+
     /**
-     * Afficher tout les slides
-     * @return Render page
+     * @return \App\Tzevent\Service\MetierManagerBundle\Metier\TzeSlide\ServiceMetierTzeSlide|object
+     */
+    public function getManager()
+    {
+        return $this->get(ServiceName::SRV_METIER_SLIDE);
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
-        // Récupérer manager
-        $_slide_manager = $this->get(ServiceName::SRV_METIER_SLIDE);
-
-        // Récupérer tout les slide
-        $_slides = $_slide_manager->getAllTzeSlide();
+        $_slides = $this->getManager()->getAllTzeSlide();
 
         return $this->render('AdminBundle:TzeSlide:index.html.twig', array(
             'slides' => $_slides
@@ -56,9 +60,6 @@ class TzeSlideController extends Controller
      */
     public function newAction(Request $_request)
     {
-        // Récupérer manager
-        $_slide_manager = $this->get(ServiceName::SRV_METIER_SLIDE);
-
         $_slide = new TzeSlide();
         $_form  = $this->createCreateForm($_slide);
         $_form->handleRequest($_request);
@@ -68,9 +69,9 @@ class TzeSlideController extends Controller
             $_image = $_form['sldImageUrl']->getData();
 
             // Enregistrement slide
-            $_slide_manager->addSlide($_slide, $_image);
+            $this->getManager()->addSlide($_slide, $_image);
 
-            $_slide_manager->setFlash('success', "Slide ajouté");
+            $this->getManager()->setFlash('success', 'Event add successful');
 
             return $this->redirect($this->generateUrl('slide_index'));
         }
@@ -89,8 +90,6 @@ class TzeSlideController extends Controller
      */
     public function updateAction(Request $_request, TzeSlide $_slide)
     {
-        // Récupérer manager
-        $_slide_manager = $this->get(ServiceName::SRV_METIER_SLIDE);
 
         if (!$_slide) {
             throw $this->createNotFoundException('Unable to find TzeSlide entity.');
@@ -104,9 +103,9 @@ class TzeSlideController extends Controller
             $_image = $_etze_form['sldImageUrl']->getData();
 
             // Enregistrement slide
-            $_slide_manager->updateSlide($_slide, $_image);
+            $this->getManager()->updateSlide($_slide, $_image);
 
-            $_slide_manager->setFlash('success', "Slide modifié");
+            $this->getManager()->setFlash('success', "Slide modifié");
 
             return $this->redirect($this->generateUrl('slide_index'));
         }
@@ -155,17 +154,14 @@ class TzeSlideController extends Controller
      */
     public function deleteAction(Request $_request, TzeSlide $_slide)
     {
-        // Récupérer manager
-        $_slide_manager = $this->get(ServiceName::SRV_METIER_SLIDE);
-
         $_form = $this->createDeleteForm($_slide);
         $_form->handleRequest($_request);
 
         if ($_request->isMethod('GET') || ($_form->isSubmitted() && $_form->isValid())) {
             // Suppression slide
-            $_slide_manager->deleteTzeSlide($_slide);
+            $this->getManager()->deleteTzeSlide($_slide);
 
-            $_slide_manager->setFlash('success', 'Slide supprimé');
+            $this->getManager()->setFlash('success', 'Slide supprimé');
         }
 
         return $this->redirectToRoute('slide_index');

@@ -14,4 +14,5 @@ class ServiceName
     const SRV_METIER_EMAIL_NEWSLETTER = 'dit.manager.email.newsletter';
     const SRV_METIER_MESSAGE_NEWSLETTER = 'dit.manager.message.newsletter';
     const SRV_METIER_SLIDE = 'dit.manager.slide';
+    const SRV_METIER_ACTIVITE = 'dit.manager.activite';
 }

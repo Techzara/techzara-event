@@ -10,6 +10,7 @@ $(function() {
         locale: 'fr',
         format: 'DD/MM/YYYY HH:mm'
     });
+
     $(".datetimepicker-min-now").datetimepicker({
         locale: 'fr',
         format: 'DD/MM/YYYY HH:mm',

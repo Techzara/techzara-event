@@ -16,4 +16,8 @@ tze_message_newsletter:
 
 tze_slide:
     resource: "@AdminBundle/Resources/config/routing/slide.yml"
-    prefix:   /slide
+    prefix:   /event
+
+tze_activite:
+    resource: "@AdminBundle/Resources/config/routing/activite.yml"
+    prefix:   /activite

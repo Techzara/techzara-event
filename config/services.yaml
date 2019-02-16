@@ -35,9 +35,9 @@ services:
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
-    dit.manager.contact:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeContact\ServiceMetierTzeContact
-        arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
+    dit.manager.activite:
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeActiviteEvent\ServiceMetierTzeActivite
+        arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true
 
     dit.manager.email.newsletter:

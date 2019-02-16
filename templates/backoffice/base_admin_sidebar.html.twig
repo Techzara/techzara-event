@@ -76,10 +76,20 @@
                 <li class="treeview {% if menu_slide is defined %}{{ active }}{% endif %}">
                     <a href="{{ path('slide_index') }}">
                         <i class="fa fa-slideshare"></i>
-                        <span>Slide</span>
+                        <span>Evenement</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
+                    </a>
+                </li>
+                {# Slide #}
+                <li class="treeview {% if menu_activite is defined %}{{ active }}{% endif %}">
+                    <a href="{{ path('activite_index') }}">
+                        <i class="fa fa-slideshare"></i>
+                        <span>Activite</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                     </a>
                 </li>
 
