@@ -1,35 +1,10 @@
-/*
- * Evento -  Event html  Template
- * Build Date: jan 2018
- * Author: colorlib
- * Copyright (C) 2018 colorlib
+/**
+PHPSTORM RAJERISON Julien
+16 - 02 - 2019
  */
-/* ------------------------------------- */
-/* TABLE OF CONTENTS
-/* -------------------------------------
-    . GENERAL
-    . Header
-    . Footer
-    . BUTTONS
-    . ICON BOXES
-    . PROJECTS SECTION (PORTFOLIO)
-    . BLOG  SECTION
-    . COUNTER SECTION
-    . Testimonial SECTION
-	. Contact Section
-	.PROGRESSBAR
-	.SINGLE POST (COMMENTS SIDEBAR TAGS LIST)
-	------------------------------------- */
-/*  ----------------------------------------------------
-1. GENERAL
--------------------------------------------------------- */
-/* ----------------IMPORT GOOGLE FONTS ------------------- */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900");
-/* ----------------Text Fonts ------------------- */
 
-*{
-  font-family: 'Montserrat', sans-serif!important;
-}
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900");
+
 body {
   font-size: 14px;
   line-height: 25px;

@@ -35,9 +35,8 @@ class TzeSlideController extends Controller
     }
 
     /**
-     * Affichage page modification slide
      * @param TzeSlide $_slide
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(TzeSlide $_slide)
     {
@@ -54,9 +53,8 @@ class TzeSlideController extends Controller
     }
 
     /**
-     * Création slide
-     * @param Request $_request requête
-     * @return Render page
+     * @param Request $_request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $_request)
     {
@@ -83,10 +81,9 @@ class TzeSlideController extends Controller
     }
 
     /**
-     * Modification slide
-     * @param Request $_request requête
+     * @param Request $_request
      * @param TzeSlide $_slide
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function updateAction(Request $_request, TzeSlide $_slide)
     {
@@ -119,7 +116,7 @@ class TzeSlideController extends Controller
     /**
      * Création formulaire d'édition slide
      * @param TzeSlide $_slide The entity
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createCreateForm(TzeSlide $_slide)
     {
@@ -168,9 +165,8 @@ class TzeSlideController extends Controller
     }
 
     /**
-     * Création formulaire de suppression slide
-     * @param TzeSlide $_slide The TzeSlide entity
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeSlide $_slide
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(TzeSlide $_slide)
     {
@@ -181,9 +177,8 @@ class TzeSlideController extends Controller
     }
 
     /**
-     * Suppression par groupe séléctionnée
      * @param Request $_request
-     * @return Redirect liste slide
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteGroupAction(Request $_request)
     {

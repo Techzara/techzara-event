@@ -42,9 +42,8 @@ class TzeActiviteController extends Controller
 
 
     /**
-     * Affichage page modification slide
      * @param TzeEvenementActivite $_activite
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(TzeEvenementActivite $_activite)
     {
@@ -61,9 +60,9 @@ class TzeActiviteController extends Controller
     }
 
     /**
-     * Création slide
-     * @param Request $_request requête
-     * @return Render page
+     * @param Request $_request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function newAction(Request $_request)
     {
@@ -78,7 +77,7 @@ class TzeActiviteController extends Controller
             // Enregistrement slide
             $this->getManager()->addActivite($_activite, $_image);
 
-            $this->getManager()->setFlash('success', 'Event add successful');
+            $this->getManager()->setFlash('success', 'Activite add successful');
 
             return $this->redirect($this->generateUrl('activite_index'));
         }
@@ -91,10 +90,10 @@ class TzeActiviteController extends Controller
     }
 
     /**
-     * Modification slide
-     * @param Request $_request requête
+     * @param Request $_request
      * @param TzeEvenementActivite $_activite
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function updateAction(Request $_request, TzeEvenementActivite $_activite)
     {
@@ -153,10 +152,10 @@ class TzeActiviteController extends Controller
     }
 
     /**
-     * Suppression slide
-     * @param Request $_request requête
+     * @param Request $_request
      * @param TzeEvenementActivite $_activite
-     * @return Redirect redirection
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Exception
      */
     public function deleteAction(Request $_request, TzeEvenementActivite $_activite)
     {
@@ -165,7 +164,7 @@ class TzeActiviteController extends Controller
 
         if ($_request->isMethod('GET') || ($_form->isSubmitted() && $_form->isValid())) {
             // Suppression slide
-            $this->getManager()->deleteImage($_activite);
+            $this->getManager()->deleteTzeActivite($_activite);
 
             $this->getManager()->setFlash('success', 'activité supprimé');
         }

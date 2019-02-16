@@ -10,9 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 class TzeFooterController extends Controller
 {
     /**
-     * Afficher la page footer
      * @param Request $_request
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Request $_request)
     {

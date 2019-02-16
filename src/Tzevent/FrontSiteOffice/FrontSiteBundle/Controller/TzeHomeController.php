@@ -21,14 +21,18 @@ class TzeHomeController extends Controller
         //Récuperation manager
         $_slide_manager          = $this->get(ServiceName::SRV_METIER_SLIDE);
         $_event_manager          = $this->get(ServiceName::SRV_METIER_ACTIVITE);
+        $_participants_manager   = $this->get(ServiceName::SRV_METIER_PARTICIPANTS);
 
         $_slides          = $_slide_manager->getAllTzeSlide();
 
         //Get new event
         $_slides_new[] = $_slides[0];
 
-        //Get activite by evenement
-        $_activite  = $_event_manager->getActiviteEvent($_slides[0]);
+        //Get activite new envent
+        $_activite  = $_event_manager->getActiviteEvent($_slides[1]);
+
+        //Get participant by envent
+        $_participants = $_participants_manager->getParticipantsEvent($_slides_new);
 
         $_evenement = [];
         foreach ($_slides as $key => $_event )
@@ -45,9 +49,10 @@ class TzeHomeController extends Controller
 
 
         return $this->render('FrontSiteBundle:TzeHome:index.html.twig', array(
-            'slides'          => $_slides_new,
-            'evenements'     => $_evenement,
-            'activites'     => $_activite
+            'slides'        => $_slides_new,
+            'evenements'    => $_evenement,
+            'activites'     => $_activite,
+            'participants'  => $_participants
         ));
     }
 }

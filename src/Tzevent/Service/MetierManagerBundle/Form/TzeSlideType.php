@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\DateTime;
+use App\Tzevent\Service\MetierManagerBundle\Entity\TzeSlide;
 
 class TzeSlideType extends AbstractType
 {
@@ -83,7 +84,7 @@ class TzeSlideType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'App\Tzevent\Service\MetierManagerBundle\Entity\TzeSlide'
+            'data_class' => TzeSlide::class
         ));
     }
 

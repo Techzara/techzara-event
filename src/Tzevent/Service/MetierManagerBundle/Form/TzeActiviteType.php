@@ -17,6 +17,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEvenementActivite;
+use App\Tzevent\Service\MetierManagerBundle\Entity\TzeSlide;
 
 class TzeActiviteType extends AbstractType
 {
@@ -34,7 +36,7 @@ class TzeActiviteType extends AbstractType
             ))
 
             ->add('actEvent',EntityType::class,array(
-                'class'         =>'App\Tzevent\Service\MetierManagerBundle\Entity\TzeSlide',
+                'class'         => TzeSlide::class,
                 'choice_label'  =>'sld_event_title',
                 'multiple'      => false,
                 'expanded'      => false,
@@ -79,7 +81,7 @@ class TzeActiviteType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'App\Tzevent\Service\MetierManagerBundle\Entity\TzeEvenementActivite'
+            'data_class' => TzeEvenementActivite::class
         ));
     }
 

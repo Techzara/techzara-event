@@ -60,3 +60,8 @@ services:
         class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeSlide\ServiceMetierTzeSlide
         arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true
+
+    dit.manager.participants:
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeParticipants\ServiceMertierTzeParticipants
+        arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
+        public: true

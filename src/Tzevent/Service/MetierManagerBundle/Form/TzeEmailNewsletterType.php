@@ -7,7 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-
+use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEmailNewsletter;
 
 
 class TzeEmailNewsletterType extends AbstractType
@@ -37,7 +37,7 @@ class TzeEmailNewsletterType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'App\Tzevent\Service\MetierManagerBundle\Entity\TzeEmailNewsletter'
+            'data_class' => TzeEmailNewsletter::class
         ));
     }
 

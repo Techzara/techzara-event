@@ -15,4 +15,5 @@ class EntityName
     const TZE_MESSAGE_NEWSLETTER = 'MetierManagerBundle:TzeMessageNewsletter';
     const TZE_SLIDE = 'MetierManagerBundle:TzeSlide';
     const TZE_ACTIVITE = 'MetierManagerBundle:TzeEvenementActivite';
+    const TZE_PARTICIPANTS = 'MetierManagerBundle:TzeParticipants';
 }

@@ -21,3 +21,7 @@ tze_slide:
 tze_activite:
     resource: "@AdminBundle/Resources/config/routing/activite.yml"
     prefix:   /activite
+
+tze_participants:
+    resource: "@AdminBundle/Resources/config/routing/participants.yml"
+    prefix:   /participants

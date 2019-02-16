@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use App\Tzevent\Service\MetierManagerBundle\Entity\TzeRole;
 
 class TzeRoleType extends AbstractType
 {
@@ -28,7 +29,7 @@ class TzeRoleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'App\Tzevent\Service\MetierManagerBundle\Entity\TzeRole'
+            'data_class' => TzeRole::class
         ));
     }
 
