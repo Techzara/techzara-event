@@ -11,6 +11,10 @@ cd this_repository
 composer install --prefer-dist
 ```
 Edit database configuration in .env file
+```
+database dump in data/dump
+login : julien:julien
+```
 
 Then :
 ```
