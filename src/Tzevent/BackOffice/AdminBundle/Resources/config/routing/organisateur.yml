@@ -1,0 +1,29 @@
+organisateur_index:
+  path:     /
+  defaults: { _controller: "AdminBundle:TzeOrganisateur:index" }
+  methods:  GET
+
+organisateur_new:
+  path:     /new
+  defaults: { _controller: "AdminBundle:TzeOrganisateur:new" }
+  methods:  [GET, POST]
+
+organisateur_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "AdminBundle:TzeOrganisateur:edit" }
+  methods:  [GET, POST]
+
+organisateur_update:
+  path:     /{id}/update
+  defaults: { _controller: "AdminBundle:TzeOrganisateur:update" }
+  methods:  [POST, PUT]
+
+organisateur_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "AdminBundle:TzeOrganisateur:delete" }
+  methods:  [GET, DELETE]
+
+organisateur_delete_group:
+  path:     /delete-group
+  defaults: { _controller: "AdminBundle:TzeOrganisateur:deleteGroup" }
+  methods:  POST

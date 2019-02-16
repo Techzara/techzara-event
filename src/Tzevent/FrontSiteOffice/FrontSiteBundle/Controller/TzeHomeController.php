@@ -22,17 +22,23 @@ class TzeHomeController extends Controller
         $_slide_manager          = $this->get(ServiceName::SRV_METIER_SLIDE);
         $_event_manager          = $this->get(ServiceName::SRV_METIER_ACTIVITE);
         $_participants_manager   = $this->get(ServiceName::SRV_METIER_PARTICIPANTS);
+        $_partenaires_manager   = $this->get(ServiceName::SRV_METIER_PARTENAIRES);
+        $_organisateur_manager   = $this->get(ServiceName::SRV_METIER_ORGANISATEUR);
 
         $_slides          = $_slide_manager->getAllTzeSlide();
 
         //Get new event
-        $_slides_new[] = $_slides[0];
+        $_event_new[] = $_slides[0];
 
         //Get activite new envent
-        $_activite  = $_event_manager->getActiviteEvent($_slides[1]);
+        $_activite  = $_event_manager->getActiviteEvent($_event_new);
 
         //Get participant by envent
-        $_participants = $_participants_manager->getParticipantsEvent($_slides_new);
+        $_participants = $_participants_manager->getParticipantsEvent($_event_new);
+
+        $_partenaires_liste = $_partenaires_manager->getPartenairesEvent($_event_new);
+
+        $_organisateur_liste = $_organisateur_manager->getOrganisateurEvent($_event_new);
 
         $_evenement = [];
         foreach ($_slides as $key => $_event )
@@ -49,10 +55,12 @@ class TzeHomeController extends Controller
 
 
         return $this->render('FrontSiteBundle:TzeHome:index.html.twig', array(
-            'slides'        => $_slides_new,
+            'slides'        => $_event_new,
             'evenements'    => $_evenement,
             'activites'     => $_activite,
-            'participants'  => $_participants
+            'participants'  => $_participants,
+            'partenaires'   => $_partenaires_liste,
+            'organisateurs' => $_organisateur_liste
         ));
     }
 }

@@ -16,4 +16,6 @@ class EntityName
     const TZE_SLIDE = 'MetierManagerBundle:TzeSlide';
     const TZE_ACTIVITE = 'MetierManagerBundle:TzeEvenementActivite';
     const TZE_PARTICIPANTS = 'MetierManagerBundle:TzeParticipants';
+    const TZE_PARTENAIRES = 'MetierManagerBundle:TzePartenaires';
+    const TZE_ORGANISATEUR = 'MetierManagerBundle:TzeOrganisateur';
 }

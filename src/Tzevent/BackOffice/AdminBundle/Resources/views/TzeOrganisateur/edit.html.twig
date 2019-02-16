@@ -1,0 +1,60 @@
+{% extends 'backoffice/base_admin.html.twig' %}
+
+{% form_theme part_form 'form/fields.html.twig' %}
+
+{% block title %}{{ parent() }} Modification activité d'évenement {% endblock %}
+
+{% set menu_activite        = true %}
+{% set menu_activite_create = true %}
+
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="callout callout-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="callout callout-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                {{ form_start(part_form) }}
+                <div class="box-header">
+                    <h3 class="box-title">Modifier un activité d'évenement</h3>
+                </div>
+
+                <div class="box-body">
+                    {{ form_row(part_form.actEvent) }}
+                    {{ form_row(part_form.orgName) }}
+                    {{ form_row(part_form.orgResponsabilite) }}
+                    {{ form_row(part_form.orgDecription) }}
+                    {{ form_row(part_form.orgImage) }}
+                    <div class="form-group">
+                        <div class="row">
+                            {% if organisateurs.orgImage %}
+                                <div class="col-md-2 col-lg-2 col-xs-2 blc-image">
+                                    <div class="image-container-block">
+                                        <img class="img-vignette img-responsive" src="{{ organisateurs.orgImage }}" />
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-footer">
+                    <input type="submit" class="btn btn-primary" value="Enregistrer" name="new_organisateur"/>
+                    <a href="{{ path('organisateur_index') }}"
+                       class="btn btn-default pull-left btn-mini-rectif" >
+                        Retour à la liste
+                    </a>
+                </div>
+                {{ form_end(part_form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

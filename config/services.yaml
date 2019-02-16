@@ -65,3 +65,13 @@ services:
         class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeParticipants\ServiceMertierTzeParticipants
         arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true
+
+    dit.manager.partenaires:
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzePartenaires\ServiceMetierPartenaires
+        arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
+        public: true
+
+    dit.manager.organisateur:
+        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeOrganisateur\ServiceMetierTzeOrganisateur
+        arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
+        public: true

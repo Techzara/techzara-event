@@ -16,4 +16,6 @@ class ServiceName
     const SRV_METIER_SLIDE = 'dit.manager.slide';
     const SRV_METIER_ACTIVITE = 'dit.manager.activite';
     const SRV_METIER_PARTICIPANTS = 'dit.manager.participants';
+    const SRV_METIER_PARTENAIRES = 'dit.manager.partenaires';
+    const SRV_METIER_ORGANISATEUR = 'dit.manager.organisateur';
 }

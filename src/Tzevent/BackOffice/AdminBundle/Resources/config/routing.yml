@@ -25,3 +25,11 @@ tze_activite:
 tze_participants:
     resource: "@AdminBundle/Resources/config/routing/participants.yml"
     prefix:   /participants
+
+tze_partenaires:
+    resource: "@AdminBundle/Resources/config/routing/partenaires.yml"
+    prefix:   /partenaires
+
+tze_organisateur:
+  resource: "@AdminBundle/Resources/config/routing/organisateur.yml"
+  prefix:   /organisateur

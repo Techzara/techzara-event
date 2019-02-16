@@ -1,0 +1,29 @@
+partenaires_index:
+  path:     /
+  defaults: { _controller: "AdminBundle:TzePartenaires:index" }
+  methods:  GET
+
+partenaires_new:
+  path:     /new
+  defaults: { _controller: "AdminBundle:TzePartenaires:new" }
+  methods:  [GET, POST]
+
+partenaires_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "AdminBundle:TzePartenaires:edit" }
+  methods:  [GET, POST]
+
+partenaires_update:
+  path:     /{id}/update
+  defaults: { _controller: "AdminBundle:TzePartenaires:update" }
+  methods:  [POST, PUT]
+
+partenaires_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "AdminBundle:TzePartenaires:delete" }
+  methods:  [GET, DELETE]
+
+partenaires_delete_group:
+  path:     /delete-group
+  defaults: { _controller: "AdminBundle:TzePartenaires:deleteGroup" }
+  methods:  POST
