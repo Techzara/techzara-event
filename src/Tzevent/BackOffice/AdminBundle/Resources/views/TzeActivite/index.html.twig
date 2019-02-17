@@ -64,7 +64,7 @@
                                     <td>
                                         {% if activite.actImage and file_exists(web_path ~ activite.actImage) %}
                                             <img style="max-width: 100px;" class="img-responsive"
-                                                 src="{{ activite.actImage }}" />
+                                                 src="{{ '/event/' ~ activite.actImage }}" />
                                         {% else %}
                                             Aucun
                                         {% endif %}
