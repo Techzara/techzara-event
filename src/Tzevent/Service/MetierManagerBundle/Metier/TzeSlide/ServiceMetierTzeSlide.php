@@ -23,18 +23,17 @@ class ServiceMetierTzeSlide
     }
 
     /**
-     * Ajouter un message flash
-     * @param string $_type
-     * @param string $_message
+     * @param $_type
+     * @param $_message
      * @return mixed
+     * @throws \Exception
      */
     public function setFlash($_type, $_message) {
         return $this->_container->get('session')->getFlashBag()->add($_type, $_message);
     }
 
     /**
-     * Récuperer le repository slide
-     * @return array
+     * @return \Doctrine\Common\Persistence\ObjectRepository|\Doctrine\ORM\EntityRepository
      */
     public function getRepository()
     {
@@ -60,9 +59,8 @@ class ServiceMetierTzeSlide
     }
 
     /**
-     * Récuperer un slide par identifiant
-     * @param Integer $_id
-     * @return array
+     * @param $_id
+     * @return object|null
      */
     public function getTzeSlideById($_id)
     {
@@ -70,10 +68,11 @@ class ServiceMetierTzeSlide
     }
 
     /**
-     * Enregistrer un slide
-     * @param TzeSlide $_slide
-     * @param string $_action
-     * @return boolean
+     * @param $_slide
+     * @param $_action
+     * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function saveTzeSlide($_slide, $_action)
     {
@@ -86,10 +85,10 @@ class ServiceMetierTzeSlide
     }
 
     /**
-     * Ajout slide
-     * @param TzeSlide $_slide
-     * @param Object $_image
-     * @return boolean
+     * @param $_slide
+     * @param $_image
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function addSlide($_slide, $_image)
     {
@@ -103,10 +102,10 @@ class ServiceMetierTzeSlide
     }
 
     /**
-     * Modification slide
-     * @param TzeSlide $_slide
-     * @param Object $_image
-     * @return boolean
+     * @param $_slide
+     * @param $_image
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function updateSlide($_slide, $_image)
     {
@@ -119,25 +118,20 @@ class ServiceMetierTzeSlide
         $this->saveTzeSlide($_slide, 'update');
     }
 
-    /**
-     * Supprimer un slide
-     * @param TzeSlide $_slide
-     * @return boolean
-     */
-    public function deleteTzeSlide($_slide)
+    public function deleteTzeSlide( $_slide)
     {
         $this->deleteImage($_slide);
-
         $this->_entity_manager->remove($_slide);
         $this->_entity_manager->flush();
 
-        return true;
+            return true;
     }
 
     /**
-     * Suppression multiple d'un slide
-     * @param array $_ids
-     * @return boolean
+     * @param $_ids
+     * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteGroupTzeSlide($_ids)
     {

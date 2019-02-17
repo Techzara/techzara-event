@@ -32,7 +32,7 @@ class TzeParticipants
      * @var TzeSlide
      * @ORM\ManyToOne(targetEntity="App\Tzevent\Service\MetierManagerBundle\Entity\TzeSlide")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="actEvent", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="actEvent", referencedColumnName="id", onDelete="CASCADE")
      * })
      */
     private $actEvent;

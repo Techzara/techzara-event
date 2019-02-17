@@ -144,10 +144,10 @@ class TzeSlideController extends Controller
     }
 
     /**
-     * Suppression slide
-     * @param Request $_request requête
+     * @param Request $_request
      * @param TzeSlide $_slide
-     * @return Redirect redirection
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Exception
      */
     public function deleteAction(Request $_request, TzeSlide $_slide)
     {
