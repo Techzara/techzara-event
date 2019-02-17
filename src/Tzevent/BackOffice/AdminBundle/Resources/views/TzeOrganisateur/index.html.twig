@@ -61,7 +61,7 @@
                                     <td>
                                         {% if organisateur.orgImage and file_exists(web_path ~ organisateur.orgImage) %}
                                             <img style="max-width: 100px;" class="img-responsive"
-                                                 src="{{ organisateur.orgImage }}" />
+                                                 src="{{ '/event/' ~ organisateur.orgImage }}" />
                                         {% else %}
                                             Aucun
                                         {% endif %}

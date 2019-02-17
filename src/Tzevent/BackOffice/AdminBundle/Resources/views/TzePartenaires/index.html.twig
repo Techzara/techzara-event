@@ -61,7 +61,7 @@
                                     <td>
                                         {% if partenaire.parteImage and file_exists(web_path ~ partenaire.parteImage) %}
                                             <img style="max-width: 100px;" class="img-responsive"
-                                                 src="{{ partenaire.parteImage }}" />
+                                                 src="{{ '/event/' ~ partenaire.parteImage }}" />
                                         {% else %}
                                             Aucun
                                         {% endif %}

@@ -9,7 +9,7 @@
 
         <div class="cover_slider owl-carousel owl-theme">
             {% for event in evenements %}
-            <div class="cover_item" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{{ event.image }}');
+            <div class="cover_item" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{{ event.image ? '/event/' ~ event.image : 'front_site_office/img/hiu/bg1.jpg' }}');
                     backdrop-filter: saturate(100%) grayscale(80%) drop-shadow(20px 20px 10px blue);">
                 <div class="slider_content">
                     <div class="slider-content-inner">
@@ -140,7 +140,7 @@
                 {% for activite in activites  %}
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="icon_box_one">
-                            <img src="{{ activite.actImage }}" alt="activite image" class="img-responsive">
+                            <img src="{{ activite.actImage ?  '/event/' ~ activite.actImage : 'front_site_office/img/hiu/bg1.jpg' }}" alt="activite image" class="img-responsive">
                             <div class="content">
                                 <h4>{{ activite.actTitle }}</h4>
                                 <p>
@@ -172,7 +172,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="speaker_box">
                         <div class="speaker_img">
-                            <img src="{{ image ? image : 'front_site_office/img/hiu/bg1.jpg' }}" alt="speaker name">
+                            <img src="{{ image ?  '/event/' ~ image : 'front_site_office/img/hiu/bg1.jpg' }}" alt="speaker name">
                             <div class="info_box">
                                 <h5 class="name"> {{ participant.partTeam }}</h5>
                                 <p class="position">{{ participant.partUniversite }}</p>
@@ -203,7 +203,7 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><img class=" img-fluid" src="{{ organisateur.orgImage ? organisateur.orgImage : 'front_site_office/img/hiu/bg1.jpg' }}" alt="card image"></p>
+                                        <p><img class=" img-fluid" src="{{ organisateur.orgImage ?  '/event/' ~ organisateur.orgImage : 'front_site_office/img/hiu/bg1.jpg' }}" alt="card image"></p>
                                         <h4 class="card-title">{{ organisateur.orgName }}</h4>
                                         <p class="card-text">{{ organisateur.orgResponsabilite }}</p>
                                         <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
@@ -266,7 +266,7 @@
                     {% for event in evenements %}
                         <tr>
                             <td>
-                                <img src="{{ event.image ? event.image : 'front_site_office/img/hiu/bg1.jpg' }}" alt="event">
+                                <img src="{{ event.image ? '/event/' ~ event.image : 'front_site_office/img/hiu/bg1.jpg' }}" alt="event">
                             </td>
                             <td class="event_date">
                                 {{ event.date_debut | date('d-m-Y') }}
@@ -307,7 +307,7 @@
                                     <div class="frontside">
                                         <div class="card">
                                             <div class="card-body text-center">
-                                                <p><img class=" img-fluid" src="{{ partenaire.parteImage ? partenaire.parteImage : 'front_site_office/img/hiu/bg1.jpg' }}" alt="card image"></p>
+                                                <p><img class=" img-fluid" src="{{ partenaire.parteImage ?  '/event/' ~ partenaire.parteImage : 'front_site_office/img/hiu/bg1.jpg' }}" alt="card image"></p>
                                                 <h4 class="card-title">{{ partenaire.parteEntite }}</h4>
                                                 <p class="card-text">{{ partenaire.parteLocation }}.</p>
                                                 <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
