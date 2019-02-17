@@ -1,0 +1,32 @@
+{% extends 'front_site_office/base_front.html.twig' %}
+
+{% block title %} liste participants {% endblock %}
+
+{% block body %}
+    <!--speaker section-->
+    <section class="pb100" style="margin-top: 7%">
+        <div class="container">
+            <div class="section_title mb50">
+                <h3 class="title">
+                    LES PARTICIPANTS
+                </h3>
+            </div>
+        </div>
+        <div class="row justify-content-center no-gutters p-4">
+            {% for participant in participants %}
+                {% set image = participant.partImage %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="speaker_box">
+                        <div class="speaker_img">
+                            <img src="{{ image ?  '/event/' ~ image : 'front_site_office/img/hiu/bg1.jpg' }}" alt="speaker name">
+                            <div class="info_box">
+                                <h5 class="name"> {{ participant.partTeam }}</h5>
+                                <p class="position">{{ participant.partUniversite }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

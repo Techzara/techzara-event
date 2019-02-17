@@ -66,4 +66,21 @@ class TzeHomeController extends Controller
             'organisateurs' => $_organisateur_liste
         ));
     }
+
+    public function showparticipantAction()
+    {
+        $_event_manager          = $this->get(ServiceName::SRV_METIER_SLIDE);
+        $_participants_manager   = $this->get(ServiceName::SRV_METIER_PARTICIPANTS);
+
+        $_event          = $_event_manager->getAllTzeSlide();
+
+        //Get new event
+        $_event_new[] = $_event[0];
+        $_participants = $_participants_manager->getParticipantsEvent($_event_new);
+
+        return $this->render('FrontSiteBundle:TzeHome:showparticipant.html.twig',array(
+            'participants' => $_participants
+        ));
+
+    }
 }
