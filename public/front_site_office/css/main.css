@@ -2013,10 +2013,10 @@ Cover
 .cover_slider .cover_item .slider_content .slider-content-inner .cover-xl-text {
   opacity: 0;
   text-transform: uppercase;
-  font-size: 90px;
+  font-size: 72px;
   font-weight: 900;
   line-height: 1.1;
-  color: white;
+  color: #f44336;
   -webkit-transform: translateY(20px);
   transform: translateY(20px);
   -webkit-transition: all 0.4s 600ms ease-in-out;
