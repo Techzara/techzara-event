@@ -36,7 +36,7 @@ class TzeParticipantsType extends AbstractType
                 'required'  => true
             ))
             ->add('partDescription',TextType::class,array(
-                'label'     => 'Nom team',
+                'label'     => 'Description',
                 'required'  => true
             ))
             ->add('partImage',FileType::class,array(
@@ -46,7 +46,7 @@ class TzeParticipantsType extends AbstractType
                 'required' => false
             ))
             ->add('partUniversite',TextType::class,array(
-                'label'     => 'Nom team',
+                'label'     => 'Université',
                 'required'  => true
             ))
             ;
