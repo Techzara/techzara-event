@@ -2,3 +2,8 @@ home_site_index:
     path:     /
     defaults: { _controller: "FrontSiteBundle:TzeHome:index" }
     methods:  GET
+
+email_news_new:
+    path:     /new
+    defaults: { _controller: "FrontSiteBundle:TzeFooter:show" }
+    methods:  [GET, POST]

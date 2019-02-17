@@ -1,5 +1,6 @@
 {% set _locale = app.request.locale %}
 
+{#{% form_theme form 'form/custom_fields.html.twig' %}#}
 <!--footer start -->
 <footer id="contact">
     <div class="container">
@@ -17,10 +18,10 @@
                         des étudiants dans le dommaine de la nouvelle Téchnologie</p>
                         <ul class="footer_social">
                             <li>
-                                <a href="https://www.techzara.org" target="_blank"><i class="fa fa-facebook" style="color: white"></i></a>
+                                <a href="https://www.facebook.com/Techzara" target="_blank"><i class="fa fa-facebook" style="color: white"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-dribbble" style="color:#ffffff;"></i></a>
+                                <a href="https://www.techzara.org" target="_blank"><i class="fa fa-dribbble" style="color:#ffffff;"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -36,8 +37,11 @@
                     </div>
                     <div class="footer_box_body">
                         <div class="newsletter_form">
-                            <input type="email" class="form-control" placeholder="E-Mail here">
-                            <button class="btn btn-rounded btn-block btn-primary">SUBSCRIBE</button>
+                            {{ form_start(form) }}
+                                {{ form_row(form.nwsEmail, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_row(form.nwsSubscribed) }}
+                                <button href="{{ path('home_site_index') }}" class="btn btn-rounded btn-block btn-primary">SUBSCRIBE</button>
+                            {{ form_end(form) }}
                         </div>
                     </div>
                 </div>

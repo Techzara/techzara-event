@@ -68,10 +68,11 @@ class ServiceMetierEmailNewsletter
     }
 
     /**
-     * Enregistrer un email newsletter
-     * @param TzeEmailNewsletter $_email_newsletter
-     * @param string $_action
-     * @return boolean
+     * @param $_email_newsletter
+     * @param $_action
+     * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function saveEmailNewsletter($_email_newsletter, $_action)
     {
@@ -84,9 +85,10 @@ class ServiceMetierEmailNewsletter
     }
 
     /**
-     * Supprimer un email newsletter
-     * @param TzeEmailNewsletter $_email_newsletter
-     * @return boolean
+     * @param $_email_newsletter
+     * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteEmailNewsletter($_email_newsletter)
     {

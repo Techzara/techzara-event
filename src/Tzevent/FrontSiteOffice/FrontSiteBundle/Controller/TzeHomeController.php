@@ -2,10 +2,13 @@
 
 namespace App\Tzevent\FrontSiteOffice\FrontSiteBundle\Controller;
 
+use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEmailNewsletter;
 use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEvenementActivite;
+use App\Tzevent\Service\MetierManagerBundle\Form\TzeEmailNewsletterType;
 use App\Tzevent\Service\MetierManagerBundle\Utils\CmsName;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Tzevent\Service\MetierManagerBundle\Utils\ServiceName;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class TzeHomeController
