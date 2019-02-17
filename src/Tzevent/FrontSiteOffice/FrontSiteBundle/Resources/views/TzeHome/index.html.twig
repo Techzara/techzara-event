@@ -19,7 +19,7 @@
                                 <p class="cover-date">
                                     {{ event.date_debut | date('d') }} - {{ event.date_fin | date('d')  }} /  {{ event.date_fin | date('m')  }}
                                 </p>
-                                <a href="#" class=" btn btn-primary btn-rounded" >
+                                <a href="#event" class=" btn btn-primary btn-rounded" >
                                     See more
                                 </a>
                             </div>
@@ -33,7 +33,7 @@
     <!--cover section slider end -->
 
     <!--event info -->
-    <section class="pt100 pb100">
+    <section class="pt100 pb100" id="event">
         {% for new_event in slides %}
             <div class="container">
                 <div class="row justify-content-center">
@@ -100,7 +100,7 @@
 
 
     <!--event countdown -->
-    <section class="bg-img pt70 pb70" style="background-image: url({{ asset('front_site_office/img/bg/bg-img.png') }});">
+    <section class="bg-img pt70 pb70" style="background-color: #003261d4!important;">
         <div class="overlay_dark"></div>
         <div class="container">
             <div class="row justify-content-center">
@@ -187,7 +187,7 @@
     <!--speaker section end -->
 
     <!--Price section-->
-    <section class="pb100">
+    <section class="pb100" id="organisateur">
         <div class="container">
             <div class="section_title mb50">
                 <h3 class="title">
@@ -291,7 +291,7 @@
     <!--event calender end -->
 
     <!--brands section -->
-    <section class="bg-gray pt100 pb100">
+    <section class="bg-gray pt100 pb100" id="partenaires">
         <div class="container">
             <div class="section_title mb50">
                 <h3 class="title">

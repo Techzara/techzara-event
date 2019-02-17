@@ -130,8 +130,6 @@ class ServiceMetierTzeSlide
     /**
      * @param $_ids
      * @return bool
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteGroupTzeSlide($_ids)
     {

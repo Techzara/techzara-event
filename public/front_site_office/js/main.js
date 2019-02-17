@@ -41,7 +41,7 @@ $(document).ready(function() {
     $(".countdown")
         .countdown(dateEvent, function(event) {
             $(this).html(
-                event.strftime('<div>%D <span>Days</span></div>  <div>%H<span>Hours</span></div> <div>%M<span>Minutes</span></div> <div>%S<span>Seconds</span></div>')
+                event.strftime('<div class="day">%D <span>Days</span></div>  <div class="day">%H<span>Hours</span></div> <div class="day">%M<span>Minutes</span></div> <div class="day">%S<span>Seconds</span></div>')
             );
         });
 
@@ -140,6 +140,12 @@ $(document).ready(function() {
     /**
      * Julien Rajerison
      */
+    $('a[href*="#"]').on('click', function (e) {
+        e.preventDefault();
 
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 500, 'linear');
+    });
 
 });
