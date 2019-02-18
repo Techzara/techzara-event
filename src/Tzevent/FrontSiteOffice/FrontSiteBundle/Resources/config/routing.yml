@@ -1,3 +1,7 @@
 tze_home_site:
     resource: "@FrontSiteBundle/Resources/config/routing/home.yml"
     prefix:   /
+
+tze_api:
+    resource: "@FrontSiteBundle/Resources/config/routing/api.yml"
+    prefix:   /api

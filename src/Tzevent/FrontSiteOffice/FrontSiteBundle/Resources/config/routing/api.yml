@@ -1,0 +1,14 @@
+api_participants:
+  path:     /participants
+  defaults: { _controller: "FrontSiteBundle:Api:participants" }
+  methods:  GET
+
+api_partenaires:
+  path:     /partenaires
+  defaults: { _controller: "FrontSiteBundle:Api:partenairesList" }
+  methods:  GET
+
+api_organisateur:
+  path:     /organisateurs
+  defaults: { _controller: "FrontSiteBundle:Api:organisateur" }
+  methods:  GET

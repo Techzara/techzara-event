@@ -2,13 +2,8 @@
 
 namespace App\Tzevent\FrontSiteOffice\FrontSiteBundle\Controller;
 
-use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEmailNewsletter;
-use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEvenementActivite;
 use App\Tzevent\Service\MetierManagerBundle\Entity\TzePartenaires;
-use App\Tzevent\Service\MetierManagerBundle\Form\TzeEmailNewsletterType;
 use App\Tzevent\Service\MetierManagerBundle\Form\TzePartenairesType;
-use App\Tzevent\Service\MetierManagerBundle\Utils\CmsName;
-use mysql_xdevapi\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Tzevent\Service\MetierManagerBundle\Utils\ServiceName;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,8 +37,10 @@ class TzeHomeController extends Controller
         //Get participant by envent
         $_participants = $_participants_manager->getParticipantsEvent($_event_new);
 
+        //Get partenaires by event
         $_partenaires_liste = $_partenaires_manager->getPartenairesEvent($_event_new);
 
+        // Get organisateur by event
         $_organisateur_liste = $_organisateur_manager->getOrganisateurEvent($_event_new);
 
         $_evenement = [];

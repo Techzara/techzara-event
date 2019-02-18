@@ -3,7 +3,6 @@
 namespace App\Tzevent\Service\MetierManagerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * TzeSlide
  *
