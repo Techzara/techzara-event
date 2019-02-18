@@ -77,7 +77,8 @@ class ApiController extends Controller
         $_list= new JsonResponse();
         $_list->setData(array($_name => $_data));
         $_list->setStatusCode(200);
-
+        $_list->headers->set('Content-Type', 'application/json');
+        $_list->headers->set('Access-Control-Allow-Origin', '*');
         return $_list;
     }
     /**
