@@ -27,8 +27,8 @@
                         <div class="container">
                             <div class="slider-content-center">
                                 <strong class="cover-xl-text">{{ event.title }}</strong>
-                                <p class="cover-date">
-                                    {{ event.date_debut | date('d') }} - {{ event.date_fin | date('d')  }} /  {{ event.date_fin | date('m')  }}
+                                <p class="cover-date mt-2">
+                                    {{ event.date_debut | date('d') }} - {{ event.date_fin | date('d')  }}   {{ event.date_fin | date('M')  }} {{ event.date_fin | date('Y')  }}
                                 </p>
                                 <a href="#event" class=" btn btn-primary btn-rounded" >
                                     See more
@@ -95,7 +95,7 @@
                             <i class="ion-ios-pricetag-outline"></i>
                             <div class="content">
                                 <h5 class="box_title">
-                                    Participant count
+                                    Participants
                                 </h5>
                                 <p>
                                     {{ new_event.sldPlace }}
