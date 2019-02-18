@@ -18,7 +18,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  color: #2f66b9;
+  color: #007792;
   line-height: 1.3;
 }
 
@@ -374,7 +374,7 @@ img {
 }
 
 .color-black {
-  color: #2f66b9 !important;
+  color: #007792 !important;
 }
 
 .color-light {
@@ -424,7 +424,7 @@ img {
 }
 
 .bg-black {
-  background-color: #2f66b9 !important;
+  background-color: #007792 !important;
 }
 
 .bg-blue {
@@ -1685,7 +1685,7 @@ header li ul.sub_menu li a:hover {
 }
 
 header.sticky_header {
-  background-color: #2f66b9;
+  background-color: #007792;
   margin: 0;
   padding: 5px;
   -webkit-box-shadow: 0 0 42px rgba(0, 0, 0, 0.08);
@@ -1714,7 +1714,7 @@ header.sticky_header {
 }
 @media (max-width: 767px) {
   header {
-    background-color: #2f66b9;
+    background-color: #007792;
     margin: 0;
     -webkit-box-shadow: 0 0 42px rgba(0, 0, 0, 0.08);
     box-shadow: 0 0 42px rgba(0, 0, 0, 0.08);
@@ -1736,7 +1736,7 @@ header.sticky_header {
 -------------------------------------------------------- */
 footer {
   padding: 50px 0 100px;
-  background-color: #2f66b9;
+  background-color: #007792;
 }
 footer .footer_box {
   position: relative;
@@ -1802,7 +1802,7 @@ footer .newsletter_form .form-control {
 }
 
 .copyright_footer {
-  background-color: #2f66b9;
+  background-color: #007792;
   padding: 15px;
 }
 .copyright_footer p {
@@ -1848,12 +1848,12 @@ footer .newsletter_form .form-control {
   outline: 0 !important;
   border: none;
   cursor: pointer;
-  background-color: #2f66b9;
+  background-color: #007792;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 .btn:hover {
-  color: #2f66b9;
+  color: #007792;
   background-color: #fff;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
@@ -1891,16 +1891,16 @@ footer .newsletter_form .form-control {
 }
 
 .btn-primary {
-  background-color: #2f66b9;
+  background-color: #007792;
   border: solid 1px #ffffff;
   color: #ffffff;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 .btn-primary:hover {
-  background-color: #2f66b9;
+  background-color: #007792;
   color: #ffffff;
-  border: solid 1px #2f66b9;
+  border: solid 1px #007792;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
@@ -1922,27 +1922,27 @@ footer .newsletter_form .form-control {
 .btn-light {
   background-color: #ffffff;
   border: solid 1px #ffffff;
-  color: #2f66b9;
+  color: #007792;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 .btn-light:hover {
   color: #ffffff;
-  border: solid 1px #2f66b9;
-  background-color: #2f66b9;
+  border: solid 1px #007792;
+  background-color: #007792;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 
 .btn-dark {
   background-color: #333333;
-  border: solid 1px #2f66b9;
+  border: solid 1px #007792;
   color: #ffffff;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 .btn-dark:hover {
-  color: #2f66b9;
+  color: #007792;
   border: solid 1px #ffffff;
   background-color: #ffffff;
   -webkit-transition: all 300ms ease-in-out;
@@ -2205,7 +2205,7 @@ Cover
   display: inline-block;
   list-style: none;
   background-color: #ffffff;
-  color: #2f66b9;
+  color: #007792;
   border-top-left-radius: 51px;
   border-top-right-radius: 51px;
 }
@@ -2243,7 +2243,7 @@ Cover
   font-size: 12px;
   font-weight: 600;
   display: inline-block;
-  color: #2f66b9;
+  color: #007792;
 }
 .breadcrumbs ul li span {
   padding: 13px;
@@ -2311,7 +2311,7 @@ Cover
   padding: 10px 25px 25px;
 }
 .icon_box_one .content h4 {
-  color: #2f66b9;
+  color: #007792;
   margin-bottom: 15px;
   text-transform: capitalize;
   -webkit-transition: all 0.4s ease-in-out;
@@ -2406,7 +2406,7 @@ Cover
 .speaker_box .speaker_img .info_box {
   position: absolute;
   bottom: 25px;
-  background-color: #2f66b9;
+  background-color: #007792;
   padding: 10px 30px;
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
@@ -2510,7 +2510,7 @@ Cover
 .price_box .price_tag {
   padding: 15px 0;
   text-transform: capitalize;
-  color: #2f66b9;
+  color: #007792;
   font-size: 48px;
   font-weight: 700;
 }
@@ -2566,7 +2566,7 @@ Cover
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #2f66b9;
+  color: #007792;
   position: relative;
   padding: 15px 0;
   line-height: 1.3;
@@ -2582,7 +2582,7 @@ Cover
 .event_box .event_info .speakers strong {
   font-size: 14px;
   font-weight: 700;
-  color: #2f66b9;
+  color: #007792;
 }
 .event_box .event_info .speakers span {
   font-size: 14px;
@@ -2604,7 +2604,7 @@ Cover
   color: #f34336;
 }
 .event_box .readmore_btn:hover {
-  color: #2f66b9;
+  color: #007792;
 }
 
 /*  ----------------------------------------------------
@@ -2628,7 +2628,7 @@ Cover
   text-transform: capitalize;
   margin: 0;
   font-size: 14px;
-  color: #2f66b9;
+  color: #007792;
   margin-top: 15px;
 }
 
@@ -2640,7 +2640,7 @@ Cover
   min-width: 1000px;
 }
 .table.event_calender thead.event_title {
-  background-color: #2f66b9;
+  background-color: #007792;
   color: #ffffff;
   border: 0;
 }
@@ -2706,7 +2706,7 @@ Cover
   transition: all ease-in-out 0.4s;
 }
 .table.event_calender tbody td.buy_link a:hover {
-  color: #2f66b9;
+  color: #007792;
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 }
@@ -2758,7 +2758,7 @@ Cover
   content: "\f347";
   font-family: "Ionicons";
   position: absolute;
-  color: #2f66b9;
+  color: #007792;
   top: -10px;
   background-color: #ffffff;
   padding: 0 35px;
@@ -2851,7 +2851,7 @@ Cover
   text-decoration: underline;
 }
 .blog_card .blog_box_data .readmore_btn:hover {
-  color: #2f66b9;
+  color: #007792;
 }
 
 .nav_menu {
@@ -2902,7 +2902,7 @@ Cover
   margin-bottom: 25px;
   font-size: 16px;
   font-weight: bold;
-  color: #2f66b9;
+  color: #007792;
   text-transform: capitalize;
 }
 .widget ul {
@@ -2926,7 +2926,7 @@ Cover
   margin-left: 115px;
 }
 .widget_recent_posts .content a {
-  color: #2f66b9;
+  color: #007792;
   text-transform: capitalize;
   font-weight: 500;
   font-size: 15px;

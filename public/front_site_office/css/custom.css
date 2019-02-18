@@ -106,3 +106,6 @@
 .day{
     border-radius: 50%!important;
 }
+.copyright_footer{
+    box-shadow: 0 0 42px rgba(0, 0, 0, 0.08);
+}
