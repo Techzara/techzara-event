@@ -4,7 +4,7 @@
 <!--header start here -->
 <header class="header navbar fixed-top navbar-expand-md">
     <div class="container">
-        <a class="navbar-brand logo" href="https://www.techzara.org/event">
+        <a class="navbar-brand logo" href="{{ path('home_site_index') }}">
             <img src="{{ asset('front_site_office/img/hiu/icon.jpg') }}" alt="Techzara"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headernav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
             <ul class=" nav navbar-nav menu">
                 <li class="nav-item">
-                    <a class="nav-link active" href="https://www.techzara.org/event">Home</a>
+                    <a class="nav-link active" href="{{ path('home_site_index') }}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="#event">About the event</a>

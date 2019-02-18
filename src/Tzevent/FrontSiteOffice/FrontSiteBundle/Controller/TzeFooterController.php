@@ -28,7 +28,7 @@ class TzeFooterController extends Controller
             // Enregistrement email
             $_email_manager->saveEmailNewsletter($_email, 'new');
 
-            $_email_manager->setFlash('success', "Email abonné ajouté");
+            $_email_manager->setFlash('success', 'Email abonné ajouté');
 
             return $this->redirect($this->generateUrl('home_site_index'));
         }

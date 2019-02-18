@@ -27,32 +27,51 @@ class TzePartenairesType extends AbstractType
         $builder
             ->add('parteEntite',TextType::class,array(
                 'label' => 'Title of etities',
-                'required' => false
+                'required' => true,
+                'attr'  => array(
+                    'placeholder' => 'Entity name '
+                )
             ))
 
             ->add('parteLocation',TextType::class,array(
-                'label' => 'Adresse',
-                'required' => false
+                'label' => 'Adresse email',
+                'required' => true,
+                'attr'     => array(
+                    'pattern'     => "[^@]+@[^@]+\.[a-zA-Z]{2,}",
+                    'placeholder' => 'email adress'
+                ),
             ))
 
             ->add('parteContribution',TextType::class,array(
                 'label' => 'Contribution de partenaires',
-                'required' => false
+                'required' => true,
+                'attr'  => array(
+                    'placeholder' => 'Your service proposition for HIU_2019 '
+                )
             ))
 
             ->add('parteFacebook',TextType::class,array(
                 'label' => 'Lien facebook',
-                'required' => false
+                'required' => false,
+                'attr'  => array(
+                    'placeholder' => 'Entity facebook name '
+                )
             ))
 
             ->add('partewebSite',TextType::class,array(
                 'label' => 'Website',
-                'required' => false
+                'required' => true,
+                'attr'  => array(
+                    'placeholder' => 'Entity website domain '
+                )
             ))
 
             ->add('parteDescription',TextareaType::class,array(
                 'label' => 'Partenaire activities',
-                'required' => false
+                'required' => true,
+                'attr'  => array(
+                    'placeholder' => 'Entity activities '
+                )
             ))
 
             ->add('actEvent',EntityType::class,array(

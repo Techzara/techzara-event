@@ -4,8 +4,11 @@ namespace App\Tzevent\FrontSiteOffice\FrontSiteBundle\Controller;
 
 use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEmailNewsletter;
 use App\Tzevent\Service\MetierManagerBundle\Entity\TzeEvenementActivite;
+use App\Tzevent\Service\MetierManagerBundle\Entity\TzePartenaires;
 use App\Tzevent\Service\MetierManagerBundle\Form\TzeEmailNewsletterType;
+use App\Tzevent\Service\MetierManagerBundle\Form\TzePartenairesType;
 use App\Tzevent\Service\MetierManagerBundle\Utils\CmsName;
+use mysql_xdevapi\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Tzevent\Service\MetierManagerBundle\Utils\ServiceName;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,6 +84,50 @@ class TzeHomeController extends Controller
         return $this->render('FrontSiteBundle:TzeHome:showparticipant.html.twig',array(
             'participants' => $_participants
         ));
+    }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function newPartAction(Request $request)
+    {
+
+        $_partenaires_manager   = $this->get(ServiceName::SRV_METIER_PARTENAIRES);
+        $_partenaires = new TzePartenaires();
+
+        $_form = $this->createCreateForm($_partenaires);
+        $_form->handleRequest($request);
+
+        if ($_form->isSubmitted() && $_form->isValid()):
+            $_image = $_form['parteImage']->getData();
+            $_partenaires_manager->addPartenaires($_partenaires,$_image);
+            $this->alertMessage('Partenaires ajouté');
+            return $this->redirect($this->generateUrl('home_site_index'));
+        endif;
+
+        return $this->render('FrontSiteBundle:TzeHome:partenaire.html.twig',array(
+            'partenaires' => $_partenaires,
+            'form' => $_form->createView()
+        ));
+    }
+
+    public function alertMessage($_message)
+    {
+        echo "<script type='text/javascript'>alert('$_message');</script>";
+    }
+
+    /**
+     * @param TzePartenaires $_email
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    private function createCreateForm(TzePartenaires $_email)
+    {
+        $_form = $this->createForm(TzePartenairesType::class, $_email, array(
+            'action' => $this->generateUrl('email_part_new'),
+            'method' => 'POST'
+        ));
+
+        return $_form;
     }
 }

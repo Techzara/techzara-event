@@ -6,16 +6,6 @@
 {% set menu_partenaire_list = true %}
 
 {% block body %}
-    {% for flashMessage in app.session.flashbag.get('success') %}
-        <div class="callout callout-success">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
-    {% for flashMessage in app.session.flashbag.get('error') %}
-        <div class="callout callout-danger">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
 
     <div class="row">
         <div class="col-xs-12">

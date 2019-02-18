@@ -4,8 +4,19 @@
 
 {% block body %}
 
-    <!--cover section slider -->
+
     <section id="home" class="home-cover">
+
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="callout callout-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('error') %}
+            <div class="callout callout-danger">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
 
         <div class="cover_slider owl-carousel owl-theme">
             {% for event in evenements %}
@@ -335,6 +346,9 @@
                         </div>
                     </div>
                 {% endfor %}
+                <div class="mt-3">
+                    <a href="{{ path('email_part_new') }}" class=" btn btn-primary btn-rounded">Become a partenaires</a>
+                </div>
             </div>
         </div>
     </section>

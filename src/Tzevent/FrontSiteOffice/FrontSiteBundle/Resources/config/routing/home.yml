@@ -8,6 +8,11 @@ email_news_new:
     defaults: { _controller: "FrontSiteBundle:TzeFooter:show" }
     methods:  [GET, POST]
 
+email_part_new:
+    path:     /newpart
+    defaults: { _controller: "FrontSiteBundle:TzeHome:newPart" }
+    methods:  [GET, POST]
+
 show_participants:
     path:     /participant
     defaults: { _controller: "FrontSiteBundle:TzeHome:showparticipant" }
