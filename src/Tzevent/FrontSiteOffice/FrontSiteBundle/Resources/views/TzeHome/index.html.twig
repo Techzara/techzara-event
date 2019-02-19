@@ -3,21 +3,13 @@
 {% block title %} Techzara {% endblock %}
 
 {% block body %}
-
+    {% for msg in app.flashes('info') %}
+        <div class="alert alert-success" style="margin-top: 83px;">
+            {{ msg }}
+        </div>
+    {% endfor %}
 
     <section id="home" class="home-cover">
-
-        {% for flashMessage in app.session.flashbag.get('success') %}
-            <div class="callout callout-success">
-                {{ flashMessage }}
-            </div>
-        {% endfor %}
-        {% for flashMessage in app.session.flashbag.get('error') %}
-            <div class="callout callout-danger">
-                {{ flashMessage }}
-            </div>
-        {% endfor %}
-
         <div class="cover_slider owl-carousel owl-theme">
             {% for event in evenements %}
             <div class="cover_item" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{{ event.image ? '/event/' ~ event.image : 'front_site_office/img/hiu/bg1.jpg' }}');
@@ -27,7 +19,7 @@
                         <div class="container">
                             <div class="slider-content-center">
                                 <strong class="cover-xl-text">{{ event.title }}</strong>
-                                <p class="cover-date mt-2">
+                                <p class="cover-date">
                                     {{ event.date_debut | date('d') }} - {{ event.date_fin | date('d')  }}   {{ event.date_fin | date('M')  }} {{ event.date_fin | date('Y')  }}
                                 </p>
                                 <a href="#event" class=" btn btn-primary btn-rounded" >
@@ -95,7 +87,7 @@
                             <i class="ion-ios-pricetag-outline"></i>
                             <div class="content">
                                 <h5 class="box_title">
-                                    Participants
+                                    Participant
                                 </h5>
                                 <p>
                                     {{ new_event.sldPlace }}

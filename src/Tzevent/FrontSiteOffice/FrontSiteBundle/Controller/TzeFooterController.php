@@ -27,11 +27,10 @@ class TzeFooterController extends Controller
         if ($_form->isSubmitted() && $_form->isValid()) {
             // Enregistrement email
             $_email_manager->saveEmailNewsletter($_email, 'new');
-
-            $_email_manager->setFlash('success', 'Email abonné ajouté');
-
+            $this->addFlash('info','Email add successful');
             return $this->redirect($this->generateUrl('home_site_index'));
         }
+
         return $this->render('FrontSiteBundle:TzeFooter:index.html.twig', array(
             'email_newsletter' => $_email,
             'form'             => $_form->createView()

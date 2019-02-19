@@ -96,12 +96,12 @@ class TzeHomeController extends Controller
         $_form = $this->createCreateForm($_partenaires);
         $_form->handleRequest($request);
 
-        if ($_form->isSubmitted() && $_form->isValid()):
+        if ($_form->isSubmitted() && $_form->isValid()) {
             $_image = $_form['parteImage']->getData();
             $_partenaires_manager->addPartenaires($_partenaires,$_image);
-            $this->alertMessage('Partenaires ajouté');
+            $this->addFlash('info','Partner add successful');
             return $this->redirect($this->generateUrl('home_site_index'));
-        endif;
+        }
 
         return $this->render('FrontSiteBundle:TzeHome:partenaire.html.twig',array(
             'partenaires' => $_partenaires,
@@ -109,10 +109,6 @@ class TzeHomeController extends Controller
         ));
     }
 
-    public function alertMessage($_message)
-    {
-        echo "<script type='text/javascript'>alert('$_message');</script>";
-    }
 
     /**
      * @param TzePartenaires $_email
