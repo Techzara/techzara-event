@@ -6,7 +6,7 @@
  * Time: 1:57 PM
  */
 
-namespace App\Tzevent\FrontSiteOffice\FrontSiteBundle\Controller;
+namespace App\Tzevent\Api\ApiBundle\Controller;
 
 
 use App\Tzevent\Service\MetierManagerBundle\Entity\TzeParticipants;

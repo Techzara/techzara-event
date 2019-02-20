@@ -6,6 +6,9 @@ tze_login:
     path: /login
     defaults: { _controller: UserBundle:Security:login }
 
+api_login_check:
+    path: /api/login_check
+
 tze_resetting_password:
     path: /{_locale}/resetting-password
     defaults: { _controller: "UserBundle:User:resettingPassword", _locale : fr }

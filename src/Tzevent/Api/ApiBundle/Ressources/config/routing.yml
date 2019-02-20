@@ -1,0 +1,3 @@
+tze_api:
+  resource: "@ApiBundle/Ressources/config/routing/api.yml"
+  prefix:   /

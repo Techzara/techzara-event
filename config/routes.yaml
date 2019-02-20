@@ -10,6 +10,10 @@ user:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /
 
+api_routage:
+    resource:  "@ApiBundle/Ressources/config/routing.yml"
+    prefix:   /api
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

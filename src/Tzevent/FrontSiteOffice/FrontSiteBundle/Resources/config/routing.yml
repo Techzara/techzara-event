@@ -4,4 +4,4 @@ tze_home_site:
 
 tze_api:
     resource: "@FrontSiteBundle/Resources/config/routing/api.yml"
-    prefix:   /api
+    prefix:   /apiaaa

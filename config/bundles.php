@@ -15,6 +15,7 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     FOS\UserBundle\FOSUserBundle::class => ['all' => true],
     App\Tzevent\BackOffice\AdminBundle\AdminBundle::class => ['all' => true],
+    App\Tzevent\Api\ApiBundle\ApiBundle::class => ['all' => true],
     App\Tzevent\FrontSiteOffice\FrontSiteBundle\FrontSiteBundle::class => ['all' => true],
     App\Tzevent\Service\MetierManagerBundle\MetierManagerBundle::class => ['all' => true],
     App\Tzevent\Service\UserBundle\UserBundle::class => ['all' => true],
@@ -24,4 +25,5 @@ return [
     Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle::class => ['all' => true],
     Sonata\SeoBundle\SonataSeoBundle::class => ['all' => true],
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
+    Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
 ];

@@ -98,6 +98,18 @@
             "ref": "cc73a8a17df74c084bd0b2ab71c73b46139bd022"
         }
     },
+    "lcobucci/jwt": {
+        "version": "3.2.5"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "509b1542f3180a1cfe248ade8b7bf5092c2d4127"
+        }
+    },
     "liip/imagine-bundle": {
         "version": "1.8",
         "recipe": {
@@ -109,6 +121,9 @@
     },
     "monolog/monolog": {
         "version": "1.23.0"
+    },
+    "namshi/jose": {
+        "version": "7.2.3"
     },
     "ocramius/package-versions": {
         "version": "1.3.0"

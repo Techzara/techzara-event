@@ -53,7 +53,9 @@ class TzeParticipantsController extends Controller
         $_form->handleRequest($request);
 
         if ($_form->isSubmitted() && $_form->isValid()):
+//            dump($_form);die();
             $_image = $_form['partImage']->getData();
+//        dump($_participants,$_image);die();
             $this->getManager()->addParticipants($_participants,$_image);
             try {
                 $this->getManager()->setFlash('successfull', 'Participants ajouté');
@@ -130,31 +132,23 @@ class TzeParticipantsController extends Controller
 
     /**
      * @param Request $_request
-     * @param TzeParticipants $_participants
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function deleteGroupAction(Request $_request , TzeParticipants $_participants)
+    public function deleteGroupAction(Request $_request)
     {
         if ($_request->request->get('_group_delete') !== null) {
-        $_ids = $_request->request->get('delete');
-        if ($_ids === null) {
-            try {
+            $_ids = $_request->request->get('delete');
+            if ($_ids === null) {
                 $this->getManager()->setFlash('error', 'Veuillez sélectionner un élément à supprimer');
-            } catch (\Exception $e) {
+                return $this->redirect($this->generateUrl('participants_index'));
             }
-            return $this->redirect($this->generateUrl('slide_index'));
+            $this->getManager()->deleteGroupTzeParticipants($_ids);
         }
-        $this->getManager()->deleteGroupTzeParticipants($_ids);
-    }
-        try {
-            $this->getManager()->setFlash('success', 'Eléments sélectionnés supprimés');
-        } catch (\Exception $e) {
-        }
+        $this->getManager()->setFlash('success', 'Eléments sélectionnés supprimés');
 
         return $this->redirect($this->generateUrl('participants_index'));
-
     }
 
     /**

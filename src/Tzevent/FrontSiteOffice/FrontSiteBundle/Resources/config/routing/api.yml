@@ -3,6 +3,11 @@ api_participants:
   defaults: { _controller: "FrontSiteBundle:Api:participants" }
   methods:  GET
 
+api_participants_new:
+  path:     /participants/new
+  defaults: { _controller: "FrontSiteBundle:Api:newParticipants" }
+  methods:  POST
+
 api_partenaires:
   path:     /partenaires
   defaults: { _controller: "FrontSiteBundle:Api:partenairesList" }
