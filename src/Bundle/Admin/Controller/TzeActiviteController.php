@@ -9,9 +9,9 @@
 namespace App\Bundle\Admin\Controller;
 
 
-use App\Shared\SharedBundle\Entity\TzeEvenementActivite;
-use App\Shared\SharedBundle\Form\TzeActiviteType;
-use App\Shared\SharedBundle\Utils\ServiceName;
+use App\Shared\Entity\TzeEvenementActivite;
+use App\Shared\Form\TzeActiviteType;
+use App\Shared\Services\Utils\ServiceName;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 

@@ -2,11 +2,11 @@
 
 namespace App\Bundle\Admin\Controller;
 
-use App\Shared\SharedBundle\Form\TzeRoleType;
-use App\Shared\SharedBundle\Utils\ServiceName;
+use App\Shared\Form\TzeRoleType;
+use App\Shared\Services\Utils\ServiceName;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use App\Shared\SharedBundle\Entity\TzeRole;
+use App\Shared\Entity\TzeRole;
 
 /**
  * Class TzeRoleController
@@ -14,8 +14,7 @@ use App\Shared\SharedBundle\Entity\TzeRole;
 class TzeRoleController extends Controller
 {
     /**
-     * Afficher tout les rôles
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {

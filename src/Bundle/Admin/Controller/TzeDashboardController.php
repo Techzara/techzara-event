@@ -3,7 +3,6 @@
 namespace App\Bundle\Admin\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use App\Shared\SharedBundle\Utils\ServiceName;
 
 /**
  * Class TzeDashboardController
@@ -11,8 +10,7 @@ use App\Shared\SharedBundle\Utils\ServiceName;
 class TzeDashboardController extends Controller
 {
     /**
-     * Afficher le tableau de bord
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {

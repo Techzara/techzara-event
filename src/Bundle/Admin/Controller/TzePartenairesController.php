@@ -9,9 +9,9 @@
 namespace App\Bundle\Admin\Controller;
 
 
-use App\Shared\SharedBundle\Entity\TzePartenaires;
-use App\Shared\SharedBundle\Form\TzePartenairesType;
-use App\Shared\SharedBundle\Utils\ServiceName;
+use App\Shared\Entity\TzePartenaires;
+use App\Shared\Form\TzePartenairesType;
+use App\Shared\Services\Utils\ServiceName;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,7 +25,7 @@ class TzePartenairesController extends  Controller
 {
 
     /**
-     * @return \App\Shared\SharedBundle\Repository\TzePartenaires\RepositoryPartenairesManager|object
+     * @return \App\Shared\Repository\RepositoryPartenairesManager|object
      */
     public function getManager()
     {

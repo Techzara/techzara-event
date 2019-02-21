@@ -21,18 +21,17 @@ class UserManager
     }
 
     /**
-     * Ajouter un message flash
-     * @param string $_type
-     * @param string $_message
+     * @param $_type
+     * @param $_message
      * @return mixed
+     * @throws \Exception
      */
     public function setFlash($_type, $_message) {
         return $this->_container->get('session')->getFlashBag()->add($_type, $_message);
     }
 
     /**
-     * Récuperer le repository utilisateur
-     * @return array
+     * @return \Doctrine\Common\Persistence\ObjectRepository|\Doctrine\ORM\EntityRepository
      */
     public function getRepository()
     {
@@ -40,8 +39,8 @@ class UserManager
     }
 
     /**
-     * Récuperer tout les utilisateurs
-     * @return array
+     * @return mixed
+     * @throws \Exception
      */
     public function getAllUser()
     {

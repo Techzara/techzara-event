@@ -9,9 +9,9 @@
 namespace App\Bundle\Admin\Controller;
 
 
-use App\Shared\SharedBundle\Entity\TzeOrganisateur;
-use App\Shared\SharedBundle\Form\TzeOrganisateurType;
-use App\Shared\SharedBundle\Utils\ServiceName;
+use App\Shared\Entity\TzeOrganisateur;
+use App\Shared\Form\TzeOrganisateurType;
+use App\Shared\Services\Utils\ServiceName;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,7 +21,7 @@ class TzeOrganisateurController extends Controller
 {
 
     /**
-     * @return \App\Shared\SharedBundle\Repository\TzeOrganisateur\RepositoryTzeOrganisateurManager|object
+     * @return \App\Shared\Repository\RepositoryTzeOrganisateurManager|object
      */
     public function getManager()
     {

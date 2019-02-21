@@ -2,9 +2,9 @@
 
 namespace App\Bundle\Admin\Controller;
 
-use App\Shared\SharedBundle\Entity\TzeEmailNewsletter;
-use App\Shared\SharedBundle\Form\TzeEmailNewsletterType;
-use App\Shared\SharedBundle\Utils\ServiceName;
+use App\Shared\Entity\TzeEmailNewsletter;
+use App\Shared\Form\TzeEmailNewsletterType;
+use App\Shared\Services\Utils\ServiceName;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 

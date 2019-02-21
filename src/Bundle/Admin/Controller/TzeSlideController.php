@@ -2,11 +2,11 @@
 
 namespace App\Bundle\Admin\Controller;
 
-use App\Shared\SharedBundle\Form\TzeSlideType;
-use App\Shared\SharedBundle\Utils\ServiceName;
+use App\Shared\Form\TzeSlideType;
+use App\Shared\Services\Utils\ServiceName;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use App\Shared\SharedBundle\Entity\TzeSlide;
+use App\Shared\Entity\TzeSlide;
 
 /**
  * Class TzeSlideController
@@ -15,7 +15,7 @@ class TzeSlideController extends Controller
 {
 
     /**
-     * @return \App\Shared\SharedBundle\Repository\TzeSlide\RepositoryTzeSlideManager|object
+     * @return \App\Shared\Repository\RepositoryTzeSlideManager|object
      */
     public function getManager()
     {
@@ -55,6 +55,8 @@ class TzeSlideController extends Controller
     /**
      * @param Request $_request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function newAction(Request $_request)
     {
@@ -84,6 +86,8 @@ class TzeSlideController extends Controller
      * @param Request $_request
      * @param TzeSlide $_slide
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function updateAction(Request $_request, TzeSlide $_slide)
     {
@@ -179,6 +183,7 @@ class TzeSlideController extends Controller
     /**
      * @param Request $_request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Exception
      */
     public function deleteGroupAction(Request $_request)
     {

@@ -3,7 +3,7 @@ front_site:
     prefix:   /
 
 app_file:
-    resource: '@AdminBundle/Resources/config/routing/slide.yml'
+    resource: '@AdminBundle/Resources/config/routing/dashboard.yml'
     prefix:   /admin
 
 user:
@@ -21,3 +21,34 @@ tze_api:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+tze_role:
+    resource: "@AdminBundle/Resources/config/routing/role.yml"
+    prefix:   /role
+
+tze_email_newsletter:
+    resource: "@AdminBundle/Resources/config/routing/email_newsletter.yml"
+    prefix:   /email-newsletter
+
+tze_message_newsletter:
+    resource: "@AdminBundle/Resources/config/routing/message_newsletter.yml"
+    prefix:   /message-newsletter
+
+tze_slide:
+    resource: "@AdminBundle/Resources/config/routing/slide.yml"
+    prefix:   /event
+
+tze_activite:
+    resource: "@AdminBundle/Resources/config/routing/activite.yml"
+    prefix:   /activite
+
+tze_participants:
+    resource: "@AdminBundle/Resources/config/routing/participants.yml"
+    prefix:   /participants
+
+tze_partenaires:
+    resource: "@AdminBundle/Resources/config/routing/partenaires.yml"
+    prefix:   /partenaires
+
+tze_organisateur:
+    resource: "@AdminBundle/Resources/config/routing/organisateur.yml"
+    prefix:   /organisateur
