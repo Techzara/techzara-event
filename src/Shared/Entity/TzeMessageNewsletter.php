@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: julkwel
+ * Date: 2/21/19
+ * Time: 10:51 PM
+ */
 namespace App\Shared\Entity;
 
 use Doctrine\ORM\Mapping as ORM;

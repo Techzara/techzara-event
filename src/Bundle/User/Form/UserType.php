@@ -13,7 +13,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use App\Shared\SharedBundle\Utils\RoleName;
+use App\Shared\Services\Utils\RoleName;
+use App\Shared\Entity\TzeRole;
 
 class UserType extends AbstractType
 {
@@ -78,11 +79,11 @@ class UserType extends AbstractType
 
             ->add('tzeRole', EntityType::class, array(
                 'label'         => 'Rôle',
-                'class'         => 'App\Tzevent\Service\MetierManagerBundle\Entity\TzeRole',
+                'class'         => TzeRole::class,
                 'query_builder' => function (EntityRepository $_er) {
                     $_query_builder = $_er->createQueryBuilder('r');
 
-                    if ($this->user_role == RoleName::ID_ROLE_ADMIN) {
+                    if ($this->user_role === RoleName::ID_ROLE_ADMIN) {
                         $_query_builder
                             ->andWhere('r.id <> :id_role')
                             ->setParameter('id_role', RoleName::ID_ROLE_SUPERADMIN);
@@ -125,7 +126,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'App\Tzevent\Service\UserBundle\Entity\User',
+            'data_class' => 'App\Bundle\User\Entity\User',
             'user_role'  => null
         ));
     }
