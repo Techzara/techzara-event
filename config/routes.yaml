@@ -14,6 +14,10 @@ api_routage:
     resource:  "@ApiBundle/Ressources/config/routing.yml"
     prefix:   /api
 
+tze_api:
+    resource: "@FrontSiteBundle/Resources/config/routing/api.yml"
+    prefix:   /teste
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

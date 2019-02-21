@@ -12,12 +12,12 @@ api_participants_new:
 #  path: /login
 #  defaults: { _controller: UserBundle:Security:login }
 #
-#api_partenaires:
-#  path:     /partenaires
-#  defaults: { _controller: "FrontSiteBundle:Api:partenairesList" }
-#  methods:  GET
-#
-#api_organisateur:
-#  path:     /organisateurs
-#  defaults: { _controller: "FrontSiteBundle:Api:organisateur" }
-#  methods:  GET
+api_partenaires:
+  path:     /partenaires
+  defaults: { _controller: "ApiBundle:Api:partenairesList" }
+  methods:  GET
+
+api_organisateur:
+  path:     /organisateurs
+  defaults: { _controller: "ApiBundle:Api:organisateur" }
+  methods:  GET

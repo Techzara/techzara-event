@@ -12,6 +12,8 @@ namespace App\Tzevent\Api\ApiBundle\Controller;
 use App\Tzevent\Service\MetierManagerBundle\Entity\TzeParticipants;
 use App\Tzevent\Service\MetierManagerBundle\Utils\ServiceName;
 use phpDocumentor\Reflection\Types\This;
+use FOS\UserBundle\Model\UserInterface;
+use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -24,6 +26,11 @@ use Symfony\Component\Serializer\Serializer;
 
 class ApiController extends Controller
 {
+    public function getTocken(UserInterface $_user , JWTTokenManagerInterface $JWTManager)
+    {
+        return new JsonResponse(['token' => $JWTManager->create($_user)]);
+    }
+
     /**
      * @return \App\Tzevent\Service\MetierManagerBundle\Metier\TzeSlide\ServiceMetierTzeSlide|object
      */
@@ -86,12 +93,13 @@ class ApiController extends Controller
         $_list->headers->set('Access-Control-Allow-Origin', '*');
         return $_list;
     }
+
     /**
-     * Liste des participants d'un evenement
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return JsonResponse
      */
     public function participantsAction()
     {
+
         $_new_event = $this->getNewEvent();
         $_participant_list = $this->getParticipantManager()->getParticipantsEvent($_new_event);
 
