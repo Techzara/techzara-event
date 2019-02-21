@@ -30,48 +30,48 @@ services:
         resource: '../src/*'
         exclude: '../src/{Migrations}'
 
-    dit.manager.user.role:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeRole\ServiceMetierTzeRole
+    tze.repository.user.role:
+        class: App\Shared\Repository\RepositoryTzeRoleManager
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
-    dit.manager.activite:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeActiviteEvent\ServiceMetierTzeActivite
+    tze.repository.activite:
+        class: App\Shared\Repository\RepositoryTzeActiviteManager
         arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true
 
-    dit.manager.email.newsletter:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeEmailNewsletter\ServiceMetierEmailNewsletter
+    tze.repository.email.newsletter:
+        class: App\Shared\Repository\RepositoryEmailNewsletterManager
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
-    dit.manager.message.newsletter:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeMessageNewsletter\ServiceMetierMessageNewsletter
+    tze.repository.message.newsletter:
+        class: App\Shared\Repository\RepositoryMessageNewsletterManager
         arguments: [ "@doctrine.orm.entity_manager","@service_container" ]
         public: true
 
-    dit.twig.file.exists:
-        class: App\Tzevent\Service\MetierManagerBundle\Twig\Extension\FileExistsExtension
+    tze.twig.file.exists:
+        class: App\Shared\Services\Twig\Extension\FileExistsExtension
         arguments: ['@service_container']
         tags:
             - { name: twig.extension }
 
-    dit.manager.slide:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeSlide\ServiceMetierTzeSlide
+    tze.repository.slide:
+        class: App\Shared\Repository\RepositoryTzeSlideManager
         arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true
 
-    dit.manager.participants:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeParticipants\ServiceMertierTzeParticipants
+    tze.repository.participants:
+        class: App\Shared\Repository\RepositoryTzeParticipantsManager
         arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true
 
-    dit.manager.partenaires:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzePartenaires\ServiceMetierPartenaires
+    tze.repository.partenaires:
+        class: App\Shared\Repository\RepositoryPartenairesManager
         arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true
 
-    dit.manager.organisateur:
-        class: App\Tzevent\Service\MetierManagerBundle\Metier\TzeOrganisateur\ServiceMetierTzeOrganisateur
+    tze.repository.organisateur:
+        class: App\Shared\Repository\RepositoryTzeOrganisateurManager
         arguments: [ "@doctrine.orm.entity_manager","@service_container",'%kernel.root_dir%' ]
         public: true

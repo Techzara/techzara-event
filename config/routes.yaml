@@ -3,7 +3,7 @@ front_site:
     prefix:   /
 
 app_file:
-    resource: '@AdminBundle/Resources/config/routing.yml'
+    resource: '@AdminBundle/Resources/config/routing/slide.yml'
     prefix:   /admin
 
 user:
@@ -16,7 +16,7 @@ api_routage:
 
 tze_api:
     resource: "@FrontSiteBundle/Resources/config/routing/api.yml"
-    prefix:   /teste
+    prefix:   /teste-api
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
