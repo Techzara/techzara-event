@@ -4,7 +4,7 @@ namespace App\Shared\Services\Utils;
 
 /**
  * Class PathReportingName
- * Classe qui contient les noms constante des répertoires reporting
+ * Classe qui contient les noms constante des répertoires reporting.
  */
 class PathName
 {

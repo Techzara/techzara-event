@@ -3,17 +3,16 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * TzeMessageNewsletterTranslation
+ * TzeMessageNewsletterTranslation.
  *
  * @ORM\Table(name="tze_message_newsletter_translation")
  * @ORM\Entity
@@ -67,7 +66,4 @@ class TzeMessageNewsletterTranslation
     {
         $this->messageNewsletterContent = $messageNewsletterContent;
     }
-
 }
-
-

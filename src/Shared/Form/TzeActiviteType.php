@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/15/19
- * Time: 4:41 PM
+ * Time: 4:41 PM.
  */
 
 namespace App\Shared\Form;
-
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -25,51 +24,51 @@ class TzeActiviteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('actTitle',TextType::class,array(
+            ->add('actTitle', TextType::class, array(
                 'label' => 'Title of activities',
-                'required' => false
+                'required' => false,
             ))
 
-            ->add('actDescription',TextareaType::class,array(
+            ->add('actDescription', TextareaType::class, array(
                 'label' => 'Title of activities',
-                'required' => false
+                'required' => false,
             ))
 
-            ->add('actEvent',EntityType::class,array(
-                'class'         => TzeSlide::class,
-                'choice_label'  =>'sld_event_title',
-                'multiple'      => false,
-                'expanded'      => false,
-                'required'      => true
+            ->add('actEvent', EntityType::class, array(
+                'class' => TzeSlide::class,
+                'choice_label' => 'sld_event_title',
+                'multiple' => false,
+                'expanded' => false,
+                'required' => true,
             ))
 
-            ->add('actDebut',DateTimeType::class,array(
-                'label'    => 'Date début du programme',
+            ->add('actDebut', DateTimeType::class, array(
+                'label' => 'Date début du programme',
                 'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy H:m',
-                'attr'   => array(
-                    'class'         => 'datetimepicker',
-                    'required'      => true,
-                    'autocomplete'  => 'off'
-                )
+                'attr' => array(
+                    'class' => 'datetimepicker',
+                    'required' => true,
+                    'autocomplete' => 'off',
+                ),
             ))
 
-            ->add('actFin',DateTimeType::class,array(
-                'label'    => 'Date fin du programme',
+            ->add('actFin', DateTimeType::class, array(
+                'label' => 'Date fin du programme',
                 'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy H:m',
-                'attr'   => array(
-                    'class'         => 'datetimepicker',
-                    'required'      => true,
-                    'autocomplete'  => 'off'
-                )
+                'attr' => array(
+                    'class' => 'datetimepicker',
+                    'required' => true,
+                    'autocomplete' => 'off',
+                ),
             ))
 
             ->add('actImage', FileType::class, array(
-                'label'    => 'Image (recommandé 1599 x 816)',
-                'mapped'   => false,
-                'attr'     => array('accept' => 'image/*'),
-                'required' => false
+                'label' => 'Image (recommandé 1599 x 816)',
+                'mapped' => false,
+                'attr' => array('accept' => 'image/*'),
+                'required' => false,
             ))
 
         ;
@@ -81,7 +80,7 @@ class TzeActiviteType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => TzeEvenementActivite::class
+            'data_class' => TzeEvenementActivite::class,
         ));
     }
 

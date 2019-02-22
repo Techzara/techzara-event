@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Form;
@@ -23,19 +23,19 @@ class TzeRoleType extends AbstractType
     {
         $builder
             ->add('rlName', TextType::class, array(
-                'label'    => "Libellé",
-                'required' => true
+                'label' => 'Libellé',
+                'required' => true,
             ))
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => TzeRole::class
+            'data_class' => TzeRole::class,
         ));
     }
 

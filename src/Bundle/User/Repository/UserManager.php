@@ -16,17 +16,20 @@ class UserManager
 
     public function __construct(EntityManager $_entity_manager, Container $_container)
     {
-        $this->_entity_manager  = $_entity_manager;
-        $this->_container       = $_container;
+        $this->_entity_manager = $_entity_manager;
+        $this->_container = $_container;
     }
 
     /**
      * @param $_type
      * @param $_message
+     *
      * @return mixed
+     *
      * @throws \Exception
      */
-    public function setFlash($_type, $_message) {
+    public function setFlash($_type, $_message)
+    {
         return $this->_container->get('session')->getFlashBag()->add($_type, $_message);
     }
 
@@ -40,39 +43,43 @@ class UserManager
 
     /**
      * @return mixed
+     *
      * @throws \Exception
      */
     public function getAllUser()
     {
         // Récupérer l'utilisateur connecté
         $_user_connected = $this->_container->get('security.token_storage')->getToken()->getUser();
-        $_id_user        = $_user_connected->getId();
-        $_user_role      = $_user_connected->getTzeRole()->getId();
+        $_id_user = $_user_connected->getId();
+        $_user_role = $_user_connected->getTzeRole()->getId();
 
         // Rôle superadmin
         $_array_type = array(
             'tzeRole' => array(
                 RoleName::ID_ROLE_SUPERADMIN,
                 RoleName::ID_ROLE_ADMIN,
-                RoleName::ID_ROLE_MEMBER
-            )
+                RoleName::ID_ROLE_MEMBER,
+            ),
         );
 
         // Rôle admin
-        if ($_user_role == RoleName::ID_ROLE_ADMIN)
+        if (RoleName::ID_ROLE_ADMIN == $_user_role) {
             $_array_type = array(
                 'tzeRole' => array(
                     RoleName::ID_ROLE_ADMIN,
-                    RoleName::ID_ROLE_MEMBER
-                )
+                    RoleName::ID_ROLE_MEMBER,
+                ),
             );
+        }
 
         return $this->getRepository()->findBy($_array_type, array('id' => 'DESC'));
     }
 
     /**
-     * Récuperer tout les utilisateurs par ordre
+     * Récuperer tout les utilisateurs par ordre.
+     *
      * @param array $_order
+     *
      * @return array
      */
     public function getAllUserByOrder($_order)
@@ -81,8 +88,10 @@ class UserManager
     }
 
     /**
-     * Récuperer un utilisateur par identifiant
-     * @param Integer $_id
+     * Récuperer un utilisateur par identifiant.
+     *
+     * @param int $_id
+     *
      * @return array
      */
     public function getUserById($_id)
@@ -91,11 +100,14 @@ class UserManager
     }
 
     /**
-     * Tester l'existence username
+     * Tester l'existence username.
+     *
      * @param string $_username
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isUsernameExist($_username) {
+    public function isUsernameExist($_username)
+    {
         $_exist = $this->getRepository()->findByUsername($_username);
         if ($_exist) {
             return true;
@@ -105,11 +117,14 @@ class UserManager
     }
 
     /**
-     * Tester l'existence email
+     * Tester l'existence email.
+     *
      * @param string $_email
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isEmailExist($_email) {
+    public function isEmailExist($_email)
+    {
         $_exist = $this->getRepository()->findByEmail($_email);
         if ($_exist) {
             return true;
@@ -119,17 +134,20 @@ class UserManager
     }
 
     /**
-     * Ajouter un utilisateur
-     * @param User $_user
-     * @param Object $_form
-     * @return boolean
+     * Ajouter un utilisateur.
+     *
+     * @param User   $_user
+     * @param object $_form
+     *
+     * @return bool
      */
-    public function addUser($_user, $_form) {
+    public function addUser($_user, $_form)
+    {
         // Activer par défaut
         $_user->setEnabled(1);
 
         // Traitement rôle utilisateur
-        $_type      = $_form['tzeRole']->getData();
+        $_type = $_form['tzeRole']->getData();
         $_user_role = RoleName::$ROLE_TYPE[$_type->getRlName()];
         $_user->setRoles(array($_user_role));
 
@@ -144,12 +162,15 @@ class UserManager
     }
 
     /**
-     * Modifier un utilisateur
-     * @param User $_user
-     * @param Object $_form
-     * @return boolean
+     * Modifier un utilisateur.
+     *
+     * @param User   $_user
+     * @param object $_form
+     *
+     * @return bool
      */
-    public function updateUser($_user, $_form) {
+    public function updateUser($_user, $_form)
+    {
         // Traitement photo
         $_img_photo = $_form['usrPhoto']->getData();
         // S'il y a un nouveau fichier ajouté, on supprime l'ancien fichier puis on enregistre ce nouveau
@@ -160,7 +181,7 @@ class UserManager
         }
 
         // Traitement rôle utilisateur
-        $_type      = $_form['tzeRole']->getData();
+        $_type = $_form['tzeRole']->getData();
         $_user_role = RoleName::$ROLE_TYPE[$_type->getRlName()];
         $_user->setRoles(array($_user_role));
 
@@ -174,14 +195,16 @@ class UserManager
     }
 
     /**
-     * Enregistrer un utilisateur
-     * @param User $_user
+     * Enregistrer un utilisateur.
+     *
+     * @param User   $_user
      * @param string $_action
-     * @return boolean
+     *
+     * @return bool
      */
     public function saveUser($_user, $_action)
     {
-        if ($_action == 'new') {
+        if ('new' == $_action) {
             $this->_entity_manager->persist($_user);
         }
         $this->_entity_manager->flush();
@@ -190,9 +213,11 @@ class UserManager
     }
 
     /**
-     * Supprimer un utilisateur
+     * Supprimer un utilisateur.
+     *
      * @param User $_user
-     * @return boolean
+     *
+     * @return bool
      */
     public function deleteUser($_user)
     {
@@ -203,9 +228,11 @@ class UserManager
     }
 
     /**
-     * Suppression multiple d'un utilisateur
+     * Suppression multiple d'un utilisateur.
+     *
      * @param array $_ids
-     * @return boolean
+     *
+     * @return bool
      */
     public function deleteGroupUser($_ids)
     {
@@ -226,23 +253,28 @@ class UserManager
     }
 
     /**
-     * Récuperer un utilisateur par email
+     * Récuperer un utilisateur par email.
+     *
      * @param string $_email
+     *
      * @return array
      */
     public function getUserByEmail($_email)
     {
         $_user = $this->getRepository()->findByEmail($_email);
 
-        if ($_user)
+        if ($_user) {
             return $_user[0];
+        }
 
         return false;
     }
 
     /**
-     * Vérification si l'utilisateur n'est autre que client
+     * Vérification si l'utilisateur n'est autre que client.
+     *
      * @param string $_email
+     *
      * @return array
      */
     public function isUserNotClient($_email)
@@ -252,25 +284,29 @@ class UserManager
         $_is_user_admin = false;
         if ($_user) {
             $_id_role = $_user[0]->getTzeRole()->getId();
-            if ($_id_role != RoleName::ID_ROLE_MEMBER)
+            if (RoleName::ID_ROLE_MEMBER != $_id_role) {
                 $_is_user_admin = true;
+            }
         }
 
         return $_is_user_admin;
     }
 
     /**
-     * Réinitialisation mot de passe (mot de passe oublié)
+     * Réinitialisation mot de passe (mot de passe oublié).
+     *
      * @param string $_user_email
-     * @return boolean
+     *
+     * @return bool
      */
     public function resettingPassword($_user_email)
     {
         // Récupérer l'utilisateur
         $_entity_user = $this->getRepository()->findBy(array('email' => $_user_email));
 
-        if (count($_entity_user) == 0)
+        if (0 == count($_entity_user)) {
             return false;
+        }
 
         // Générer un mot de passe
         $_generated_password = $this->generatePassword(9);
@@ -285,8 +321,8 @@ class UserManager
         // Envoyer un email contenant le lien validation compte
         $this->sendEmailUserResettingPassword(
             array(
-                "username" => $_user_email,
-                "password" => $_generated_password
+                'username' => $_user_email,
+                'password' => $_generated_password,
             ),
             $_user_email,
             $_entity_user[0]
@@ -296,39 +332,41 @@ class UserManager
     }
 
     /**
-     * Envoie email contenant login et mot de passe (mot de passe oublié)
-     * @param array $_data ex: array("username"=>"test","password"=>"123456")
+     * Envoie email contenant login et mot de passe (mot de passe oublié).
+     *
+     * @param array  $_data    ex: array("username"=>"test","password"=>"123456")
      * @param string $_mail_to
-     * @param User $_user
-     * @return boolean
+     * @param User   $_user
+     *
+     * @return bool
      */
     public function sendEmailUserResettingPassword(array $_data, $_mail_to, $_user = null)
     {
-        $_template   = 'UserBundle:Email:email_resetting_password.html.twig';
+        $_template = 'UserBundle:Email:email_resetting_password.html.twig';
         $_email_body = $this->_container->get('templating')->renderResponse($_template, array(
             'data' => $_data,
-            'user' => $_user
+            'user' => $_user,
         ));
 
         $_from_email_address = $this->_container->getParameter('from_email_address');
-        $_from_firstname     = $this->_container->getParameter('from_firstname');
+        $_from_firstname = $this->_container->getParameter('from_firstname');
 
         $_email_body = implode("\n", array_slice(explode("\n", $_email_body), 4));
-        $_message   =  (new \Swift_Message('Tzevent: Récupération mot de passe oublié'))
-            ->setFrom(array( $_from_email_address => $_from_firstname))
+        $_message = (new \Swift_Message('Tzevent: Récupération mot de passe oublié'))
+            ->setFrom(array($_from_email_address => $_from_firstname))
             ->setTo($_mail_to)
             ->setBody($_email_body);
 
-        $_message->setContentType("text/html");
+        $_message->setContentType('text/html');
         $_result = $this->_container->get('mailer')->send($_message);
 
         $_headers = $_message->getHeaders();
-        $_headers->addIdHeader('Message-ID', uniqid() . "@domain.com");
+        $_headers->addIdHeader('Message-ID', uniqid().'@domain.com');
         $_headers->addTextHeader('MIME-Version', '1.0');
-        $_headers->addTextHeader('X-Mailer', 'PHP v' . phpversion());
+        $_headers->addTextHeader('X-Mailer', 'PHP v'.phpversion());
         $_headers->addParameterizedHeader('Content-type', 'text/html', ['charset' => 'utf-8']);
 
-        if($_result){
+        if ($_result) {
             return true;
         }
 
@@ -336,25 +374,31 @@ class UserManager
     }
 
     /**
-     * Génération mot de passe
-     * @param integer $_length
+     * Génération mot de passe.
+     *
+     * @param int $_length
+     *
      * @return string
      */
     public function generatePassword($_length)
     {
-        $_caracter         = str_split('abcdefghijklmnopqrstuvwxyz'.'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.'0123456789');
+        $_caracter = str_split('abcdefghijklmnopqrstuvwxyz'.'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.'0123456789');
         $_special_caracter = str_split('!/\@#$^&*()?');
 
         shuffle($_caracter);
         shuffle($_special_caracter);
 
-        $_rand            = '';
+        $_rand = '';
         $_merged_caracter = array();
-        foreach (array_rand($_caracter, ($_length-1)) as $_k) $_merged_caracter[] = $_caracter[$_k];
+        foreach (array_rand($_caracter, ($_length - 1)) as $_k) {
+            $_merged_caracter[] = $_caracter[$_k];
+        }
         $_merged_caracter[] = $_special_caracter[array_rand($_special_caracter, 1)];
         shuffle($_merged_caracter);
-        foreach (array_rand($_merged_caracter, $_length) as $_i) $_rand .= $_merged_caracter[$_i];
+        foreach (array_rand($_merged_caracter, $_length) as $_i) {
+            $_rand .= $_merged_caracter[$_i];
+        }
 
-        return $_rand ;
+        return $_rand;
     }
 }

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Entity;
@@ -11,7 +11,7 @@ namespace App\Shared\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TzeRole
+ * TzeRole.
  *
  * @ORM\Table(name="tze_role")
  * @ORM\Entity
@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 class TzeRole
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -34,11 +34,10 @@ class TzeRole
      */
     private $rlName;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -46,7 +45,7 @@ class TzeRole
     }
 
     /**
-     * Set rlName
+     * Set rlName.
      *
      * @param string $rlName
      *
@@ -60,7 +59,7 @@ class TzeRole
     }
 
     /**
-     * Get rlName
+     * Get rlName.
      *
      * @return string
      */

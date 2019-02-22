@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Bundle\User\Controller;
@@ -18,18 +18,19 @@ use FOS\UserBundle\Controller\SecurityController as BaseSecurityController;
 class SecurityController extends BaseSecurityController
 {
     /**
-     * Afficher la page d'authentification
+     * Afficher la page d'authentification.
+     *
      * @param Request $request
      *
      * @return Response
      */
-    public function loginAction(Request $request) {
+    public function loginAction(Request $request)
+    {
         // Rédiriger vers la page spécifique si l'utilisateur est connecté
         $securityContext = $this->get('security.authorization_checker');
         if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-
             $authChecker = $this->container->get('security.authorization_checker');
-            $router      = $this->container->get('router');
+            $router = $this->container->get('router');
 
             if ($authChecker->isGranted('ROLE_ADMIN') || $authChecker->isGranted('ROLE_SUPERADMIN')) {
                 return new RedirectResponse($router->generate('dashboard_index'));
@@ -44,11 +45,11 @@ class SecurityController extends BaseSecurityController
         $session = $request->getSession();
 
         if (class_exists('\Symfony\Component\Security\Core\Security')) {
-            $authErrorKey    = Security::AUTHENTICATION_ERROR;
+            $authErrorKey = Security::AUTHENTICATION_ERROR;
             $lastUsernameKey = Security::LAST_USERNAME;
         } else {
             // BC for SF < 2.6
-            $authErrorKey    = SecurityContextInterface::AUTHENTICATION_ERROR;
+            $authErrorKey = SecurityContextInterface::AUTHENTICATION_ERROR;
             $lastUsernameKey = SecurityContextInterface::LAST_USERNAME;
         }
 
@@ -80,10 +81,10 @@ class SecurityController extends BaseSecurityController
 
         $data = array(
             'last_username' => $lastUsername,
-            'csrf_token'    => $csrfToken,
+            'csrf_token' => $csrfToken,
         );
 
-        if($error){
+        if ($error) {
             $data['error'] = $error;
         }
 

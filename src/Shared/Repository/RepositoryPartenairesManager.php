@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/16/19
- * Time: 9:18 PM
+ * Time: 9:18 PM.
  */
 
 namespace App\Shared\Repository;
-
 
 use App\Shared\Entity\TzePartenaires;
 use App\Shared\Services\Utils\EntityName;
@@ -26,24 +25,28 @@ class RepositoryPartenairesManager
 
     /**
      * ServiceMetierTzePartenaires constructor.
+     *
      * @param EntityManager $_entity_manager
-     * @param Container $_container
+     * @param Container     $_container
      * @param $_root_dir
      */
     public function __construct(EntityManager $_entity_manager, Container $_container, $_root_dir)
     {
         $this->_entity_manager = $_entity_manager;
-        $this->_container      = $_container;
-        $this->_web_root       = realpath($_root_dir . '/../public');
+        $this->_container = $_container;
+        $this->_web_root = realpath($_root_dir.'/../public');
     }
 
     /**
      * @param $_type
      * @param $_message
+     *
      * @return mixed
+     *
      * @throws \Exception
      */
-    public function setFlash($_type, $_message) {
+    public function setFlash($_type, $_message)
+    {
         return $this->_container->get('session')->getFlashBag()->add($_type, $_message);
     }
 
@@ -56,7 +59,8 @@ class RepositoryPartenairesManager
     }
 
     /**
-     * Récuperer tout les slides
+     * Récuperer tout les slides.
+     *
      * @return array
      */
     public function getAllTzePartenaires()
@@ -65,7 +69,8 @@ class RepositoryPartenairesManager
     }
 
     /**
-     * Récuperer tout les slides
+     * Récuperer tout les slides.
+     *
      * @return array
      */
     public function getAllTzePartenairesOrderAsc()
@@ -74,8 +79,10 @@ class RepositoryPartenairesManager
     }
 
     /**
-     * Get activite ny event
+     * Get activite ny event.
+     *
      * @param $_event
+     *
      * @return mixed
      */
     public function getPartenairesEvent($_event)
@@ -85,6 +92,7 @@ class RepositoryPartenairesManager
 
     /**
      * @param $_id
+     *
      * @return object|null
      */
     public function getTzePartenairesById($_id)
@@ -95,13 +103,15 @@ class RepositoryPartenairesManager
     /**
      * @param TzePartenaires $_partenaires
      * @param $_action
+     *
      * @return bool
+     *
      * @throws ORMException
      * @throws OptimisticLockException
      */
     public function saveTzePartenaires(TzePartenaires $_partenaires, $_action)
     {
-        if ($_action == 'new') {
+        if ('new' == $_action) {
             $this->_entity_manager->persist($_partenaires);
         }
         $this->_entity_manager->flush();
@@ -131,6 +141,7 @@ class RepositoryPartenairesManager
     /**
      * @param $_partenaires
      * @param $_image
+     *
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -147,7 +158,9 @@ class RepositoryPartenairesManager
 
     /**
      * @param TzePartenaires $_partenaires
+     *
      * @return bool
+     *
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -163,7 +176,9 @@ class RepositoryPartenairesManager
 
     /**
      * @param $_ids
+     *
      * @return bool
+     *
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -184,15 +199,16 @@ class RepositoryPartenairesManager
      * @param $_partenaires
      * @param $_image
      */
-    public function addImage(TzePartenaires $_partenaires, $_image) {
+    public function addImage(TzePartenaires $_partenaires, $_image)
+    {
         // Récupérer le répertoire image spécifique
-        $_directory_image  = PathName::UPLOAD_SLIDE;
+        $_directory_image = PathName::UPLOAD_SLIDE;
 
         try {
             // Upload image
-            $_file_name_image = md5(uniqid()) . '.' . $_image->guessExtension();
-            $_uri_file        = $_directory_image . $_file_name_image;
-            $_dir             = $this->_web_root . $_directory_image;
+            $_file_name_image = md5(uniqid()).'.'.$_image->guessExtension();
+            $_uri_file = $_directory_image.$_file_name_image;
+            $_dir = $this->_web_root.$_directory_image;
             $_image->move(
                 $_dir,
                 $_file_name_image
@@ -206,8 +222,10 @@ class RepositoryPartenairesManager
     }
 
     /**
-     * Suppression image (fichier avec entité)
+     * Suppression image (fichier avec entité).
+     *
      * @param TzePartenaires $_partenaires
+     *
      * @return array
      */
     public function deleteImage(TzePartenaires $_partenaires)
@@ -224,30 +242,31 @@ class RepositoryPartenairesManager
                 $this->_entity_manager->flush();
 
                 return array(
-                    'success' => true
+                    'success' => true,
                 );
             } catch (\Exception $_exc) {
                 return array(
                     'success' => false,
-                    'message' => $_exc->getTraceAsString()
+                    'message' => $_exc->getTraceAsString(),
                 );
             }
         } else {
             return array(
                 'success' => false,
-                'message' => 'Image not found in database'
+                'message' => 'Image not found in database',
             );
         }
     }
 
     /**
      * @param TzePartenaires $_partenaires
+     *
      * @return bool
      */
     public function deleteOnlyImage(TzePartenaires $_partenaires)
     {
         if ($_partenaires) {
-            $_path = $this->_web_root . $_partenaires->getParteImage();
+            $_path = $this->_web_root.$_partenaires->getParteImage();
 
             // Suppression du fichier
             @unlink($_path);

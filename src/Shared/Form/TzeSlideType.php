@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Form;
@@ -15,7 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Validator\Constraints\DateTime;
 use App\Shared\Entity\TzeSlide;
 
 class TzeSlideType extends AbstractType
@@ -26,71 +25,70 @@ class TzeSlideType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('sldEventDescription',TextareaType::class,array(
+            ->add('sldEventDescription', TextareaType::class, array(
                 'label' => 'Event description',
-                'required'  => false
+                'required' => false,
             ))
 
-            ->add('sldEventTitle',TextType::class,array(
-                'label'=>'Title',
-                'required'=>false
+            ->add('sldEventTitle', TextType::class, array(
+                'label' => 'Title',
+                'required' => false,
             ))
 
-            ->add('sldIntervenant',TextType::class,array(
+            ->add('sldIntervenant', TextType::class, array(
                 'label' => 'Intervenant',
-                'required' => false
+                'required' => false,
             ))
 
-            ->add('sldLocation',TextType::class,array(
+            ->add('sldLocation', TextType::class, array(
                 'label' => 'Location',
-                'required'=> false
+                'required' => false,
             ))
 
-            ->add('sldPlace',TextType::class,array(
+            ->add('sldPlace', TextType::class, array(
                 'label' => 'Nombre des participants',
-                'required' => false
+                'required' => false,
             ))
 
-            ->add('sldDate',DateTimeType::class,array(
-                'label'    => 'Date début du programme',
+            ->add('sldDate', DateTimeType::class, array(
+                'label' => 'Date début du programme',
                 'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy H:m',
-                'attr'   => array(
-                    'class'         => 'datetimepicker',
-                    'required'      => true,
-                    'autocomplete'  => 'off'
-                )
+                'attr' => array(
+                    'class' => 'datetimepicker',
+                    'required' => true,
+                    'autocomplete' => 'off',
+                ),
             ))
 
-            ->add('sldDateFin',DateTimeType::class,array(
-                'label'    => 'Date fin du programme',
+            ->add('sldDateFin', DateTimeType::class, array(
+                'label' => 'Date fin du programme',
                 'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy H:m',
-                'attr'   => array(
-                    'class'         => 'datetimepicker',
-                    'required'      => true,
-                    'autocomplete'  => 'off'
-                )
+                'attr' => array(
+                    'class' => 'datetimepicker',
+                    'required' => true,
+                    'autocomplete' => 'off',
+                ),
             ))
 
             ->add('sldImageUrl', FileType::class, array(
-                'label'    => 'Image (recommandé 1599 x 816)',
-                'mapped'   => false,
-                'attr'     => array('accept' => 'image/*'),
-                'required' => false
+                'label' => 'Image (recommandé 1599 x 816)',
+                'mapped' => false,
+                'attr' => array('accept' => 'image/*'),
+                'required' => false,
             ))
-
 
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => TzeSlide::class
+            'data_class' => TzeSlide::class,
         ));
     }
 

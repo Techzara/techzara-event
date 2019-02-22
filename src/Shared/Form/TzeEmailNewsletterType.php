@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Form;
@@ -15,7 +15,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Shared\Entity\TzeEmailNewsletter;
 
-
 class TzeEmailNewsletterType extends AbstractType
 {
     /**
@@ -25,25 +24,25 @@ class TzeEmailNewsletterType extends AbstractType
     {
         $builder
             ->add('nwsEmail', TextType::class, array(
-                'label'    => "Email",
-                'attr'     => array('pattern' => "[^@]+@[^@]+\.[a-zA-Z]{2,}"),
-                'required' => true
+                'label' => 'Email',
+                'attr' => array('pattern' => "[^@]+@[^@]+\.[a-zA-Z]{2,}"),
+                'required' => true,
             ))
 
             ->add('nwsSubscribed', CheckboxType::class, array(
-                'label'    => "Abonné",
-                'required' => false
+                'label' => 'Abonné',
+                'required' => false,
             ))
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => TzeEmailNewsletter::class
+            'data_class' => TzeEmailNewsletter::class,
         ));
     }
 

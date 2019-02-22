@@ -9,12 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class TzeEmailNewsletterController
+ * Class TzeEmailNewsletterController.
  */
 class TzeEmailNewsletterController extends Controller
 {
     /**
-     * Afficher tout les emails
+     * Afficher tout les emails.
+     *
      * @return Render page
      */
     public function indexAction()
@@ -26,13 +27,15 @@ class TzeEmailNewsletterController extends Controller
         $_emails = $_email_manager->getAllEmailNewsletter();
 
         return $this->render('AdminBundle:TzeEmailNewsletter:index.html.twig', array(
-            'email_newsletters' => $_emails
+            'email_newsletters' => $_emails,
         ));
     }
 
     /**
-     * Affichage page modification email
+     * Affichage page modification email.
+     *
      * @param TzeEmailNewsletter $_email
+     *
      * @return Render page
      */
     public function editAction(TzeEmailNewsletter $_email)
@@ -45,13 +48,15 @@ class TzeEmailNewsletterController extends Controller
 
         return $this->render('AdminBundle:TzeEmailNewsletter:edit.html.twig', array(
             'email_newsletter' => $_email,
-            'etze_form'        => $_etze_form->createView()
+            'etze_form' => $_etze_form->createView(),
         ));
     }
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -61,28 +66,30 @@ class TzeEmailNewsletterController extends Controller
         $_email_manager = $this->get(ServiceName::SRV_METIER_EMAIL_NEWSLETTER);
 
         $_email = new TzeEmailNewsletter();
-        $_form  = $this->createCreateForm($_email);
+        $_form = $this->createCreateForm($_email);
         $_form->handleRequest($_request);
 
         if ($_form->isSubmitted() && $_form->isValid()) {
             // Enregistrement email
             $_email_manager->saveEmailNewsletter($_email, 'new');
 
-            $_email_manager->setFlash('success', "Email abonné ajouté");
+            $_email_manager->setFlash('success', 'Email abonné ajouté');
 
             return $this->redirect($this->generateUrl('email_newsletter_index'));
         }
 
         return $this->render('AdminBundle:TzeEmailNewsletter:add.html.twig', array(
             'email_newsletter' => $_email,
-            'form'             => $_form->createView()
+            'form' => $_form->createView(),
         ));
     }
 
     /**
-     * Modification email
-     * @param Request $_request requête
+     * Modification email.
+     *
+     * @param Request            $_request requête
      * @param TzeEmailNewsletter $_email
+     *
      * @return Render page
      */
     public function updateAction(Request $_request, TzeEmailNewsletter $_email)
@@ -100,35 +107,39 @@ class TzeEmailNewsletterController extends Controller
         if ($_etze_form->isValid()) {
             $_email_manager->saveEmailNewsletter($_email, 'update');
 
-            $_email_manager->setFlash('success', "Email abonné modifié");
+            $_email_manager->setFlash('success', 'Email abonné modifié');
 
             return $this->redirect($this->generateUrl('email_newsletter_index'));
         }
 
         return $this->render('AdminBundle:TzeEmailNewsletter:edit.html.twig', array(
             'email_newsletter' => $_email,
-            'etze_form'        => $_etze_form->createView()
+            'etze_form' => $_etze_form->createView(),
         ));
     }
 
     /**
-     * Création formulaire d'édition email
+     * Création formulaire d'édition email.
+     *
      * @param TzeEmailNewsletter $_email The entity
+     *
      * @return \Symfony\Component\Form\Form The form
      */
     private function createCreateForm(TzeEmailNewsletter $_email)
     {
         $_form = $this->createForm(TzeEmailNewsletterType::class, $_email, array(
             'action' => $this->generateUrl('email_newsletter_new'),
-            'method' => 'POST'
+            'method' => 'POST',
         ));
 
         return $_form;
     }
 
     /**
-     * Création formulaire de création email
+     * Création formulaire de création email.
+     *
      * @param TzeEmailNewsletter $_email The entity
+     *
      * @return \Symfony\Component\Form\Form The form
      */
     private function createEditForm(TzeEmailNewsletter $_email)
@@ -142,9 +153,11 @@ class TzeEmailNewsletterController extends Controller
     }
 
     /**
-     * Suppression email
-     * @param Request $_request requête
+     * Suppression email.
+     *
+     * @param Request            $_request requête
      * @param TzeEmailNewsletter $_email
+     *
      * @return Redirect redirection
      */
     public function deleteAction(Request $_request, TzeEmailNewsletter $_email)
@@ -166,8 +179,10 @@ class TzeEmailNewsletterController extends Controller
     }
 
     /**
-     * Création formulaire de suppression email
+     * Création formulaire de suppression email.
+     *
      * @param TzeEmailNewsletter $_email The TzeEmailNewsletter entity
+     *
      * @return \Symfony\Component\Form\Form The form
      */
     private function createDeleteForm(TzeEmailNewsletter $_email)
@@ -179,8 +194,10 @@ class TzeEmailNewsletterController extends Controller
     }
 
     /**
-     * Suppression par groupe séléctionnée
+     * Suppression par groupe séléctionnée.
+     *
      * @param Request $_request
+     *
      * @return Redirect liste email
      */
     public function deleteGroupAction(Request $_request)
@@ -188,9 +205,9 @@ class TzeEmailNewsletterController extends Controller
         // Récupérer manager
         $_email_manager = $this->get(ServiceName::SRV_METIER_EMAIL_NEWSLETTER);
 
-        if ($_request->request->get('_group_delete') !== null) {
+        if (null !== $_request->request->get('_group_delete')) {
             $_ids = $_request->request->get('delete');
-            if ($_ids == null) {
+            if (null == $_ids) {
                 $_email_manager->setFlash('error', 'Veuillez sélectionner un élément à supprimer');
 
                 return $this->redirect($this->generateUrl('email_newsletter_index'));

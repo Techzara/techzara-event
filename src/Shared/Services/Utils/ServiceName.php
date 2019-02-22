@@ -4,7 +4,7 @@ namespace App\Shared\Services\Utils;
 
 /**
  * Class ServiceName
- * Classe qui contient les noms constante des services (métier)
+ * Classe qui contient les noms constante des services (métier).
  */
 class ServiceName
 {

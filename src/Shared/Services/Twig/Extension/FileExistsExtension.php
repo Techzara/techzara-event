@@ -5,7 +5,7 @@ namespace App\Shared\Services\Twig\Extension;
 class FileExistsExtension extends \Twig_Extension
 {
     /**
-     * Return the functions registered as twig extensions
+     * Return the functions registered as twig extensions.
      *
      * @return array
      */

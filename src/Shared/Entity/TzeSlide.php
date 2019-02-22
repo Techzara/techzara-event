@@ -3,14 +3,15 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 /**
- * TzeSlide
+ * TzeSlide.
  *
  * @ORM\Table(name="tze_slide")
  * @ORM\Entity
@@ -18,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 class TzeSlide
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -91,7 +92,7 @@ class TzeSlide
     /**
      * @param int $id
      */
-    public function setId( $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -107,7 +108,7 @@ class TzeSlide
     /**
      * @param string $sldEventTitle
      */
-    public function setSldEventTitle( $sldEventTitle)
+    public function setSldEventTitle($sldEventTitle)
     {
         $this->sldEventTitle = $sldEventTitle;
     }
@@ -123,12 +124,10 @@ class TzeSlide
     /**
      * @param string $sldEventDescription
      */
-    public function setSldEventDescription( $sldEventDescription)
+    public function setSldEventDescription($sldEventDescription)
     {
         $this->sldEventDescription = $sldEventDescription;
     }
-
-
 
     /**
      * @return string
@@ -141,7 +140,7 @@ class TzeSlide
     /**
      * @param string $sldIntervenant
      */
-    public function setSldIntervenant( $sldIntervenant)
+    public function setSldIntervenant($sldIntervenant)
     {
         $this->sldIntervenant = $sldIntervenant;
     }
@@ -157,7 +156,7 @@ class TzeSlide
     /**
      * @param string $sldLocation
      */
-    public function setSldLocation( $sldLocation)
+    public function setSldLocation($sldLocation)
     {
         $this->sldLocation = $sldLocation;
     }
@@ -173,7 +172,7 @@ class TzeSlide
     /**
      * @param string $sldPlace
      */
-    public function setSldPlace( $sldPlace)
+    public function setSldPlace($sldPlace)
     {
         $this->sldPlace = $sldPlace;
     }
@@ -189,7 +188,7 @@ class TzeSlide
     /**
      * @param string $sldImageUrl
      */
-    public function setSldImageUrl( $sldImageUrl)
+    public function setSldImageUrl($sldImageUrl)
     {
         $this->sldImageUrl = $sldImageUrl;
     }
@@ -205,7 +204,7 @@ class TzeSlide
     /**
      * @param \DateTime $sldDate
      */
-    public function setSldDate( $sldDate)
+    public function setSldDate($sldDate)
     {
         $this->sldDate = $sldDate;
     }
@@ -221,10 +220,8 @@ class TzeSlide
     /**
      * @param \DateTime $sldDateFin
      */
-    public function setSldDateFin( $sldDateFin)
+    public function setSldDateFin($sldDateFin)
     {
         $this->sldDateFin = $sldDateFin;
     }
-
-
 }

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Entity;
@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * TzeEmailNewsletter
+ * TzeEmailNewsletter.
  *
  * @ORM\Table(name="tze_email_newsletter")
  * @UniqueEntity(fields="nwsEmail", message="Email déjà existant")
@@ -20,7 +20,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class TzeEmailNewsletter
 {
-     /**
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -37,15 +37,14 @@ class TzeEmailNewsletter
     private $nwsEmail;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="nws_subscribed", type="boolean", options={"default" = 1}, nullable=true)
      */
     private $nwsSubscribed = true;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */

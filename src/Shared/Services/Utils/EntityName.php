@@ -4,7 +4,7 @@ namespace App\Shared\Services\Utils;
 
 /**
  * Class EntityName
- * Classe qui contient les noms constante de tout les entités
+ * Classe qui contient les noms constante de tout les entités.
  */
 class EntityName
 {

@@ -19,23 +19,26 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
     protected $_authorization_checker;
     protected $_container;
 
-    public function __construct(Router $_router, AuthorizationChecker $_authorization_checker, Container $_container) {
-        $this->_router                = $_router;
+    public function __construct(Router $_router, AuthorizationChecker $_authorization_checker, Container $_container)
+    {
+        $this->_router = $_router;
         $this->_authorization_checker = $_authorization_checker;
-        $this->_container             = $_container;
+        $this->_container = $_container;
     }
 
     /**
-     * @param Request $_request
+     * @param Request        $_request
      * @param TokenInterface $_token
+     *
      * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Exception
      */
     public function onAuthenticationSuccess(Request $_request, TokenInterface $_token)
     {
         $_auth_checker = $this->_container->get('security.authorization_checker');
-        $_router      = $this->_container->get('router');
+        $_router = $this->_container->get('router');
 
         return new RedirectResponse($_router->generate('dashboard_index'));
     }
-} 
+}

@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/15/19
- * Time: 5:20 PM
+ * Time: 5:20 PM.
  */
 
 namespace App\Bundle\Admin\Controller;
-
 
 use App\Shared\Entity\TzeEvenementActivite;
 use App\Shared\Form\TzeActiviteType;
@@ -16,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class TzeActiviteEvenement
+ * Class TzeActiviteEvenement.
  */
 class TzeActiviteController extends Controller
 {
@@ -35,14 +34,14 @@ class TzeActiviteController extends Controller
     {
         $_activite_liste = $this->getManager()->getAllTzeActivite();
 
-        return $this->render('AdminBundle:TzeActivite:index.html.twig',array(
-            'activite' => $_activite_liste
+        return $this->render('AdminBundle:TzeActivite:index.html.twig', array(
+            'activite' => $_activite_liste,
         ));
     }
 
-
     /**
      * @param TzeEvenementActivite $_activite
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(TzeEvenementActivite $_activite)
@@ -54,24 +53,25 @@ class TzeActiviteController extends Controller
         $_etze_form = $this->createEditForm($_activite);
 
         return $this->render('AdminBundle:TzeActivite:edit.html.twig', array(
-            'activite'     => $_activite,
-            'etze_form' => $_etze_form->createView()
+            'activite' => $_activite,
+            'etze_form' => $_etze_form->createView(),
         ));
     }
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Exception
      */
     public function newAction(Request $_request)
     {
         $_activite = new TzeEvenementActivite();
-        $_form  = $this->createCreateForm($_activite);
+        $_form = $this->createCreateForm($_activite);
         $_form->handleRequest($_request);
 
         if ($_form->isSubmitted() && $_form->isValid()) {
-
             $_image = $_form['actImage']->getData();
 
             // Enregistrement slide
@@ -82,22 +82,22 @@ class TzeActiviteController extends Controller
             return $this->redirect($this->generateUrl('activite_index'));
         }
 
-
         return $this->render('AdminBundle:TzeActivite:add.html.twig', array(
             'activite' => $_activite,
-            'form'  => $_form->createView(),
+            'form' => $_form->createView(),
         ));
     }
 
     /**
-     * @param Request $_request
+     * @param Request              $_request
      * @param TzeEvenementActivite $_activite
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Exception
      */
     public function updateAction(Request $_request, TzeEvenementActivite $_activite)
     {
-
         if (!$_activite) {
             throw $this->createNotFoundException('Unable to find TzeSlide entity.');
         }
@@ -112,26 +112,27 @@ class TzeActiviteController extends Controller
             // Enregistrement slide
             $this->getManager()->updateActivite($_activite, $_image);
 
-            $this->getManager()->setFlash('success', "Slide modifié");
+            $this->getManager()->setFlash('success', 'Slide modifié');
 
             return $this->redirect($this->generateUrl('activite_index'));
         }
 
         return $this->render('AdminBundle:TzeActivite:edit.html.twig', array(
-            'activite'     => $_activite,
-            'etze_form' => $_etze_form->createView()
+            'activite' => $_activite,
+            'etze_form' => $_etze_form->createView(),
         ));
     }
 
     /**
      * @param $_activite
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createCreateForm($_activite)
     {
         $_form = $this->createForm(TzeActiviteType::class, $_activite, array(
             'action' => $this->generateUrl('activite_new'),
-            'method' => 'POST'
+            'method' => 'POST',
         ));
 
         return $_form;
@@ -139,22 +140,25 @@ class TzeActiviteController extends Controller
 
     /**
      * @param TzeEvenementActivite $_activite
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createEditForm(TzeEvenementActivite $_activite)
     {
         $_form = $this->createForm(TzeActiviteType::class, $_activite, array(
             'action' => $this->generateUrl('activite_update', array('id' => $_activite->getId())),
-            'method' => 'PUT'
+            'method' => 'PUT',
         ));
 
         return $_form;
     }
 
     /**
-     * @param Request $_request
+     * @param Request              $_request
      * @param TzeEvenementActivite $_activite
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Exception
      */
     public function deleteAction(Request $_request, TzeEvenementActivite $_activite)
@@ -174,6 +178,7 @@ class TzeActiviteController extends Controller
 
     /**
      * @param TzeEvenementActivite $_activite
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(TzeEvenementActivite $_activite)
@@ -186,7 +191,9 @@ class TzeActiviteController extends Controller
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -195,9 +202,9 @@ class TzeActiviteController extends Controller
         // Récupérer manager
         $_activite_manager = $this->get(ServiceName::SRV_METIER_ACTIVITE);
 
-        if ($_request->request->get('_group_delete') !== null) {
+        if (null !== $_request->request->get('_group_delete')) {
             $_ids = $_request->request->get('delete');
-            if ($_ids == null) {
+            if (null == $_ids) {
                 $_activite_manager->setFlash('error', 'Veuillez sélectionner un élément à supprimer');
 
                 return $this->redirect($this->generateUrl('activite_index'));

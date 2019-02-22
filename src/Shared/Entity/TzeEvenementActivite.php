@@ -3,17 +3,16 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/15/19
- * Time: 4:27 PM
+ * Time: 4:27 PM.
  */
 
 namespace App\Shared\Entity;
-
 
 use Doctrine\ORM\Mapping as ORM;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
- * TzeSlide
+ * TzeSlide.
  *
  * @ORM\Table(name="tze_event_activite")
  * @ORM\Entity
@@ -21,14 +20,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class TzeEvenementActivite
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
 
     /**
      * @var TzeSlide
@@ -185,5 +183,4 @@ class TzeEvenementActivite
     {
         $this->actImage = $actImage;
     }
-
 }

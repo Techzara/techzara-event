@@ -8,7 +8,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Users
+ * Users.
  *
  * @ORM\Table(name="tze_user", uniqueConstraints={@ORM\UniqueConstraint(name="username_canonical_UNIQUE", columns={"username_canonical"}), @ORM\UniqueConstraint(name="email_canonical_UNIQUE", columns={"email_canonical"}), @ORM\UniqueConstraint(name="confirmation_token_UNIQUE", columns={"confirmation_token"})})
  * @UniqueEntity(fields="username", message="Nom d'utilisateur déjà existant")
@@ -18,7 +18,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class User extends BaseUser
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -76,12 +76,11 @@ class User extends BaseUser
     private $usrPhoto;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="usr_is_valid", type="boolean")
      */
     private $usrIsValid = false;
-
 
     /**
      * @var TzeRole
@@ -93,9 +92,8 @@ class User extends BaseUser
      */
     private $tzeRole;
 
-
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -105,9 +103,9 @@ class User extends BaseUser
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -243,13 +241,13 @@ class User extends BaseUser
     }
 
     /**
-     * Get fullname
+     * Get fullname.
      *
      * @return string
      */
     public function getUsrFullname()
     {
-        return $this->usrFirstname . ' ' . $this->usrLastname;
+        return $this->usrFirstname.' '.$this->usrLastname;
     }
 
     /**
@@ -267,5 +265,4 @@ class User extends BaseUser
     {
         $this->usrIsValid = $usrIsValid;
     }
-
 }

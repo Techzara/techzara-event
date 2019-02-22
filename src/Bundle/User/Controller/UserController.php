@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Bundle\User\Controller;
@@ -13,14 +13,11 @@ use App\Shared\Services\Utils\ServiceName;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
 use App\Bundle\User\Entity\User;
 use App\Bundle\User\Form\UserType;
 
 /**
- * Class UserController
- *
- * @package UserBundle\Controller
+ * Class UserController.
  */
 class UserController extends Controller
 {
@@ -58,6 +55,7 @@ class UserController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Exception
      */
     public function indexAction()
@@ -73,6 +71,7 @@ class UserController extends Controller
 
     /**
      * @param User $_user
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(User $_user)
@@ -83,10 +82,10 @@ class UserController extends Controller
         if (!$_user) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
-        if (($_user_role !== RoleName::ID_ROLE_ADMIN) && ($_user_role !== RoleName::ID_ROLE_SUPERADMIN)) {
+        if ((RoleName::ID_ROLE_ADMIN !== $_user_role) && (RoleName::ID_ROLE_SUPERADMIN !== $_user_role)) {
             if ($_user->getId() !== $_id_user) {
                 return $this->redirectToRoute('user_edit', array(
-                    'id' => $_id_user
+                    'id' => $_id_user,
                 ));
             }
         }
@@ -94,18 +93,21 @@ class UserController extends Controller
         $_etze_form = $this->createEditForm($_user);
 
         $_template = 'UserBundle:User:edit.html.twig';
-        if ($_user_role === RoleName::ID_ROLE_MEMBER)
+        if (RoleName::ID_ROLE_MEMBER === $_user_role) {
             $_template = 'UserBundle:User:etze_member.html.twig';
+        }
 
         return $this->render($_template, array(
             'user' => $_user,
-            'etze_form' => $_etze_form->createView()
+            'etze_form' => $_etze_form->createView(),
         ));
     }
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Exception
      */
     public function newAction(Request $_request)
@@ -118,21 +120,23 @@ class UserController extends Controller
 
         if ($_form->isSubmitted() && $_form->isValid()) {
             $_user_manager->addUser($_user, $_form);
-            $_user_manager->setFlash('success', "Utilisateur ajouté");
+            $_user_manager->setFlash('success', 'Utilisateur ajouté');
 
             return $this->redirect($this->generateUrl('user_index'));
         }
 
         return $this->render('UserBundle:User:add.html.twig', array(
             'user' => $_user,
-            'form' => $_form->createView()
+            'form' => $_form->createView(),
         ));
     }
 
     /**
      * @param Request $_request
-     * @param User $_user
+     * @param User    $_user
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Exception
      */
     public function updateAction(Request $_request, User $_user)
@@ -157,12 +161,13 @@ class UserController extends Controller
 
         return $this->render('UserBundle:User:edit.html.twig', array(
             'user' => $_user,
-            'etze_form' => $_etze_form->createView()
+            'etze_form' => $_etze_form->createView(),
         ));
     }
 
     /**
      * @param User $_user
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createCreateForm(User $_user)
@@ -172,7 +177,7 @@ class UserController extends Controller
         $_form = $this->createForm(UserType::class, $_user, array(
             'action' => $this->generateUrl('user_new'),
             'method' => 'POST',
-            'user_role' => $_user_role
+            'user_role' => $_user_role,
         ));
 
         return $_form;
@@ -180,6 +185,7 @@ class UserController extends Controller
 
     /**
      * @param User $_user
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createEditForm(User $_user)
@@ -189,7 +195,7 @@ class UserController extends Controller
         $_form = $this->createForm(UserType::class, $_user, array(
             'action' => $this->generateUrl('user_update', array('id' => $_user->getId())),
             'method' => 'PUT',
-            'user_role' => $_user_role
+            'user_role' => $_user_role,
         ));
 
         return $_form;
@@ -197,8 +203,10 @@ class UserController extends Controller
 
     /**
      * @param Request $_request
-     * @param User $_user
+     * @param User    $_user
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Exception
      */
     public function deleteAction(Request $_request, User $_user)
@@ -220,6 +228,7 @@ class UserController extends Controller
 
     /**
      * @param User $_user
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(User $_user)
@@ -231,8 +240,10 @@ class UserController extends Controller
     }
 
     /**
-     * Ajax suppression fichier image utilisateur
+     * Ajax suppression fichier image utilisateur.
+     *
      * @param Request $_request
+     *
      * @return JsonResponse
      */
     public function deleteImageAjaxAction(Request $_request)
@@ -252,7 +263,9 @@ class UserController extends Controller
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Exception
      */
     public function deleteGroupAction(Request $_request)
@@ -260,9 +273,9 @@ class UserController extends Controller
         // Récupérer manager
         $_user_manager = $this->getUserMetier();
 
-        if ($_request->request->get('_group_delete') !== null) {
+        if (null !== $_request->request->get('_group_delete')) {
             $_ids = $_request->request->get('delete');
-            if ($_ids === null) {
+            if (null === $_ids) {
                 $_user_manager->setFlash('error', 'Veuillez sélectionner un élément à supprimer');
 
                 return $this->redirect($this->generateUrl('user_index'));
@@ -277,7 +290,9 @@ class UserController extends Controller
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Exception
      */
     public function resettingPasswordAction(Request $_request)

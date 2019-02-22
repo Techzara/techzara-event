@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Form;
@@ -16,7 +16,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Shared\Entity\TzeMessageNewsletter;
 
-
 class TzeMessageNewsletterType extends AbstractType
 {
     /**
@@ -26,36 +25,36 @@ class TzeMessageNewsletterType extends AbstractType
     {
         $builder
             ->add('translations', TranslationsType::class, [
-                'label'  => false,
+                'label' => false,
                 'fields' => [
                     'messageNewsletterTitle' => [
                         'field_type' => TextType::class,
-                        'label'      => 'title.',
+                        'label' => 'title.',
                         'locale_options' => [
                             'en' => ['label' => 'Title'],
-                            'fr' => ['label' => 'Titre']
-                        ]
+                            'fr' => ['label' => 'Titre'],
+                        ],
                     ],
                     'messageNewsletterContent' => [
                         'field_type' => TextareaType::class,
-                        'label'      => 'content.',
+                        'label' => 'content.',
                         'locale_options' => [
                             'en' => ['label' => 'Content'],
-                            'fr' => ['label' => 'Contenu']
-                        ]
-                    ]
+                            'fr' => ['label' => 'Contenu'],
+                        ],
+                    ],
                 ],
             ])
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => TzeMessageNewsletter::class
+            'data_class' => TzeMessageNewsletter::class,
         ));
     }
 

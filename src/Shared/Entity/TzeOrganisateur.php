@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/17/19
- * Time: 12:10 AM
+ * Time: 12:10 AM.
  */
 
 namespace App\Shared\Entity;
@@ -11,7 +11,7 @@ namespace App\Shared\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TzeSlide
+ * TzeSlide.
  *
  * @ORM\Table(name="tze_organisateur")
  * @ORM\Entity
@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 class TzeOrganisateur
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -50,7 +50,6 @@ class TzeOrganisateur
      */
     private $orgImage;
 
-
     /**
      * @var string
      *
@@ -76,7 +75,7 @@ class TzeOrganisateur
     /**
      * @param int $id
      */
-    public function setId( $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -160,6 +159,4 @@ class TzeOrganisateur
     {
         $this->orgResponsabilite = $orgResponsabilite;
     }
-
-
 }

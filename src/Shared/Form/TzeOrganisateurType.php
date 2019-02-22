@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/17/19
- * Time: 12:11 AM
+ * Time: 12:11 AM.
  */
 
 namespace App\Shared\Form;
-
 
 use App\Shared\Entity\TzeOrganisateur;
 use App\Shared\Entity\TzeSlide;
@@ -21,38 +20,37 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TzeOrganisateurType extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('orgName',TextType::class,array(
+            ->add('orgName', TextType::class, array(
                 'label' => 'Name',
-                'required' => false
+                'required' => false,
             ))
 
-            ->add('orgResponsabilite',TextType::class,array(
+            ->add('orgResponsabilite', TextType::class, array(
                 'label' => 'Responsabilite',
-                'required' => false
+                'required' => false,
             ))
 
-            ->add('orgDecription',TextareaType::class,array(
+            ->add('orgDecription', TextareaType::class, array(
                 'label' => 'Description',
-                'required' => false
+                'required' => false,
             ))
 
-            ->add('actEvent',EntityType::class,array(
-                'class'         => TzeSlide::class,
-                'choice_label'  =>'sld_event_title',
-                'multiple'      => false,
-                'expanded'      => false,
-                'required'      => true
+            ->add('actEvent', EntityType::class, array(
+                'class' => TzeSlide::class,
+                'choice_label' => 'sld_event_title',
+                'multiple' => false,
+                'expanded' => false,
+                'required' => true,
             ))
 
             ->add('orgImage', FileType::class, array(
-                'label'    => 'Image (recommandé 1599 x 816)',
-                'mapped'   => false,
-                'attr'     => array('accept' => 'image/*'),
-                'required' => false
+                'label' => 'Image (recommandé 1599 x 816)',
+                'mapped' => false,
+                'attr' => array('accept' => 'image/*'),
+                'required' => false,
             ))
             ;
     }
@@ -63,7 +61,7 @@ class TzeOrganisateurType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => TzeOrganisateur::class
+            'data_class' => TzeOrganisateur::class,
         ));
     }
 

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Repository;
@@ -21,7 +21,7 @@ class RepositoryEmailNewsletterManager
     public function __construct(EntityManager $_entity_manager, Container $_container)
     {
         $this->_entity_manager = $_entity_manager;
-        $this->_container      = $_container;
+        $this->_container = $_container;
     }
 
     /**
@@ -33,17 +33,21 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Ajouter un message flash
+     * Ajouter un message flash.
+     *
      * @param string $_type
      * @param string $_message
+     *
      * @return mixed
      */
-    public function setFlash($_type, $_message) {
+    public function setFlash($_type, $_message)
+    {
         return $this->_container->get('session')->getFlashBag()->add($_type, $_message);
     }
 
     /**
-     * Récuperer le repository email newsletter
+     * Récuperer le repository email newsletter.
+     *
      * @return array
      */
     public function getRepository()
@@ -52,7 +56,8 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Récuperer tout les emails newsletter
+     * Récuperer tout les emails newsletter.
+     *
      * @return array
      */
     public function getAllEmailNewsletter()
@@ -64,8 +69,10 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Récuperer un email newsletter par identifiant
-     * @param Integer $_id
+     * Récuperer un email newsletter par identifiant.
+     *
+     * @param int $_id
+     *
      * @return array
      */
     public function getEmailNewsletterById($_id)
@@ -76,13 +83,15 @@ class RepositoryEmailNewsletterManager
     /**
      * @param $_email_newsletter
      * @param $_action
+     *
      * @return bool
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function saveEmailNewsletter($_email_newsletter, $_action)
     {
-        if ($_action == 'new') {
+        if ('new' == $_action) {
             $this->_entity_manager->persist($_email_newsletter);
         }
         $this->_entity_manager->flush();
@@ -92,7 +101,9 @@ class RepositoryEmailNewsletterManager
 
     /**
      * @param $_email_newsletter
+     *
      * @return bool
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -105,9 +116,11 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Suppression multiple d'un email newsletter
+     * Suppression multiple d'un email newsletter.
+     *
      * @param array $_ids
-     * @return boolean
+     *
+     * @return bool
      */
     public function deleteGroupEmailNewsletter($_ids)
     {
@@ -122,14 +135,16 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Insertion email newsletter dans front office
+     * Insertion email newsletter dans front office.
+     *
      * @param $_email
+     *
      * @return bool
      */
     public function insertFrontEmailNewsLetter($_email)
     {
         $_email_newsletter = $this->getRepository()->findBy(array(
-            'nwsEmail' => $_email
+            'nwsEmail' => $_email,
         ));
         if (!empty($_email_newsletter)) {
             return false;
@@ -138,12 +153,15 @@ class RepositoryEmailNewsletterManager
         $_email_newsletter->setNwsEmail($_email);
 
         $this->saveEmailNewsletter($_email_newsletter, 'new');
+
         return true;
     }
 
     /**
-     * Désabonnement newsletter
+     * Désabonnement newsletter.
+     *
      * @param TzeEmailNewsletter $_email_newsletter
+     *
      * @return array
      */
     public function unsubscriberById(TzeEmailNewsletter $_email_newsletter)

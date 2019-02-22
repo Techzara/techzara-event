@@ -27,63 +27,63 @@ class UserType extends AbstractType
 
         $builder
             ->add('usrLastname', TextType::class, array(
-                'label'    => "Nom",
-                'attr'     => array('placeholder' => 'Nom'),
-                'required' => true
+                'label' => 'Nom',
+                'attr' => array('placeholder' => 'Nom'),
+                'required' => true,
             ))
 
             ->add('usrFirstname', TextType::class, array(
-                'label'    => "Prénom",
-                'attr'     => array('placeholder' => 'Prénom'),
-                'required' => true
+                'label' => 'Prénom',
+                'attr' => array('placeholder' => 'Prénom'),
+                'required' => true,
             ))
 
             ->add('usrAddress', TextType::class, array(
-                'label'    => "Adresse",
-                'attr'     => array('placeholder' => 'Adresse'),
-                'required' => false
+                'label' => 'Adresse',
+                'attr' => array('placeholder' => 'Adresse'),
+                'required' => false,
             ))
 
             ->add('usrPhone', TextType::class, array(
-                'label'    => "Téléphone",
-                'attr'     => array('placeholder' => 'Téléphone'),
-                'required' => false
+                'label' => 'Téléphone',
+                'attr' => array('placeholder' => 'Téléphone'),
+                'required' => false,
             ))
 
             ->add('email', EmailType::class, array(
-                'label'    => "Adresse email",
-                'attr'     => array(
-                    'pattern'     => "[^@]+@[^@]+\.[a-zA-Z]{2,}",
-                    'placeholder' => 'Adresse email'
+                'label' => 'Adresse email',
+                'attr' => array(
+                    'pattern' => "[^@]+@[^@]+\.[a-zA-Z]{2,}",
+                    'placeholder' => 'Adresse email',
                 ),
-                'required' => true
+                'required' => true,
             ))
 
             ->add('usrPhoto', FileType::class, array(
-                'label'    => 'Photo de profil',
-                'mapped'   => false,
-                'attr'     => array('accept' => 'image/*'),
-                'required' => false
+                'label' => 'Photo de profil',
+                'mapped' => false,
+                'attr' => array('accept' => 'image/*'),
+                'required' => false,
             ))
 
             ->add('enabled', CheckboxType::class, array(
-                'label'    => "Actif",
-                'required' => false
+                'label' => 'Actif',
+                'required' => false,
             ))
 
             ->add('username', TextType::class, array(
-                'label'    => "Nom d'utilisateur",
-                'attr'     => array('placeholder' => "Nom d'utilisateur"),
-                'required' => true
+                'label' => "Nom d'utilisateur",
+                'attr' => array('placeholder' => "Nom d'utilisateur"),
+                'required' => true,
             ))
 
             ->add('tzeRole', EntityType::class, array(
-                'label'         => 'Rôle',
-                'class'         => TzeRole::class,
+                'label' => 'Rôle',
+                'class' => TzeRole::class,
                 'query_builder' => function (EntityRepository $_er) {
                     $_query_builder = $_er->createQueryBuilder('r');
 
-                    if ($this->user_role === RoleName::ID_ROLE_ADMIN) {
+                    if (RoleName::ID_ROLE_ADMIN === $this->user_role) {
                         $_query_builder
                             ->andWhere('r.id <> :id_role')
                             ->setParameter('id_role', RoleName::ID_ROLE_SUPERADMIN);
@@ -93,27 +93,27 @@ class UserType extends AbstractType
 
                     return $_query_builder;
                 },
-                'choice_label'  => 'rlName',
-                'multiple'      => false,
-                'expanded'      => false,
-                'required'      => true
+                'choice_label' => 'rlName',
+                'multiple' => false,
+                'expanded' => false,
+                'required' => true,
             ))
 
-            ->add('plainPassword',RepeatedType::class, array(
-                'type'            => PasswordType::class,
-                'options'         => array('translation_domain' => 'FOSUserBundle'),
-                'first_options'   => array(
+            ->add('plainPassword', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'options' => array('translation_domain' => 'FOSUserBundle'),
+                'first_options' => array(
                     'label' => 'form.password',
-                    'attr'  => array(
-                        'minleght'    => 6,
-                        'placeholder' => 'Mot de passe'
-                    )
+                    'attr' => array(
+                        'minleght' => 6,
+                        'placeholder' => 'Mot de passe',
+                    ),
                 ),
-                'second_options'  => array(
+                'second_options' => array(
                     'label' => 'form.password_confirmation',
-                    'attr'  => array(
-                        'placeholder' => 'Confirmation mot de passe'
-                    )
+                    'attr' => array(
+                        'placeholder' => 'Confirmation mot de passe',
+                    ),
                 ),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
@@ -127,7 +127,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'App\Bundle\User\Entity\User',
-            'user_role'  => null
+            'user_role' => null,
         ));
     }
 

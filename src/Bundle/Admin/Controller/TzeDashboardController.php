@@ -5,7 +5,7 @@ namespace App\Bundle\Admin\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Class TzeDashboardController
+ * Class TzeDashboardController.
  */
 class TzeDashboardController extends Controller
 {

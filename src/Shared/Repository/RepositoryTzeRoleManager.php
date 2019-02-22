@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Repository;
@@ -21,21 +21,25 @@ class RepositoryTzeRoleManager
     public function __construct(EntityManager $_entity_manager, Container $_container)
     {
         $this->_entity_manager = $_entity_manager;
-        $this->_container      = $_container;
+        $this->_container = $_container;
     }
 
     /**
-     * Ajouter un message flash
+     * Ajouter un message flash.
+     *
      * @param string $_type
      * @param string $_message
+     *
      * @return mixed
      */
-    public function setFlash($_type, $_message) {
+    public function setFlash($_type, $_message)
+    {
         return $this->_container->get('session')->getFlashBag()->add($_type, $_message);
     }
 
     /**
-     * Récuperer le repository rôle
+     * Récuperer le repository rôle.
+     *
      * @return array
      */
     public function getRepository()
@@ -44,7 +48,8 @@ class RepositoryTzeRoleManager
     }
 
     /**
-     * Récuperer tout les rôles
+     * Récuperer tout les rôles.
+     *
      * @return array
      */
     public function getAllTzeRole()
@@ -53,8 +58,10 @@ class RepositoryTzeRoleManager
     }
 
     /**
-     * Récuperer un rôle par identifiant
-     * @param Integer $_id
+     * Récuperer un rôle par identifiant.
+     *
+     * @param int $_id
+     *
      * @return array
      */
     public function getTzeRoleById($_id)
@@ -63,14 +70,16 @@ class RepositoryTzeRoleManager
     }
 
     /**
-     * Enregistrer un rôle
+     * Enregistrer un rôle.
+     *
      * @param TzeRole $_role
-     * @param string $_action
-     * @return boolean
+     * @param string  $_action
+     *
+     * @return bool
      */
     public function saveTzeRole($_role, $_action)
     {
-        if ($_action == 'new') {
+        if ('new' == $_action) {
             $this->_entity_manager->persist($_role);
         }
         $this->_entity_manager->flush();
@@ -79,9 +88,11 @@ class RepositoryTzeRoleManager
     }
 
     /**
-     * Supprimer un rôle
+     * Supprimer un rôle.
+     *
      * @param TzeRole $_role
-     * @return boolean
+     *
+     * @return bool
      */
     public function deleteTzeRole($_role)
     {
@@ -92,9 +103,11 @@ class RepositoryTzeRoleManager
     }
 
     /**
-     * Suppression multiple d'un rôle
+     * Suppression multiple d'un rôle.
+     *
      * @param array $_ids
-     * @return boolean
+     *
+     * @return bool
      */
     public function deleteGroupTzeRole($_ids)
     {

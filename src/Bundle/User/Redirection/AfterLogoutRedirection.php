@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Bundle\User\Redirection;
-
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,11 +31,13 @@ class AfterLogoutRedirection implements LogoutSuccessHandlerInterface
 
     /**
      * @param Request $request
+     *
      * @return RedirectResponse
      */
     public function onLogoutSuccess(Request $request)
     {
         $response = new RedirectResponse($this->router->generate('fos_user_security_login'));
+
         return $response;
     }
-} 
+}

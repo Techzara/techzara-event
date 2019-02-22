@@ -3,14 +3,12 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/16/19
- * Time: 4:00 PM
+ * Time: 4:00 PM.
  */
 
 namespace App\Shared\Form;
 
-
 use App\Shared\Entity\TzeSlide;
-use App\Shared\Utils\EntityName;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -24,30 +22,30 @@ class TzeParticipantsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('actEvent',EntityType::class,array(
-                'class'         => TzeSlide::class,
-                'choice_label'  =>'sld_event_title',
-                'multiple'      => false,
-                'expanded'      => false,
-                'required'      => true
+            ->add('actEvent', EntityType::class, array(
+                'class' => TzeSlide::class,
+                'choice_label' => 'sld_event_title',
+                'multiple' => false,
+                'expanded' => false,
+                'required' => true,
             ))
-            ->add('partTeam',TextType::class,array(
-                'label'     => 'Nom team',
-                'required'  => true
+            ->add('partTeam', TextType::class, array(
+                'label' => 'Nom team',
+                'required' => true,
             ))
-            ->add('partDescription',TextType::class,array(
-                'label'     => 'Description',
-                'required'  => true
+            ->add('partDescription', TextType::class, array(
+                'label' => 'Description',
+                'required' => true,
             ))
-            ->add('partImage',FileType::class,array(
-                'label'    => 'Image (recommandé 1599 x 816)',
-                'mapped'   => false,
-                'attr'     => array('accept' => 'image/*'),
-                'required' => false
+            ->add('partImage', FileType::class, array(
+                'label' => 'Image (recommandé 1599 x 816)',
+                'mapped' => false,
+                'attr' => array('accept' => 'image/*'),
+                'required' => false,
             ))
-            ->add('partUniversite',TextType::class,array(
-                'label'     => 'Université',
-                'required'  => true
+            ->add('partUniversite', TextType::class, array(
+                'label' => 'Université',
+                'required' => true,
             ))
             ;
     }
@@ -58,7 +56,7 @@ class TzeParticipantsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => TzeParticipants::class
+            'data_class' => TzeParticipants::class,
         ));
     }
 

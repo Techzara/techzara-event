@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: julkwel
  * Date: 2/21/19
- * Time: 10:51 PM
+ * Time: 10:51 PM.
  */
 
 namespace App\Shared\Repository;
@@ -24,17 +24,20 @@ class RepositoryTzeSlideManager
     public function __construct(EntityManager $_entity_manager, Container $_container, $_root_dir)
     {
         $this->_entity_manager = $_entity_manager;
-        $this->_container      = $_container;
-        $this->_web_root       = realpath($_root_dir . '/../public');
+        $this->_container = $_container;
+        $this->_web_root = realpath($_root_dir.'/../public');
     }
 
     /**
      * @param $_type
      * @param $_message
+     *
      * @return mixed
+     *
      * @throws \Exception
      */
-    public function setFlash($_type, $_message) {
+    public function setFlash($_type, $_message)
+    {
         return $this->_container->get('session')->getFlashBag()->add($_type, $_message);
     }
 
@@ -47,7 +50,8 @@ class RepositoryTzeSlideManager
     }
 
     /**
-     * Récuperer tout les slides
+     * Récuperer tout les slides.
+     *
      * @return array
      */
     public function getAllTzeSlide()
@@ -56,7 +60,8 @@ class RepositoryTzeSlideManager
     }
 
     /**
-     * Récuperer tout les slides
+     * Récuperer tout les slides.
+     *
      * @return array
      */
     public function getAllTzeSlideOrderAsc()
@@ -66,6 +71,7 @@ class RepositoryTzeSlideManager
 
     /**
      * @param $_id
+     *
      * @return object|null
      */
     public function getTzeSlideById($_id)
@@ -76,13 +82,15 @@ class RepositoryTzeSlideManager
     /**
      * @param $_slide
      * @param $_action
+     *
      * @return bool
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function saveTzeSlide($_slide, $_action)
     {
-        if ($_action == 'new') {
+        if ('new' == $_action) {
             $this->_entity_manager->persist($_slide);
         }
         $this->_entity_manager->flush();
@@ -93,6 +101,7 @@ class RepositoryTzeSlideManager
     /**
      * @param $_slide
      * @param $_image
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -110,6 +119,7 @@ class RepositoryTzeSlideManager
     /**
      * @param $_slide
      * @param $_image
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -124,17 +134,18 @@ class RepositoryTzeSlideManager
         $this->saveTzeSlide($_slide, 'update');
     }
 
-    public function deleteTzeSlide( $_slide)
+    public function deleteTzeSlide($_slide)
     {
         $this->deleteImage($_slide);
         $this->_entity_manager->remove($_slide);
         $this->_entity_manager->flush();
 
-            return true;
+        return true;
     }
 
     /**
      * @param $_ids
+     *
      * @return bool
      */
     public function deleteGroupTzeSlide($_ids)
@@ -151,19 +162,21 @@ class RepositoryTzeSlideManager
     }
 
     /**
-     * Ajout image
+     * Ajout image.
+     *
      * @param TzeSlide $_slide
-     * @param object $_image
+     * @param object   $_image
      */
-    public function addImage($_slide, $_image) {
+    public function addImage($_slide, $_image)
+    {
         // Récupérer le répertoire image spécifique
-        $_directory_image  = PathName::UPLOAD_SLIDE;
+        $_directory_image = PathName::UPLOAD_SLIDE;
 
         try {
             // Upload image
-            $_file_name_image = md5(uniqid()) . '.' . $_image->guessExtension();
-            $_uri_file        = $_directory_image . $_file_name_image;
-            $_dir             = $this->_web_root . $_directory_image;
+            $_file_name_image = md5(uniqid()).'.'.$_image->guessExtension();
+            $_uri_file = $_directory_image.$_file_name_image;
+            $_dir = $this->_web_root.$_directory_image;
             $_image->move(
                 $_dir,
                 $_file_name_image
@@ -177,8 +190,10 @@ class RepositoryTzeSlideManager
     }
 
     /**
-     * Suppression image (fichier avec entité)
+     * Suppression image (fichier avec entité).
+     *
      * @param TzeSlide $_slide
+     *
      * @return array
      */
     public function deleteImage($_slide)
@@ -195,31 +210,33 @@ class RepositoryTzeSlideManager
                 $this->_entity_manager->flush();
 
                 return array(
-                    'success' => true
+                    'success' => true,
                 );
             } catch (\Exception $_exc) {
                 return array(
                     'success' => false,
-                    'message' => $_exc->getTraceAsString()
+                    'message' => $_exc->getTraceAsString(),
                 );
             }
         } else {
             return array(
                 'success' => false,
-                'message' => 'Image not found in database'
+                'message' => 'Image not found in database',
             );
         }
     }
 
     /**
-     * Suppression image (uniquement le fichier)
+     * Suppression image (uniquement le fichier).
+     *
      * @param TzeSlide $_slide
+     *
      * @return array
      */
     public function deleteOnlyImage($_slide)
     {
         if ($_slide) {
-            $_path = $this->_web_root . $_slide->getSldImageUrl();
+            $_path = $this->_web_root.$_slide->getSldImageUrl();
 
             // Suppression du fichier
             @unlink($_path);
