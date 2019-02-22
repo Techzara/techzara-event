@@ -139,6 +139,7 @@ class TzeSlideController extends Controller
 
     /**
      * @param TzeSlide $_slide
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createEditForm(TzeSlide $_slide)

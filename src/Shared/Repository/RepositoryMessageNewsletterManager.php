@@ -35,7 +35,9 @@ class RepositoryMessageNewsletterManager
     /**
      * @param $_type
      * @param $_message
+     *
      * @return mixed
+     *
      * @throws \Exception
      */
     public function setFlash($_type, $_message)
@@ -79,7 +81,9 @@ class RepositoryMessageNewsletterManager
     /**
      * @param $_message_newsletter
      * @param $_action
+     *
      * @return bool
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -95,7 +99,9 @@ class RepositoryMessageNewsletterManager
 
     /**
      * @param $_message_newsletter
+     *
      * @return bool
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -109,7 +115,9 @@ class RepositoryMessageNewsletterManager
 
     /**
      * @param $_ids
+     *
      * @return bool
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -127,7 +135,9 @@ class RepositoryMessageNewsletterManager
 
     /**
      * @param $_message
+     *
      * @return bool
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */

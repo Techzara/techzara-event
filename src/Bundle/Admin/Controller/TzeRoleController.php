@@ -31,6 +31,7 @@ class TzeRoleController extends Controller
 
     /**
      * @param TzeRole $_role
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(TzeRole $_role)
@@ -49,6 +50,7 @@ class TzeRoleController extends Controller
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $_request)
@@ -78,6 +80,7 @@ class TzeRoleController extends Controller
     /**
      * @param Request $_request
      * @param TzeRole $_role
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function updateAction(Request $_request, TzeRole $_role)
@@ -108,6 +111,7 @@ class TzeRoleController extends Controller
 
     /**
      * @param TzeRole $_role
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createCreateForm(TzeRole $_role)
@@ -122,6 +126,7 @@ class TzeRoleController extends Controller
 
     /**
      * @param TzeRole $_role
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createEditForm(TzeRole $_role)
@@ -137,6 +142,7 @@ class TzeRoleController extends Controller
     /**
      * @param Request $_request
      * @param TzeRole $_role
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $_request, TzeRole $_role)
@@ -159,6 +165,7 @@ class TzeRoleController extends Controller
 
     /**
      * @param TzeRole $_role
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(TzeRole $_role)
@@ -171,6 +178,7 @@ class TzeRoleController extends Controller
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteGroupAction(Request $_request)

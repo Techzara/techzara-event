@@ -31,6 +31,7 @@ class TzeMessageNewsletterController extends Controller
 
     /**
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(TzeMessageNewsletter $_message)
@@ -49,7 +50,9 @@ class TzeMessageNewsletterController extends Controller
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -78,9 +81,11 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * @param Request $_request
+     * @param Request              $_request
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -111,9 +116,11 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * @param Request $_request
+     * @param Request              $_request
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -152,6 +159,7 @@ class TzeMessageNewsletterController extends Controller
 
     /**
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createCreateForm(TzeMessageNewsletter $_message)
@@ -166,6 +174,7 @@ class TzeMessageNewsletterController extends Controller
 
     /**
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createEditForm(TzeMessageNewsletter $_message)
@@ -180,6 +189,7 @@ class TzeMessageNewsletterController extends Controller
 
     /**
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createSendEditForm(TzeMessageNewsletter $_message)
@@ -193,9 +203,11 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * @param Request $_request
+     * @param Request              $_request
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -219,6 +231,7 @@ class TzeMessageNewsletterController extends Controller
 
     /**
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(TzeMessageNewsletter $_message)
@@ -231,7 +244,9 @@ class TzeMessageNewsletterController extends Controller
 
     /**
      * @param Request $_request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -257,6 +272,7 @@ class TzeMessageNewsletterController extends Controller
 
     /**
      * @param TzeMessageNewsletter $_message
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function sendAction(TzeMessageNewsletter $_message)
