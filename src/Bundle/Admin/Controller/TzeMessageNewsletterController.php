@@ -14,9 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TzeMessageNewsletterController extends Controller
 {
     /**
-     * Afficher tout les messages.
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
@@ -32,11 +30,8 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Affichage page modification message.
-     *
      * @param TzeMessageNewsletter $_message
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(TzeMessageNewsletter $_message)
     {
@@ -53,11 +48,10 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Création message.
-     *
-     * @param Request $_request requête
-     *
-     * @return Render page
+     * @param Request $_request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function newAction(Request $_request)
     {
@@ -84,12 +78,11 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Modification message.
-     *
-     * @param Request              $_request requête
+     * @param Request $_request
      * @param TzeMessageNewsletter $_message
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function updateAction(Request $_request, TzeMessageNewsletter $_message)
     {
@@ -118,12 +111,11 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Modification message et envoi email.
-     *
-     * @param Request              $_request requête
+     * @param Request $_request
      * @param TzeMessageNewsletter $_message
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function sendUpdateAction(Request $_request, TzeMessageNewsletter $_message)
     {
@@ -159,11 +151,8 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Création formulaire d'édition message.
-     *
-     * @param TzeMessageNewsletter $_message The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeMessageNewsletter $_message
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createCreateForm(TzeMessageNewsletter $_message)
     {
@@ -176,11 +165,8 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Création formulaire de création message.
-     *
-     * @param TzeMessageNewsletter $_message The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeMessageNewsletter $_message
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createEditForm(TzeMessageNewsletter $_message)
     {
@@ -193,11 +179,8 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Création formulaire d'envoi message.
-     *
-     * @param TzeMessageNewsletter $_message The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeMessageNewsletter $_message
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createSendEditForm(TzeMessageNewsletter $_message)
     {
@@ -210,12 +193,11 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Suppression message.
-     *
-     * @param Request              $_request requête
+     * @param Request $_request
      * @param TzeMessageNewsletter $_message
-     *
-     * @return Redirect redirection
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteAction(Request $_request, TzeMessageNewsletter $_message)
     {
@@ -236,11 +218,8 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Création formulaire de suppression message.
-     *
-     * @param TzeMessageNewsletter $_message The TzeMessageNewsletter entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeMessageNewsletter $_message
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(TzeMessageNewsletter $_message)
     {
@@ -251,11 +230,10 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Suppression par groupe séléctionnée.
-     *
      * @param Request $_request
-     *
-     * @return Redirect liste message
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteGroupAction(Request $_request)
     {
@@ -278,11 +256,8 @@ class TzeMessageNewsletterController extends Controller
     }
 
     /**
-     * Envois  de tous les messages.
-     *
      * @param TzeMessageNewsletter $_message
-     *
-     * @return Redirect liste message
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function sendAction(TzeMessageNewsletter $_message)
     {

@@ -33,12 +33,10 @@ class RepositoryMessageNewsletterManager
     }
 
     /**
-     * Ajouter un message flash.
-     *
-     * @param string $_type
-     * @param string $_message
-     *
+     * @param $_type
+     * @param $_message
      * @return mixed
+     * @throws \Exception
      */
     public function setFlash($_type, $_message)
     {
@@ -46,9 +44,7 @@ class RepositoryMessageNewsletterManager
     }
 
     /**
-     * Récuperer le repository message newsletter.
-     *
-     * @return array
+     * @return \Doctrine\Common\Persistence\ObjectRepository|\Doctrine\ORM\EntityRepository
      */
     public function getRepository()
     {
@@ -81,12 +77,11 @@ class RepositoryMessageNewsletterManager
     }
 
     /**
-     * Enregistrer un Message newsletter.
-     *
-     * @param TzeMessageNewsletter $_message_newsletter
-     * @param string               $_action
-     *
+     * @param $_message_newsletter
+     * @param $_action
      * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function saveMessageNewsletter($_message_newsletter, $_action)
     {
@@ -99,11 +94,10 @@ class RepositoryMessageNewsletterManager
     }
 
     /**
-     * Supprimer un message newsletter.
-     *
-     * @param TzeMessageNewsletter $_message_newsletter
-     *
+     * @param $_message_newsletter
      * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteMessageNewsletter($_message_newsletter)
     {
@@ -114,11 +108,10 @@ class RepositoryMessageNewsletterManager
     }
 
     /**
-     * Suppression multiple d'un message newsletter.
-     *
-     * @param array $_ids
-     *
+     * @param $_ids
      * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteGroupMessageNewsletter($_ids)
     {
@@ -133,11 +126,10 @@ class RepositoryMessageNewsletterManager
     }
 
     /**
-     * Insertion message newsletter dans front office.
-     *
      * @param $_message
-     *
      * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function insertFrontMessageNewsletter($_message)
     {
@@ -169,7 +161,7 @@ class RepositoryMessageNewsletterManager
         $_from_firstname = $this->_container->getParameter('from_firstname');
 
         foreach ($_emails as $_email) {
-            if (true == $_email->isNwsSubscribed()) {
+            if (true === $_email->isNwsSubscribed()) {
                 $_to_email_address = $_email->getNwsEmail();
 
                 $_email_body = $this->_container->get('templating')->renderResponse($_template, array(

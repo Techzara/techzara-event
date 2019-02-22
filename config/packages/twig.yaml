@@ -1,6 +1,6 @@
 twig:
-    paths: ['%kernel.project_dir%/templates']
+    paths: ['%kernel.project_dir%/resources']
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-        web_path: '%kernel.root_dir%/../public'
+        web_path: '%kernel.root_dir%/public'

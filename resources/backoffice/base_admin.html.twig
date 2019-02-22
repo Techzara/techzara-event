@@ -53,10 +53,10 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             <!-- Header -->
-            {{ include("backoffice/base_admin_header.html.twig") }}
+            {{ include("AdminBundle:Template:base_admin_header.html.twig") }}
 
             <!-- Left side column. contains the logo and sidebar -->
-            {{ include("backoffice/base_admin_sidebar.html.twig") }}
+            {{ include("AdminBundle:Template:base_admin_sidebar.html.twig") }}
 
             <div class="content-wrapper">
                 <!-- Main content -->
@@ -66,7 +66,7 @@
             </div>
 
             <!-- Footer -->
-            {{ include("backoffice/base_admin_footer.html.twig") }}
+            {{ include("AdminBundle:Template:base_admin_footer.html.twig") }}
         </div>
 
         {% block javascripts %}

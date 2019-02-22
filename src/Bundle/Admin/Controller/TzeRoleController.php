@@ -30,11 +30,8 @@ class TzeRoleController extends Controller
     }
 
     /**
-     * Affichage page modification rôle.
-     *
      * @param TzeRole $_role
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(TzeRole $_role)
     {
@@ -51,11 +48,8 @@ class TzeRoleController extends Controller
     }
 
     /**
-     * Création rôle.
-     *
-     * @param Request $_request requête
-     *
-     * @return Render page
+     * @param Request $_request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $_request)
     {
@@ -82,12 +76,9 @@ class TzeRoleController extends Controller
     }
 
     /**
-     * Modification rôle.
-     *
-     * @param Request $_request requête
+     * @param Request $_request
      * @param TzeRole $_role
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function updateAction(Request $_request, TzeRole $_role)
     {
@@ -116,11 +107,8 @@ class TzeRoleController extends Controller
     }
 
     /**
-     * Création formulaire d'édition rôle.
-     *
-     * @param TzeRole $_role The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeRole $_role
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createCreateForm(TzeRole $_role)
     {
@@ -133,11 +121,8 @@ class TzeRoleController extends Controller
     }
 
     /**
-     * Création formulaire de création rôle.
-     *
-     * @param TzeRole $_role The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeRole $_role
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createEditForm(TzeRole $_role)
     {
@@ -150,12 +135,9 @@ class TzeRoleController extends Controller
     }
 
     /**
-     * Suppression rôle.
-     *
-     * @param Request $_request requête
+     * @param Request $_request
      * @param TzeRole $_role
-     *
-     * @return Redirect redirection
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $_request, TzeRole $_role)
     {
@@ -176,11 +158,8 @@ class TzeRoleController extends Controller
     }
 
     /**
-     * Création formulaire de suppression rôle.
-     *
-     * @param TzeRole $_role The TzeRole entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeRole $_role
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(TzeRole $_role)
     {
@@ -191,11 +170,8 @@ class TzeRoleController extends Controller
     }
 
     /**
-     * Suppression par groupe séléctionnée.
-     *
      * @param Request $_request
-     *
-     * @return Redirect liste rôle
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteGroupAction(Request $_request)
     {

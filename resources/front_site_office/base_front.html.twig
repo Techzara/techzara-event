@@ -32,9 +32,9 @@
         </div>
         <div class="wrapper">
             <!-- Header -->
-            {{ include("front_site_office/base_front_header.html.twig") }}
+            {{ include("FrontSiteBundle:Template:base_front_header.html.twig") }}
             <!-- Main content -->
-            {% block body %}{% endblock %}
+                {% block body %}{% endblock %}
             <!-- Footer -->
             {{ render(controller('FrontSiteBundle:TzeFooter:show')) }}
         </div>

@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TzeActiviteController extends Controller
 {
     /**
-     * @return \App\Shared\SharedBundle\Repository\TzeActiviteEvent\RepositoryTzeActiviteManager|object
+     * @return \App\Shared\Repository\RepositoryTzeActiviteManager|object
      */
     public function getManager()
     {
@@ -204,7 +204,7 @@ class TzeActiviteController extends Controller
 
         if (null !== $_request->request->get('_group_delete')) {
             $_ids = $_request->request->get('delete');
-            if (null == $_ids) {
+            if (null === $_ids) {
                 $_activite_manager->setFlash('error', 'Veuillez sélectionner un élément à supprimer');
 
                 return $this->redirect($this->generateUrl('activite_index'));

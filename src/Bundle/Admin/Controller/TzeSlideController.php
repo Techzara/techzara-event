@@ -138,11 +138,8 @@ class TzeSlideController extends Controller
     }
 
     /**
-     * Création formulaire de création slide.
-     *
-     * @param TzeSlide $_slide The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeSlide $_slide
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createEditForm(TzeSlide $_slide)
     {

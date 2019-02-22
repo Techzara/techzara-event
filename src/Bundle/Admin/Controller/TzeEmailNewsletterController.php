@@ -14,9 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TzeEmailNewsletterController extends Controller
 {
     /**
-     * Afficher tout les emails.
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
@@ -32,11 +30,8 @@ class TzeEmailNewsletterController extends Controller
     }
 
     /**
-     * Affichage page modification email.
-     *
      * @param TzeEmailNewsletter $_email
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(TzeEmailNewsletter $_email)
     {
@@ -85,12 +80,11 @@ class TzeEmailNewsletterController extends Controller
     }
 
     /**
-     * Modification email.
-     *
-     * @param Request            $_request requête
+     * @param Request $_request
      * @param TzeEmailNewsletter $_email
-     *
-     * @return Render page
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function updateAction(Request $_request, TzeEmailNewsletter $_email)
     {
@@ -153,12 +147,11 @@ class TzeEmailNewsletterController extends Controller
     }
 
     /**
-     * Suppression email.
-     *
-     * @param Request            $_request requête
+     * @param Request $_request
      * @param TzeEmailNewsletter $_email
-     *
-     * @return Redirect redirection
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteAction(Request $_request, TzeEmailNewsletter $_email)
     {
@@ -179,11 +172,8 @@ class TzeEmailNewsletterController extends Controller
     }
 
     /**
-     * Création formulaire de suppression email.
-     *
-     * @param TzeEmailNewsletter $_email The TzeEmailNewsletter entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @param TzeEmailNewsletter $_email
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(TzeEmailNewsletter $_email)
     {
@@ -194,11 +184,10 @@ class TzeEmailNewsletterController extends Controller
     }
 
     /**
-     * Suppression par groupe séléctionnée.
-     *
      * @param Request $_request
-     *
-     * @return Redirect liste email
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteGroupAction(Request $_request)
     {

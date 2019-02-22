@@ -33,12 +33,10 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Ajouter un message flash.
-     *
-     * @param string $_type
-     * @param string $_message
-     *
+     * @param $_type
+     * @param $_message
      * @return mixed
+     * @throws \Exception
      */
     public function setFlash($_type, $_message)
     {
@@ -116,11 +114,10 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Suppression multiple d'un email newsletter.
-     *
-     * @param array $_ids
-     *
+     * @param $_ids
      * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function deleteGroupEmailNewsletter($_ids)
     {
@@ -135,11 +132,10 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Insertion email newsletter dans front office.
-     *
      * @param $_email
-     *
      * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function insertFrontEmailNewsLetter($_email)
     {
@@ -158,11 +154,10 @@ class RepositoryEmailNewsletterManager
     }
 
     /**
-     * Désabonnement newsletter.
-     *
      * @param TzeEmailNewsletter $_email_newsletter
-     *
-     * @return array
+     * @return bool
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function unsubscriberById(TzeEmailNewsletter $_email_newsletter)
     {
