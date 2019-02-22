@@ -59,7 +59,7 @@
                                     <td>{{ participant.partTeam }}</td>
                                     <td>{{ participant.partUniversite }}</td>
                                     <td>
-                                        {% if participant.partImage and file_exists(web_path ~ participant.partImage) %}
+                                        {% if participant.partImage %}
                                             <img style="max-width: 100px;" class="img-responsive"
                                                  src="{{ '/event/' ~ participant.partImage }}" />
                                         {% else %}
