@@ -49,7 +49,7 @@
                                     <td>{{ partenaire.parteEntite }}</td>
                                     <td>{{ partenaire.parteLocation }}</td>
                                     <td>
-                                        {% if partenaire.parteImage and file_exists(web_path ~ partenaire.parteImage) %}
+                                        {% if partenaire.parteImage %}
                                             <img style="max-width: 100px;" class="img-responsive"
                                                  src="{{ '/event/' ~ partenaire.parteImage }}" />
                                         {% else %}

@@ -59,7 +59,7 @@
                                     <td>{{ organisateur.orgName }}</td>
                                     <td>{{ organisateur.orgResponsabilite }}</td>
                                     <td>
-                                        {% if organisateur.orgImage and file_exists(web_path ~ organisateur.orgImage) %}
+                                        {% if organisateur.orgImage %}
                                             <img style="max-width: 100px;" class="img-responsive"
                                                  src="{{ '/event/' ~ organisateur.orgImage }}" />
                                         {% else %}

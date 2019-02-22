@@ -62,7 +62,7 @@
                                     <td>{{ activite.actDebut | date('Y-d-m H:i') }}</td>
                                     <td>{{ activite.actFin | date('Y-d-m H:i') }}</td>
                                     <td>
-                                        {% if activite.actImage and file_exists(web_path ~ activite.actImage) %}
+                                        {% if activite.actImage %}
                                             <img style="max-width: 100px;" class="img-responsive"
                                                  src="{{ '/event/' ~ activite.actImage }}" />
                                         {% else %}

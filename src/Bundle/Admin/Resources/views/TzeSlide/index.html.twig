@@ -59,7 +59,7 @@
                                         <td>{{ slide.sldIntervenant }}</td>
                                         <td>{{ slide.sldLocation }}</td>
                                         <td>
-                                            {% if slide.sldImageUrl and file_exists(web_path ~ slide.sldImageUrl) %}
+                                            {% if slide.sldImageUrl %}
                                                 <img style="max-width: 100px;" class="img-responsive"
                                                      src="{{ '/event/' ~ slide.sldImageUrl }}" />
                                             {% else %}
