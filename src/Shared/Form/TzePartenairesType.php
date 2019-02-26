@@ -35,8 +35,7 @@ class TzePartenairesType extends AbstractType
                 'label' => 'Adresse email',
                 'required' => true,
                 'attr' => array(
-                    'pattern' => "[^@]+@[^@]+\.[a-zA-Z]{2,}",
-                    'placeholder' => 'email adress',
+                    'placeholder' => 'Adresse',
                 ),
             ))
 
